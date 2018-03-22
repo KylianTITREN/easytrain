@@ -27,7 +27,6 @@ Auth::routes();
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
 
-Route::get('/profile', 'HomeController@index')->name('profile')->middleware('auth');
 Route::get('/accueil', 'HomeController@accueil')->name('accueil')->middleware('auth');
 Route::get('/program', 'HomeController@program')->name('program')->middleware('auth');
 Route::get('/muscles', 'HomeController@muscles')->name('muscles')->middleware('auth');

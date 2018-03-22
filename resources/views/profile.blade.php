@@ -10,7 +10,7 @@ $page = 'edit';
 
 @section('content')
 
-    <header style='display:flex; align-items: center; justify-content: space-around;height: 150px; border-radius: 0px 0px 30px 30px; background-image: url("/uploads/banniere/{{ Auth::user()->banniere }}"); background-size: cover; background-repeat: no-repeat;'>
+    <header style='display:flex; align-items: center; justify-content: space-around;height: 150px; border-radius: 0px 0px 30px 30px; background-image: url("/uploads/banniere/{{ $utilisateur->banniere }}"); background-size: cover; background-repeat: no-repeat;'>
         <div class="profil-header_grid2">
             <div>
                 <h3>54</h3>
@@ -32,22 +32,9 @@ $page = 'edit';
 <section>
     <div class="profil-header">
         <div class="profil-header_grid1">
-            <div style='width: 80px; height: 80px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ Auth::user()->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
+            <div style='width: 80px; height: 80px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ $utilisateur->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
             <div>
                 <h5>{{ $utilisateur->name }}</h5>
-                @auth
-
-                    @if($utilisateur->id != \Illuminate\Support\Facades\Auth::id())
-                        @if(\Illuminate\Support\Facades\Auth::user()->follow->contains($utilisateur->id))
-                            <a href="/suivi/{{$utilisateur->id}}">Ne plus suivre</a>
-                        @else
-                            <a href="/suivi/{{$utilisateur->id}}">Suivre</a>
-                        @endif
-                        <br>
-                    @endif
-
-                @endauth
-
 
             </div>
         </div>
