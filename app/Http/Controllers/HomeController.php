@@ -33,11 +33,6 @@ class HomeController extends Controller
         return view('accueil');
     }
 
-    public function program()
-    {
-        return view('program');
-    }
-
     public function muscles()
     {
         $muscles = Muscles::all();

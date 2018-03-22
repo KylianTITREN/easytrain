@@ -76,9 +76,13 @@ class MyController extends Controller
 
     public function recherche($s){
         $users = User::whereRaw("name LIKE CONCAT(?,'%')", [$s])->get();
-        $muscles = Muscles::whereRaw("title LIKE CONCAT(?,'%')", [$s])->get();
 
-        return view('recherche', ['utilisateur'=>$users, 'muscles'=>$muscles]);
+        return view('recherche', ['utilisateur'=>$users]);
+    }
+
+    public function program()
+    {
+        return view('program');
     }
 
 }
