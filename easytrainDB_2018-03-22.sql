@@ -6,6 +6,7 @@
 # https://github.com/sequelpro/sequelpro
 #
 # Hôte: 127.0.0.1 (MySQL 5.6.34)
+# Base de données: easytrainDB
 # Temps de génération: 2018-03-22 15:00:21 +0000
 # ************************************************************
 
