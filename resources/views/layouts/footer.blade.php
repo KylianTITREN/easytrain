@@ -18,7 +18,7 @@
         </div>
 
         <div class="footer-menu_5">
-            <a href="{{url ('/profile')}}"><img src="{{ asset('icones/icones/profil.png') }}" alt=""></a>
+            <a href="{{url ('/profile/'.Auth::user()->id)}}"><img src="{{ asset('icones/icones/profil.png') }}" alt=""></a>
         </div>
     </div>
 </footer>
