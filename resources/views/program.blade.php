@@ -11,7 +11,7 @@ $icons = 'comments';
 
 <header>
     <form id="search">
-        <input type="search" name="search" value="" placeholder="&#xf002;&#32;&#32; Rechercher">
+        <input type="search" name="search" placeholder="&#xf002;&#32;&#32; Rechercher" required>
         <input type="submit">
     </form>
     <i class="fa fa-{{ $icons }}" aria-hidden="true"></i>
@@ -26,15 +26,6 @@ $icons = 'comments';
     </a>
 
 </section>
-
-<h3>Utilisateurs</h3>
-<ul>
-    @foreach($utilisateur as $u)
-        <li><a href="/utilisateur/{{$u->id}}" data-pjax>{{$u->name}}</a></li>
-    @endforeach
-</ul>
-
-<h3>Photos</h3>
 
 @endsection
 
