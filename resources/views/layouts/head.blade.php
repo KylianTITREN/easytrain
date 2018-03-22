@@ -18,4 +18,13 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 </head>
 
+<body>
+
 @yield("content")
+
+<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('js/jquery.pjax.js') }}"></script>
+
+<script src="{{ asset('js/app.js') }}"></script>
+</body>
+</html>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -20,12 +21,17 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    protected function authenticated(){
+        return redirect('/profile/'.Auth::user()->id);
+    }
+
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/profile';
+
+    //protected $redirectTo = '/profile';
 
     /**
      * Create a new controller instance.
