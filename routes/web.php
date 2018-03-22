@@ -21,6 +21,7 @@ Route::post('/edit', 'MyController@update_pics');
 Route::get('/suivi/{id}','MyController@suivi')->middleware('auth')->where('id','[0-9]+');
 Route::get('/recherche/{s}','MyController@recherche');
 Route::get('/program', 'MyController@program')->middleware('auth')->where('id','[0-9]+');
+Route::get('')
 
 
 Auth::routes();
