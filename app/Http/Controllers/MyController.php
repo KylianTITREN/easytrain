@@ -80,4 +80,9 @@ class MyController extends Controller
         return view('recherche', ['utilisateur'=>$users]);
     }
 
+    public function program()
+    {
+        return view('program');
+    }
+
 }
