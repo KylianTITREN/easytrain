@@ -9,7 +9,7 @@ $page = '';
 
 ?>
 <span class="goBack">
-        <a href="{{ url('/profile') }}"><i class="fa fa-angle-left" style="color:#7FED72;"></i></a>
+        <a href="{{ url('/profile/'.Auth::user()->id) }}"><i class="fa fa-angle-left" style="color:#7FED72;"></i></a>
     </span>
 
 @section('content')

@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function followMe(){
+        return $this->belongsToMany('App\User','suit','suivi_id','suiveur_id');
+    }
+
+    public function follow(){
+        return $this->belongsToMany('App\User','suit','suiveur_id','suivi_id');
+    }
 }

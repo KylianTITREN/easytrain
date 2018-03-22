@@ -18,8 +18,8 @@ Route::get('/', function () {
 Route::get('/profile/{id}', 'MyController@utilisateur')->middleware('auth')->where('id','[0-9]+');
 Route::get('/edit', 'MyController@edit');
 Route::post('/edit', 'MyController@update_pics');
-Route::get('/suivi/{id}','Mine@suivi')->middleware('auth')->where('id','[0-9]+');
-Route::get('/recherche/{s}','Mine@recherche');
+Route::get('/suivi/{id}','MyController@suivi')->middleware('auth')->where('id','[0-9]+');
+Route::get('/recherche/{s}','MyController@recherche');
 
 
 Auth::routes();

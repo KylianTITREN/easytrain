@@ -35,6 +35,23 @@ $page = 'edit';
             <div style='width: 80px; height: 80px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ $utilisateur->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
             <div>
                 <h5>{{ $utilisateur->name }}</h5>
+
+                @auth
+
+                    @if($utilisateur->id != Auth::id())
+                        @if(Auth::user()->follow->contains($utilisateur->id))
+                            <a href="/suivi/{{$utilisateur->id}}" data-pjax-toggle>Ne plus suivre</a>
+                        @else
+                            <a href="/suivi/{{$utilisateur->id}}" data-pjax-toggle>Suivre</a>
+                        @endif
+                        <br>
+                    @endif
+
+                @endauth
+
+                <p>{{count($utilisateur->follow)}} abonnement(s)</p>
+
+                <p>{{count($utilisateur->followMe)}} abonné(es)</p>
             </div>
         </div>
     </div>

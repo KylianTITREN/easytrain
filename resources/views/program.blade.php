@@ -27,6 +27,15 @@ $icons = 'comments';
 
 </section>
 
+<h3>Utilisateurs</h3>
+<ul>
+    @foreach($utilisateur as $u)
+        <li><a href="/utilisateur/{{$u->id}}" data-pjax>{{$u->name}}</a></li>
+    @endforeach
+</ul>
+
+<h3>Photos</h3>
+
 @endsection
 
 @extends('layouts.footer')
