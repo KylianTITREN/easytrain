@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Exercices;
-use App\Muscles;
 
 class HomeController extends Controller
 {
@@ -31,19 +29,5 @@ class HomeController extends Controller
     public function accueil()
     {
         return view('accueil');
-    }
-
-    public function muscles()
-    {
-        $muscles = Muscles::all();
-        if($muscles == false) abort(404);
-            return view('muscles', ['muscles'=>$muscles]);
-    }
-
-    public function exercices()
-    {
-        $exercices = Exercices::all();
-        if($exercices == false) abort(404);
-            return view('exercices', ['exercices'=>$exercices]);
     }
 }

@@ -8,4 +8,8 @@ class Muscles extends Model
 {
     protected $table = 'muscles';
     public $timestamps = false;
+
+    public function exercices(){
+        return $this->hasMany('App\Photo', 'utilisateur_id');
+    }
 }

@@ -8,7 +8,7 @@ $icons = 'comments';
 ?>
 
 <span class="goBack">
-        <a href="{{ url('/program') }}"><i class="fa fa-angle-left" style="color:#7FED72;"></i></a>
+        <a href="{{ URL::previous() }}"><i class="fa fa-angle-left" style="color:#7FED72;"></i></a>
     </span>
 
 @section('content')
@@ -18,13 +18,9 @@ $icons = 'comments';
         <i class="fa fa-{{ $icons }}" aria-hidden="true"></i>
     </header>
 
-    <?php
-
-        for($i = 0; $i<sizeof($muscles); $i++){
-            echo '<a href="/muscles/exercices/'.$muscles[$i]->id.'"><p>'.$muscles[$i] -> nom.'<p></a><br>';
-        }
-
-    ?>
+    @foreach($muscles as $m)
+        <li><a href="/muscles/{{$m->id}}" data-pjax>{{$m->nom}}</a></li>
+    @endforeach
 
 @endsection
 

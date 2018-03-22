@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Image;
 use Auth;
 use App\User;
+use App\Exercices;
+use App\Muscles;
 
 class MyController extends Controller
 {
@@ -83,6 +85,20 @@ class MyController extends Controller
     public function program()
     {
         return view('program');
+    }
+
+    public function muscles()
+    {
+        $muscles = Muscles::all();
+        if($muscles == false) abort(404);
+        return view('muscles', ['muscles'=>$muscles]);
+    }
+
+    public function exercices($id)
+    {
+        $exercices = Exercices::find($id);
+        if($exercices == false) abort(404);
+        return view('exercices', ['exercices'=>$exercices]);
     }
 
 }

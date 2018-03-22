@@ -20,6 +20,7 @@ Route::get('/edit', 'MyController@edit');
 Route::post('/edit', 'MyController@update_pics');
 Route::get('/suivi/{id}','MyController@suivi')->middleware('auth')->where('id','[0-9]+');
 Route::get('/recherche/{s}','MyController@recherche');
+Route::get('/program', 'MyController@program')->middleware('auth')->where('id','[0-9]+');
 
 
 Auth::routes();
@@ -28,6 +29,3 @@ Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
 
 Route::get('/accueil', 'HomeController@accueil')->name('accueil')->middleware('auth');
-Route::get('/program', 'MyController@program')->middleware('auth')->where('id','[0-9]+');
-Route::get('/muscles', 'HomeController@muscles')->name('muscles')->middleware('auth');
-Route::get('/muscles/exercices/{id}', 'HomeController@exercices')->name('exercices')->where('id', '[0-9]+');

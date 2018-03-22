@@ -7,6 +7,10 @@ $icons = 'comments';
 
 ?>
 
+<span class="goBack">
+        <a href="{{ URL::previous() }}"><i class="fa fa-angle-left" style="color:#7FED72;"></i></a>
+    </span>
+
 @section('content')
 
     <header>
