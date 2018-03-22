@@ -19,7 +19,7 @@ $icons = 'comments';
     </header>
 
     @foreach($muscles as $m)
-        <li><a href="/muscles/{{$m->id}}" data-pjax>{{$m->nom}}</a></li>
+        <li><a href="/muscles/{{$m->id}}" data-pjax>{{$m->nom}}</a></li><br>
     @endforeach
 
 @endsection
