@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Image;
 use Auth;
+use App\User;
 
 class MyController extends Controller
 {
@@ -51,6 +52,33 @@ class MyController extends Controller
 
         return view('/profile', array('user' => Auth::user()) );
 
+    }
+
+    public function utilisateur($id){
+        $utilisateur = User::find($id);
+
+        if($utilisateur==false)
+            abort('404');
+
+        return view('profile', ['utilisateur'=>$utilisateur]);
+    }
+
+    public function suivi($id){
+        $utilisateur = User::find($id);
+
+        if($utilisateur==false){
+            return redirect('/');
+        }
+
+        Auth::user()->follow()->toggle($id);
+        return back();
+    }
+
+    public function recherche($s){
+        $users = User::whereRaw("name LIKE CONCAT(?,'%')", [$s])->get();
+        $photos = Photo::whereRaw("title LIKE CONCAT(?,'%')", [$s])->get();
+
+        return view('recherche', ['utilisateur'=>$users, 'photos'=>$photos]);
     }
 
 }

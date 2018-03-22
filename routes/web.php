@@ -15,9 +15,11 @@ Route::get('/', function () {
     return view('index', ['title' => 'Accueil']);
 });
 
-Route::get('/profile', 'loginController@login');
+Route::get('/profile/{id}', 'MyController@utilisateur')->middleware('auth')->where('id','[0-9]+');
 Route::get('/edit', 'MyController@edit');
 Route::post('/edit', 'MyController@update_pics');
+Route::get('/suivi/{id}','Mine@suivi')->middleware('auth')->where('id','[0-9]+');
+Route::get('/recherche/{s}','Mine@recherche');
 
 
 Auth::routes();
@@ -25,8 +27,8 @@ Auth::routes();
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
 
-Route::get('/profile', 'HomeController@index')->name('profile');
-Route::get('/accueil', 'HomeController@accueil')->name('accueil');
-Route::get('/program', 'HomeController@program')->name('program');
-Route::get('/muscles', 'HomeController@muscles')->name('muscles');
+Route::get('/profile', 'HomeController@index')->name('profile')->middleware('auth');
+Route::get('/accueil', 'HomeController@accueil')->name('accueil')->middleware('auth');
+Route::get('/program', 'HomeController@program')->name('program')->middleware('auth');
+Route::get('/muscles', 'HomeController@muscles')->name('muscles')->middleware('auth');
 Route::get('/muscles/exercices/{id}', 'HomeController@exercices')->name('exercices')->where('id', '[0-9]+');

@@ -34,7 +34,21 @@ $page = 'edit';
         <div class="profil-header_grid1">
             <div style='width: 80px; height: 80px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ Auth::user()->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
             <div>
-                <h5>{{ Auth::user()->name }}</h5>
+                <h5>{{ $utilisateur->name }}</h5>
+                @auth
+
+                    @if($utilisateur->id != \Illuminate\Support\Facades\Auth::id())
+                        @if(\Illuminate\Support\Facades\Auth::user()->follow->contains($utilisateur->id))
+                            <a href="/suivi/{{$utilisateur->id}}">Ne plus suivre</a>
+                        @else
+                            <a href="/suivi/{{$utilisateur->id}}">Suivre</a>
+                        @endif
+                        <br>
+                    @endif
+
+                @endauth
+
+
             </div>
         </div>
     </div>
