@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <script src="https://use.fontawesome.com/9f877d3bd4.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
 </head>
 
 @yield("content")
