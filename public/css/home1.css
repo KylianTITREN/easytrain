@@ -1,0 +1,179 @@
+body
+{
+  background-color: #FAFAFA;
+  font-family: 'Roboto';
+}
+
+@font-face {
+font-family: "Cocogoose";
+src: url('cocogoose.otf');
+}
+
+section
+{
+  margin-bottom: 70px;
+}
+
+.publication h5
+{
+  margin: 0;
+}
+
+.publication
+{
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.publication-info
+{
+  display: grid;
+  grid-template-columns: 0.2fr 0.6fr 0.2fr;
+}
+
+.publication-info_post
+{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.publication-info_post h5
+{
+  font-family: 'Roboto condensed';
+  color: #454545;
+  font-size: 19px;
+}
+
+.publication-info_post h
+{
+  color: #7E7E7E;
+  font-size: 12px;
+}
+
+.publication-info_time
+{
+  color: #7E7E7E;
+  font-size: 18px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.publication-info_time i
+{
+  padding-left: 6px;
+}
+
+.publication-programme, .publication-photo .publication-info
+{
+  padding: 0 20px;
+}
+
+.publication-programme .publication-content
+{
+  background-color: #F64662;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: white;
+  padding: 15px 40px;
+  margin: 0 15px;
+}
+
+.publication-content_description
+{
+  display: grid;
+  grid-gap: 15px;
+  padding: 15px 0;
+}
+
+.publication-content_footer
+{
+  background-color: #E33D58;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 15px 40px;
+  margin: 0 15px;
+}
+
+.publication-programme .publication-content h5
+{
+  font-family: 'Roboto';
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.publication-programme .publication-content span
+{
+  font-weight: 300;
+  font-size: 13px;
+  color: #C9C9C9;
+}
+
+.publication-bloc
+{
+  margin: 10px 0;
+}
+
+.publication-programme .publication-content h
+{
+  color: white;
+}
+
+.publication-content_footer h
+{
+  color: white;
+}
+
+.publication-content_footer img
+{
+  padding-right: 4px;
+}
+
+.publication-programme .publication-content p
+{
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.publication-programme .publication-content_line
+{
+  border-left: 1px solid white;
+  padding-left: 15px;
+}
+
+.publication-programme .publication-content p i
+{
+  padding-right: 8px;
+  font-size: 20px;
+}
+
+.publication-photo .publication-content img
+{
+  width: 100%;
+}
+
+.publication-photo .publication-content
+{
+  margin: 10px 0;
+}
+
+.publication-footer
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #454545;
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.publication-footer_comment
+{
+  margin-right: 18px;
+  margin-left: 10px;
+}
+
+.publication-photo .publication-footer_comment
+{
+  margin-right: 37px;
+}

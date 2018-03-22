@@ -1,0 +1,28 @@
+.edit-label{
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 10px;
+    font-weight: 600;
+    color: grey;
+}
+
+.list-section{
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.5px solid #cdcdcd;
+}
+
+.edit-end{
+    text-align: center;
+    width: 100%;
+    margin: 40px 0 20px 0;
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+.edit-end p{
+    font-weight: 700;
+}

@@ -1,0 +1,73 @@
+h3
+{
+    margin: 0;
+}
+
+.profil-header
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.profil-header_grid1
+{
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
+    margin-left: 20px;
+    margin-top: -40px;
+}
+
+
+.profil-header_grid1 h5
+{
+    font-weight: 800;
+    font-family: "Roboto condensed", sans-serif;
+    font-size: 22px;
+    margin-top: 25px;
+}
+
+.profil-header_grid1 h3
+{
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 14px;
+    color: #AAAAAA;
+    padding-right: 15px;
+}
+
+.profil-header_grid2
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0 40px;
+}
+
+.profil-header_grid2 div
+{
+    text-align: center;
+}
+
+.profil-header_grid2 div h3{
+    text-shadow: 2px 2px 5px #7c7c7c;
+    color: white;
+    font-size: 22px;
+}
+
+.profil-header_grid2 div h1
+{
+    font-size: 11px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 300;
+    text-shadow: 1px 1px 8px #787878;
+    position: relative;
+    bottom: 6px;
+}
+
+.profil-content
+{
+    background-color: white;
+    margin-top: 30px;
+}

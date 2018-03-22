@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="480.806 -208.601 30.201 26.513">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #747474;
+      }
+    </style>
+  </defs>
+  <g id="_001-home" data-name="001-home" transform="translate(480.806 -208.601)">
+    <g id="Groupe_2" data-name="Groupe 2" transform="translate(0 0)">
+      <g id="Groupe_1" data-name="Groupe 1">
+        <path id="Tracé_4" data-name="Tracé 4" class="cls-1" d="M29.879,38.269,15.563,27.947a.794.794,0,0,0-.927,0L.321,38.269a.765.765,0,0,0-.17,1.08.793.793,0,0,0,1.1.167L15.1,29.528l13.852,9.988a.793.793,0,0,0,1.1-.167A.765.765,0,0,0,29.879,38.269Z" transform="translate(0.001 -27.797)"/>
+      </g>
+    </g>
+    <g id="Groupe_4" data-name="Groupe 4" transform="translate(3.33 11.894)">
+      <g id="Groupe_3" data-name="Groupe 3">
+        <path id="Tracé_5" data-name="Tracé 5" class="cls-1" d="M79.208,232.543a.779.779,0,0,0-.785.773v12.3H72.146V238.9a3.924,3.924,0,0,0-7.847,0v6.715H58.021v-12.3a.785.785,0,0,0-1.569,0V246.39a.779.779,0,0,0,.785.773h7.847a.78.78,0,0,0,.782-.713.573.573,0,0,0,0-.06V238.9a2.355,2.355,0,0,1,4.709,0v7.487a.559.559,0,0,0,0,.059.779.779,0,0,0,.782.713h7.847a.779.779,0,0,0,.785-.773V233.316A.779.779,0,0,0,79.208,232.543Z" transform="translate(-56.452 -232.543)"/>
+      </g>
+    </g>
+  </g>
+</svg>

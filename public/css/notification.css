@@ -1,0 +1,68 @@
+section
+{
+  margin: 20px;
+}
+
+p
+{
+  margin: 0;
+}
+
+section h5
+{
+  font-family: 'cocogoose';
+  color: #414141;
+  font-size: 16px;
+  padding-top: 5px;
+}
+
+.demande-bloc
+{
+  display: grid;
+  grid-template-columns: 0.2fr 0.8fr;
+  margin: 10px 0;
+  grid-template-rows: 80px;
+  background-color: white;
+  padding: 15px;
+  border: 1px solid #E8E8E8;
+  border-radius: 20px;
+  /* offset-x | offset-y | blur-radius | color */
+  box-shadow: 0 3px 10px #D9D9D9;
+}
+
+.demande-bloc h5
+{
+  font-family: 'Roboto condensed';
+  font-size: 19px;
+  font-weight: 400;
+  color: #454545;
+}
+
+.demande-bloc p
+{
+  font-size: 12px;
+  font-weight: 400;
+  color: #B4B4B4;
+}
+
+.demande-bloc_info a
+{
+  background-color: #7FED72;
+  padding: 7px 30px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: none;
+  color: white;
+}
+
+.demande-bloc_info_bouton
+{
+  text-align: center;
+  padding: 5px 0;
+}
+
+.demande-bloc_info_bouton a:last-child
+{
+  background-color: #B1B1B1;
+}

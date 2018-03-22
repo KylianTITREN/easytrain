@@ -1,0 +1,367 @@
+@font-face {
+    font-family: "COCOGOOSE";
+    src: url('../font/cocogoose.otf');
+}
+
+.help-block{
+    color: red;
+    font-weight: 300;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.homeForm
+{
+    background-image: radial-gradient(circle at 0 0, #00b09b, #7fed72);
+  background-repeat: no-repeat;
+    background-size: 100% 100vh;
+}
+
+
+.btn-groupe-1 a button
+{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: white;
+  border: 2px solid white;
+  padding: 8px 17px;
+  font-size: 16px;
+  font-weight: 300;
+  background-color: transparent;
+  border-radius: 30px;
+  text-transform: uppercase;
+  transition: 0.5s all;
+}
+
+.btn-groupe-1 a button:hover, .btn-groupe-1 a button:focus,
+.btn-groupe-2 .btn-inscription:hover, .btn-groupe-2 .btn-inscription:focus{
+  background-color: white;
+  color: #7FED72;
+  transition: 0.5s all;
+}
+
+.btn-groupe-2
+{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 30px;
+  margin: auto;
+    font-size: 16px;
+  width: 100%;
+}
+
+.btn-groupe-2 .btn-inscription
+{
+  background-color: transparent;
+  border: 2px solid white;
+  margin-bottom: 7px;
+}
+
+.btn-register
+{
+  color: white;
+  text-transform: uppercase;
+  font-size: 16px;
+  display: block;
+  margin: auto;
+  width: 290px;
+  padding: 10px 0;
+  border-radius: 30px;
+  font-weight: 300;
+}
+
+.btn-facebook
+{
+  background-color: rgba(75,89,174,0.7);
+  border: 1px solid transparent;
+}
+
+.titre-easytrain
+{
+  position: absolute; /* postulat de départ */
+  top: 50%;
+  left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%);
+}
+
+.titre-easytrain h3
+{
+  color:white;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: 'cocogoose';
+  font-size: 30px;
+}
+
+/* STYLE PAGE CONNEXION */
+
+.container-connexion
+{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+}
+
+.titre-easytrain2 h3{
+    color: white;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'cocogoose';
+    font-size: 30px;
+}
+
+.top-desc_login{
+    position: relative;
+    background-image: radial-gradient(circle at 0 0, #00b09b, #7fed72);
+    background-repeat: no-repeat;
+    flex-direction: column;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-desc_login strong{
+    font-size: 18px;
+    margin-top:40px;
+    font-weight: 500;
+}
+
+.top-desc_login p{
+    margin-top: 10px;
+    width: 75%;
+    font-weight: 300;
+}
+
+.top-desc_login .scroll{
+    position: absolute;
+    bottom: 15px;
+}
+
+.top-desc_login .scroll span{
+    color: white;
+    margin: 0 5px;
+}
+
+.formulaire-connexion input
+{
+    width: 290px;
+    margin: auto;
+    display: block;
+    padding: 10px 5px 10px 15px;
+    font-size: 16px;
+    background-color: rgba(54,54,54,0.8);
+    border: none;
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.formulaire-login{
+    display: flex;
+    align-items: center;
+    height: 50vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.forget-mdp{
+    color: #aaa;
+    font-family: 'roboto', sans-serif;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.forget-mdp:hover{
+    text-decoration: underline;
+}
+
+.formulaire-connexion input::placeholder
+{
+  color: white;
+  font-weight: 100;
+  font-family: FontAwesome, 'Roboto', sans-serif;
+  font-size: 15px;
+}
+
+.ou
+{
+  text-align: center;
+    color: #aaa;
+    margin: 10px 0;
+}
+
+.checkbox{
+    color: #aaa;
+    font-size: 12px;
+}
+
+.btn-connexion
+{
+    background-color: inherit;
+    border: 2px solid #aaa;
+    margin-bottom: 10px;
+    color: #aaa;
+    width: 100%;
+}
+
+.goBack{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: white;
+    z-index: 99;
+}
+
+.goBack i{
+    font-size: 50px;
+}
+
+.goBack strong{
+    position: absolute;
+    top:18px;
+    left: 22px;
+    font-weight: 400;
+}
+
+
+/* STYLE PAS D'INSCRIPTION */
+
+.formulaire-inscription input
+{
+    width: 290px;
+    margin: auto;
+    display: block;
+    padding: 10px 5px 10px 15px;
+    font-size: 16px;
+    background-color: rgba(54,54,54,0.8);
+    border: none;
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.formulaire-inscription{
+    margin-bottom: 50px;
+}
+
+.formulaire-register{
+    display: flex;
+    align-items: center;
+    height: 60vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.top-desc_register{
+    position: relative;
+    background-image: radial-gradient(circle at 0 0, #00b09b, #7fed72);
+    background-repeat: no-repeat;
+    flex-direction: column;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-desc_register strong{
+    font-size: 18px;
+    margin-top:40px;
+    font-weight: 500;
+}
+
+.top-desc_register p{
+    margin-top: 10px;
+    width: 75%;
+    font-weight: 300;
+}
+
+.top-desc_register .scroll{
+    position: absolute;
+    bottom: 15px;
+}
+
+.top-desc_register .scroll span{
+    color: white;
+    margin: 0 5px;
+}
+
+.formulaire-inscription input::placeholder
+{
+    color: white;
+    font-weight: 100;
+    font-family: FontAwesome, 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+.container-inscription
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
+
+.btn-inscription1
+{
+    background-color: inherit;
+    border: 2px solid #aaa;
+    margin-bottom: 10px;
+    color: #aaa;
+}
+
+.btn-inscription
+{
+    background-color: rgba(127,237,114,0.7);
+    border: none;
+    margin-top: 50px;
+}
+
+
+/* MOT DE PASSE RESET */
+
+.top-desc_forgotten{
+    position: relative;
+    background-image: radial-gradient(circle at 0 0, #00b09b, #7fed72);
+    background-repeat: no-repeat;
+    flex-direction: column;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-desc_forgotten strong{
+    font-size: 18px;
+    margin-top:40px;
+    font-weight: 500;
+}
+
+.top-desc_forgotten p{
+    margin-top: 10px;
+    width: 75%;
+    font-weight: 300;
+}
+
+.formulaire-forgotten{
+    display: flex;
+    align-items: center;
+    height: 30vh;
+    flex-direction: column;
+    justify-content: center;
+}

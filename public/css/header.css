@@ -1,0 +1,49 @@
+@font-face {
+    font-family: "Cocogoose";
+    src: url('cocogoose.otf');
+}
+
+header
+{
+    height: 65px;
+    background-color: white;
+}
+
+header h3
+{
+    margin: 0;
+    text-align: center;
+    color: #7FED72;
+    padding-top: 25px;
+    font-size: 18px;
+    font-family: 'cocogoose';
+}
+
+header i
+{
+    position: absolute;
+    right: 23px;
+    top: 19px;
+    font-size: 28px!important;
+    color: #7FED72;
+}
+
+header input
+{
+    background-color: #F4F4F4;
+    border-radius: 10px;
+    height: 33px;
+    position: relative;
+    top: 18px;
+    left: 30px;
+    width: 65%;
+    border: none;
+    font-family: 'fontawesome', 'Roboto';
+    font-weight: 300;
+    font-size: 18px;
+}
+
+header input::placeholder
+{
+    padding-left: 15px;
+}
