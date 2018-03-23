@@ -8,7 +8,7 @@
 <div class="container-inscription">
 
       <span class="goBack">
-        <a href="{{ url('/') }}"><i class="fa fa-angle-left"></i><strong>Retour</strong></a>
+        <a href="{{ URL::previous() }}"><i class="fa fa-angle-left"></i><strong>Retour</strong></a>
       </span>
 
     <div class="top-desc_register">

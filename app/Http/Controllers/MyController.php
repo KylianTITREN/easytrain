@@ -3,27 +3,72 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 use Image;
 use Auth;
 use App\User;
 use App\Exercices;
 use App\Muscles;
+use App\Publication;
 
 class MyController extends Controller
 {
 
     public function login() {
-        // C est ici que l on met le code
         return view('login');
     }
 
     public function register() {
-        // C est ici que l on met le code
         return view('register');
     }
 
     public function edit(){
         return view('auth/edit');
+    }
+
+    public function accueil(){
+        return view('accueil', ['publication' => Publication::all(), 'utilisateur'=>User::all()]);
+    }
+
+    public function nouvelle(){
+        return view('nouvelle');
+    }
+
+    public function creer(Request $req){
+
+        $validator = Validator::make($req->all(), [
+            'nom'=>'required|min:6'
+        ]);
+
+        if($validator->fails()){
+            return redirect('/nouvelle')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        if($req->hasFile('photo') && $req->file('photo')->isValid()){
+            $p = new Publication();
+            $p->title = $req->input('nom');
+            $p->album_id = 1;
+            $p->size = 1;
+            $p->utilisateur_id= Auth::id();
+
+            $p->photo = $req->file('photo')->store('public/photo/'.Auth::id());
+            $p->photo = str_replace("public/", "/storage/", $p->photo);
+            $p->save();
+
+        }
+        return view('accueil', ['publication' => Publication::all()]);
+    }
+
+    public function utilisateur($id){
+        $utilisateur = User::find($id);
+
+        if($utilisateur==false)
+            abort('404');
+
+        return view('profile', ['utilisateur'=>$utilisateur, 'publication'=> Publication::all()]);
     }
 
     public function update_pics(Request $request){
@@ -52,17 +97,8 @@ class MyController extends Controller
             $user->save();
         }
 
-        return view('/profile', array('user' => Auth::user()) );
+        return view('profile', ['utilisateur'=>$user] );
 
-    }
-
-    public function utilisateur($id){
-        $utilisateur = User::find($id);
-
-        if($utilisateur==false)
-            abort('404');
-
-        return view('profile', ['utilisateur'=>$utilisateur]);
     }
 
     public function suivi($id){
@@ -78,8 +114,9 @@ class MyController extends Controller
 
     public function recherche($s){
         $users = User::whereRaw("name LIKE CONCAT(?,'%')", [$s])->get();
+        $publication = Publication::whereRaw("title LIKE CONCAT(?,'%')", [$s])->get();
 
-        return view('recherche', ['utilisateur'=>$users]);
+        return view('recherche', ['utilisateur'=>$users, 'publication'=>$publication]);
     }
 
     public function program()
@@ -99,6 +136,15 @@ class MyController extends Controller
         $exercices = Exercices::find($id);
         if($exercices == false) abort(404);
         return view('exercices', ['exercices'=>$exercices]);
+    }
+
+    public function delete($id)
+    {
+
+        Publication::where('id', $id)->delete();
+
+        return back();
+
     }
 
 }

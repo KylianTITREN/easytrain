@@ -13,15 +13,15 @@ $page = 'edit';
     <header style='display:flex; align-items: center; justify-content: space-around;height: 150px; border-radius: 0px 0px 30px 30px; background-image: url("/uploads/banniere/{{ $utilisateur->banniere }}"); background-size: cover; background-repeat: no-repeat;'>
         <div class="profil-header_grid2">
             <div>
-                <h3>54</h3>
+                <h3>00</h3>
                 <h1>programmes</h1>
             </div>
             <div>
-                <h3>12</h3>
+                <h3>00</h3>
                 <h1>programmes</h1>
             </div>
             <div>
-                <h3>30</h3>
+                <h3>00</h3>
                 <h1>programmes</h1>
             </div>
         </div>
@@ -49,16 +49,35 @@ $page = 'edit';
 
                 @endauth
 
-                <p>{{count($utilisateur->follow)}} abonnement(s)</p>
+                <p>{{count($utilisateur->follow)}}
+                    @if(count($utilisateur->follow)>1)
+                        abonnements
+                    @else
+                        abonnement
+                    @endif
+                </p>
 
-                <p>{{count($utilisateur->followMe)}} abonné(es)</p>
+                <p>{{count($utilisateur->followMe)}}
+                    @if(count($utilisateur->followMe)>1)
+                        abonné(e)s
+                    @else
+                        abonné(e)
+                    @endif
+                </p>
+
+                <p>{{count($utilisateur->publications)}}
+                    @if(count($utilisateur->publications)>1)
+                        publications
+                        @else
+                        publication
+                    @endif
+                </p>
             </div>
         </div>
     </div>
-    <div class="profil-content">
-        <h5>programme</h5>
 
-    </div>
+        @include('_publication', ['publication'=>$utilisateur->publications])
+
 </section>
 
 @endsection

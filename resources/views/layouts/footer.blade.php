@@ -9,7 +9,7 @@
         </div>
 
         <div class="footer-menu_3">
-            <a href="#"><img src="{{ asset('icones/icones/plus.png') }}" alt=""></a>
+            <a href="{{ url('/nouvelle') }}"><img src="{{ asset('icones/icones/plus.png') }}" alt=""></a>
         </div>
 
         <div class="footer-menu_4">
