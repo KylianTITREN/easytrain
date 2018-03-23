@@ -23,15 +23,10 @@ Route::post('/edit', 'MyController@update_pics');
 Route::get('/suivi/{id}','MyController@suivi')->middleware('auth')->where('id','[0-9]+');
 Route::get('/recherche/{s}','MyController@recherche');
 Route::get('/program', 'MyController@program')->middleware('auth')->where('id','[0-9]+');
-<<<<<<< HEAD
-
 Route::get('/muscles', 'MyController@muscles');
-=======
 Route::get('/muscles', 'MyController@muscles');
 Route::get('/accueil', 'MyController@accueil')->middleware('auth');
 Route::get('/deletepubli/{id}','MyController@delete')->middleware('auth')->where('id','[0-9]+');
->>>>>>> db3a140910e1fe55c0668fd904d5c4786cbd7baa
-
 
 Auth::routes();
 
