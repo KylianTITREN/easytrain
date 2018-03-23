@@ -26,6 +26,15 @@ class MyController extends Controller
         return view('auth/edit');
     }
 
+    public function utilisateur($id){
+        $utilisateur = User::find($id);
+
+        if($utilisateur==false)
+            abort('404');
+
+        return view('profile', ['utilisateur'=>$utilisateur]);
+    }
+
     public function update_pics(Request $request){
 
         // Handle the user upload of avatar
@@ -52,17 +61,8 @@ class MyController extends Controller
             $user->save();
         }
 
-        return view('/profile', array('user' => Auth::user()) );
+        return view('profile', ['utilisateur'=>$user] );
 
-    }
-
-    public function utilisateur($id){
-        $utilisateur = User::find($id);
-
-        if($utilisateur==false)
-            abort('404');
-
-        return view('profile', ['utilisateur'=>$utilisateur]);
     }
 
     public function suivi($id){
