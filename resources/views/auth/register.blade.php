@@ -51,6 +51,9 @@
 
         </div>
 
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
     </div>
 
     <div class="formulaire-register">

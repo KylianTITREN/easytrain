@@ -383,3 +383,14 @@ body{
     flex-direction: column;
     justify-content: center;
 }
+
+.swiper-pagination
+{
+    position: relative!important;
+    top: 15px;
+}
+
+.container-connexion
+{
+    overflow: hidden;
+}

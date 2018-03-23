@@ -16,14 +16,43 @@
         <div class="titre-easytrain2">
             <h3>easytrain</h3>
         </div>
-        <strong>Partager vos programmes</strong>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
 
-        <div class="scroll">
-            <span>●</span><span>●</span><span>●</span>
+        <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+
+                    <strong>Créer et partager vos programmes.</strong>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+
+                </div>
+                <div class="swiper-slide">
+
+                    <strong>Suivez les entrainements de vos amis.</strong>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+
+                </div>
+
+                <div class="swiper-slide">
+
+                    <strong>Trouver le programme qu'il vous faut</strong>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
+
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
 
     </div>
 
