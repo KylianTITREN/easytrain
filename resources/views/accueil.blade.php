@@ -86,7 +86,7 @@ $icons = 'comments';
         </div>
 
         <div class="publication-photo_content">
-            
+
         </div>
 
         <div class="publication-footer">

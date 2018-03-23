@@ -286,8 +286,19 @@ body{
 
 .top-desc_register p{
     margin-top: 10px;
-    width: 75%;
     font-weight: 300;
+}
+
+.swiper-wrapper
+{
+    margin-top: 30px;
+}
+
+.swiper-slide p
+{
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .top-desc_register .scroll{
@@ -315,6 +326,13 @@ body{
     text-align: center;
     font-size: 16px;
     color: white;
+    overflow: hidden;
+}
+
+.swiper-slide
+{
+    width: 100vw;
+    text-align: center;
 }
 
 .btn-inscription1
