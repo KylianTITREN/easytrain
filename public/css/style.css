@@ -386,8 +386,13 @@ body{
 
 .swiper-pagination
 {
-    position: relative!important;
-    top: 15px;
+    position: absolute!important;
+    bottom: 40px;
+}
+
+.swiper-pagination-bullet{
+    width: 12px!important;
+    height: 12px!important;
 }
 
 .container-connexion
