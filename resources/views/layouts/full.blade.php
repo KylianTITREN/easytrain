@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/profil.css') }}">
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/publication.css') }}">
     <script src="https://use.fontawesome.com/9f877d3bd4.js"></script>
 
 
@@ -39,7 +40,6 @@
 <script src="{{ asset('js/swiper.esm.js') }}"></script>
 <script src="{{ asset('js/swiper.js') }}"></script>
 <script src="{{ asset('js/swiper.min.js') }}"></script>
-
 
 <script src="{{ asset('js/app.js') }}"></script>
 
