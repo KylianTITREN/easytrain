@@ -22,6 +22,6 @@ $icons = 'comments';
         <li><a href="/muscles/{{$m->id}}" data-pjax>{{$m->nom}}</a></li><br>
     @endforeach
 
-@endsection
+    @include('layouts.footer')
 
-@extends('layouts.footer')
+@endsection

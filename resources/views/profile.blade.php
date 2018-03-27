@@ -25,7 +25,19 @@ $page = 'edit';
                 <h1>programmes</h1>
             </div>
         </div>
-        <a href="{{ url("/$page") }}"><i class="fa fa-{{ $icons }}" aria-hidden="true" style="color: white;text-shadow: 2px 2px 5px #9a9a9a;"></i></a>
+        @auth
+
+        @if($utilisateur->id != Auth::id())
+                @if(Auth::user()->follow->contains($utilisateur->id))
+                    <a href="/suivi/{{$utilisateur->id}}" data-pjax-toggle><i class="fa fa-ellipsis-h" aria-hidden="true" style="color: white;text-shadow: 2px 2px 5px #9a9a9a;"></i></a>
+                @else
+                    <a href="/suivi/{{$utilisateur->id}}" data-pjax-toggle><i class="fa fa-plus-circle" aria-hidden="true" style="color: #7FED72;text-shadow: 2px 2px 5px #9a9a9a;"></i></a>
+                @endif
+            @else
+        <a href="{{ url("/$page") }}" data-pjax><i class="fa fa-{{ $icons }}" aria-hidden="true" style="color: white;text-shadow: 2px 2px 5px #9a9a9a;"></i></a>
+            @endif
+
+            @endauth
     </header>
 
 
@@ -35,19 +47,6 @@ $page = 'edit';
             <div style='width: 80px; height: 80px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ $utilisateur->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
             <div>
                 <h5>{{ $utilisateur->name }}</h5>
-
-                @auth
-
-                    @if($utilisateur->id != Auth::id())
-                        @if(Auth::user()->follow->contains($utilisateur->id))
-                            <a href="/suivi/{{$utilisateur->id}}" data-pjax-toggle>Ne plus suivre</a>
-                        @else
-                            <a href="/suivi/{{$utilisateur->id}}" data-pjax-toggle>Suivre</a>
-                        @endif
-                        <br>
-                    @endif
-
-                @endauth
 
                 <p>{{count($utilisateur->follow)}}
                     @if(count($utilisateur->follow)>1)
@@ -80,6 +79,6 @@ $page = 'edit';
 
 </section>
 
-@endsection
+    @include('layouts.footer')
 
-@extends('layouts.footer')
+@endsection

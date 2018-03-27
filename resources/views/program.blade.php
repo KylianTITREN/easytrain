@@ -10,9 +10,9 @@ $icons = 'comments';
 @section('content')
 
 <header>
-    <form id="search">
+    <form id="search" data-pjax>
         <input type="search" name="search" placeholder="&#xf002;&#32;&#32; Rechercher" required>
-        <input type="submit">
+        <input type="submit" style="display: none">
     </form>
     <i class="fa fa-{{ $icons }}" aria-hidden="true"></i>
 </header>
@@ -25,8 +25,12 @@ $icons = 'comments';
         </div>
     </a>
 
+    <br>
+
+    @yield('recherche')
+
 </section>
 
-@endsection
+@include('layouts.footer')
 
-@extends('layouts.footer')
+@endsection

@@ -9,7 +9,7 @@ $page = '';
 
 ?>
 <span class="goBack">
-        <a href="{{ url('/profile/'.Auth::user()->id) }}"><i class="fa fa-angle-left" style="color:#7FED72;"></i></a>
+        <a href="{{ url('/profile/'.Auth::user()->id) }}" data-pjax><i class="fa fa-angle-left" style="color:#7FED72;"></i></a>
     </span>
 
 @section('content')
@@ -18,7 +18,7 @@ $page = '';
     <div class="list-section">
         <strong>Nom <br><br>
 
-            <form action="" method="POST">
+            <form action="edit" method="POST">
             <input type="text" name="name" id='name'>
             <input type="submit">
             </form>

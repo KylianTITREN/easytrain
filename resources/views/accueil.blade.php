@@ -54,6 +54,6 @@ $icons = 'comments';
 
 </section>
 
-@endsection
+    @include('layouts.footer')
 
-@extends('layouts.footer')
+@endsection
