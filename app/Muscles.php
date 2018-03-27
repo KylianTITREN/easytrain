@@ -10,6 +10,6 @@ class Muscles extends Model
     public $timestamps = false;
 
     public function exercices(){
-        return $this->hasMany('App\Photo', 'utilisateur_id');
+        return $this->hasMany('App\Exercices', 'idMuscles');
     }
 }

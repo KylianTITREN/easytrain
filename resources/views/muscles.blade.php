@@ -18,9 +18,13 @@ $icons = 'comments';
         <i class="fa fa-{{ $icons }}" aria-hidden="true"></i>
     </header>
 
+    <ul>
+
     @foreach($muscles as $m)
-        <li><a href="/muscles/{{$m->id}}" data-pjax>{{$m->nom}}</a></li><br>
+        <li><a href="/muscles/{{$m->id}}">{{$m->nom}}</a></li><br>
     @endforeach
+
+    </ul>
 
     @include('layouts.footer')
 

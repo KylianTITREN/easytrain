@@ -9,7 +9,8 @@ class Exercices extends Model
     protected $table = 'exercices';
     public $timestamps = false;
 
-    public function muscles(){
-        return $this->belongsTo('App\Muscles','idMuscles');
+    public function muscles()
+    {
+        return $this->belongsTo('App\Muscles', 'idMuscles');
     }
 }

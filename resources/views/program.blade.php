@@ -19,7 +19,7 @@ $icons = 'comments';
 
 <section class="programme">
 
-    <a href="{{ url('/muscles') }}">
+    <a href="{{ url('/muscles') }}" data-pjax>
         <div class="exercice">
             <strong>EXERCICES</strong>
         </div>

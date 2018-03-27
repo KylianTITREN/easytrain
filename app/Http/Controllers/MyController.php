@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Image;
 use Auth;
@@ -127,15 +126,20 @@ class MyController extends Controller
     public function muscles()
     {
         $muscles = Muscles::all();
+
         if($muscles == false) abort(404);
+
         return view('muscles', ['muscles'=>$muscles]);
     }
 
     public function exercices($id)
     {
         $exercices = Exercices::find($id);
+        $muscles = Muscles::all();
+
         if($exercices == false) abort(404);
-        return view('exercices', ['exercices'=>$exercices]);
+
+        return view('exercices', ['exercices'=>$exercices, 'muscles'=>$muscles]);
     }
 
     public function delete($id)
