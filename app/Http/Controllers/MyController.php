@@ -45,19 +45,17 @@ class MyController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
+        $p = new Publication();
+        $p->title = $req->input('nom');
+        $p->utilisateur_id= Auth::id();
 
         if($req->hasFile('photo') && $req->file('photo')->isValid()){
-            $p = new Publication();
-            $p->title = $req->input('nom');
-            $p->album_id = 1;
-            $p->size = 1;
-            $p->utilisateur_id= Auth::id();
 
             $p->photo = $req->file('photo')->store('public/photo/'.Auth::id());
             $p->photo = str_replace("public/", "/storage/", $p->photo);
-            $p->save();
 
         }
+        $p->save();
         return view('accueil', ['publication' => Publication::all()]);
     }
 
@@ -134,12 +132,11 @@ class MyController extends Controller
 
     public function exercices($id)
     {
-        $exercices = Exercices::find($id);
-        $muscles = Muscles::all();
+        $muscle= Muscles::find($id);
 
-        if($exercices == false) abort(404);
+        if($muscle == false) abort(404);
 
-        return view('exercices', ['exercices'=>$exercices, 'muscles'=>$muscles]);
+        return view('exercices', [ 'muscle'=>$muscle]);
     }
 
     public function delete($id)

@@ -9,7 +9,7 @@ $icons = 'times';
 
 <header class="publication-header">
     <h3 class="publication_title">{{ $title }}</h3>
-    <a href="/accueil"><i class="fa fa-{{ $icons }}" aria-hidden="true" style="color: white"></i></a>
+    <a href="{{URL::previous()}}"><i class="fa fa-{{ $icons }}" aria-hidden="true" style="color: white"></i></a>
 </header>
 
 @section('content')

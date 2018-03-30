@@ -9,7 +9,7 @@
         </div>
 
         <div class="footer-menu_3">
-            <a href="{{ url('/nouvelle') }}" data-pjax data-morphing id="morphing" data-src="#morphing-content" class="btn"><img src="{{ asset('icones/icones/plus.png') }}" alt=""></a>
+            <a href="{{ url('/nouvelle') }}"><img src="{{ asset('icones/icones/plus.png') }}" alt=""></a>
         </div>
 
         <div class="footer-menu_4">

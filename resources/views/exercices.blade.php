@@ -20,11 +20,10 @@ $icons = 'comments';
 
         <ul>
 
-                @foreach ($muscles as $muscles)
+                @foreach ($muscle->exercices as $e)
 
-                    @foreach ($muscles->exercices as $exercices_muscles)
-                        <li><a href="#">{{$exercices_muscles->nom}}</a></li><br>
-                    @endforeach
+                        <li><a href="#">{{$e->nom}}</a></li><br>
+
 
                 @endforeach
         </ul>

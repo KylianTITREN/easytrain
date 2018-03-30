@@ -36,13 +36,10 @@
 <script src="{{ asset('js/jquery.pjax.js') }}"></script>
 
 <!-- JS swiper JS -->
-<script src="{{ asset('js/swiper.esm.bundle.js') }}"></script>
-<script src="{{ asset('js/swiper.esm.js') }}"></script>
 <script src="{{ asset('js/swiper.js') }}"></script>
 <script src="{{ asset('js/swiper.min.js') }}"></script>
 
 <script src="{{ asset('js/app.js') }}"></script>
-
 
 
 </body>
