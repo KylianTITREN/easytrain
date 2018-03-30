@@ -3,6 +3,9 @@
 @section('content')
 
     <body class="homeForm">
+
+    <video src="../../public/img/loader-easytrain.mov" autoplay style="position: relative; height: 100%; top: 0; z-index: 99;"></video>
+
     <div class="container">
 
         <div class="btn-groupe-1">

@@ -5,6 +5,10 @@ $(document).on('submit', 'form[data-pjax]', function(event) {
     $.pjax.submit(e, '#pjax-container')
 });
 
+$('.homeForm').ready(function(){
+    $
+})
+
 $(document).ready(function(){
 
     $('#search').submit(function(e){
