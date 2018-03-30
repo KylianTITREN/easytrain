@@ -4,7 +4,15 @@
 
     <body class="homeForm">
 
-    <video src="../../public/img/loader-easytrain.mov" autoplay style="position: relative; height: 100%; top: 0; z-index: 99;"></video>
+
+    <!--
+
+    style="position: absolute; height: 100%; top: 0; z-index: 99;"
+    <video  width="200" autoplay>
+        <source src="{{ asset('storage/videos/loader-easytrain.mp4') }}"  type="video/mp4" />
+    </video>
+    
+    -->
 
     <div class="container">
 
