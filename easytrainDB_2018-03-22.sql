@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Ven 30 Mars 2018 à 12:04
+-- Généré le :  Mar 10 Avril 2018 à 14:22
 -- Version du serveur :  5.6.34
 -- Version de PHP :  7.1.0
 
@@ -123,6 +123,49 @@ INSERT INTO `muscles` (`id`, `nom`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `niveau`
+--
+
+CREATE TABLE `niveau` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `niveau`
+--
+
+INSERT INTO `niveau` (`id`, `nom`) VALUES
+(1, 'Débutant'),
+(2, 'Intermédiaire'),
+(3, 'Confirmé'),
+(10, 'Non défini');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `objectif`
+--
+
+CREATE TABLE `objectif` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `objectif`
+--
+
+INSERT INTO `objectif` (`id`, `nom`) VALUES
+(1, 'Prise de masse'),
+(2, 'Séche'),
+(3, 'Perte de poids'),
+(4, 'Entretien'),
+(10, 'Non défini');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `password_resets`
 --
 
@@ -193,8 +236,8 @@ CREATE TABLE `suit` (
 
 INSERT INTO `suit` (`id`, `suiveur_id`, `suivi_id`) VALUES
 (12, 1, 4),
-(16, 1, 3),
-(20, 1, 2);
+(22, 1, 2),
+(23, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -209,6 +252,8 @@ CREATE TABLE `users` (
   `avatar` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default.jpg',
   `banniere` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default.jpg',
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `objectif_id` int(11) DEFAULT '10',
+  `niveau_id` int(11) DEFAULT '10',
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -218,12 +263,12 @@ CREATE TABLE `users` (
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `avatar`, `banniere`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Kylian', 'kylian@gmail.com', '1522160350.jpg', '1517486132.jpeg', '$2y$10$1q5xtyGKKnFO2inUfXDHz.tYBAaBl1sn8PqcBWkyvejGrxxn020eO', 'U4dh68sEYOBhwmnQpoVO7JFttdDC0LdTpEEXqFim6t3jmmVncBUYCkMJLRDc', '2018-02-01 08:28:34', '2018-03-27 12:19:10'),
-(2, 'martin_mgnr', 'martin_mgnr@hotmail.com', '1517486273.jpeg', '1517486369.jpeg', '$2y$10$WwOCNtXnIVAxduAWM7AzDOlLv26bvaP7.HuxC2MclOAeQ.r2RG1MO', NULL, '2018-02-01 10:52:20', '2018-02-01 10:59:40'),
-(3, 'Zaky2fois', 'mokhtari.zak@gmail.com', '1517492117.JPG', 'default.jpg', '$2y$10$8l5HsQZ0Y/2V.ByCwB6ax.IPKPIHvY0YdD1kMGbGQBlzG9LfZmbiq', '1ZM6AFCFtiJ7K5KyRyLcIohTQeMnkgrqI2YMwdcaQ62WWdIgDL4t1tgDn50S', '2018-02-01 12:35:03', '2018-02-01 12:35:17'),
-(4, 'Emma', 'emma.moreau@hotmail.fr', '1517594824.jpeg', '1517594841.jpeg', '$2y$10$h6oDaHhPJZUfIuNyuMFMEe.r68f8CkK/eCDSfV6TNs7bVa2nOHkM.', NULL, '2018-02-02 17:06:31', '2018-02-02 17:09:41'),
-(5, 'Kylian Titren', 'kyky.t@hotmail.fr', '1517925091.jpg', 'default.jpg', '7610db9e380ba9775b3c215346184a87', 'N4zF2d3fwzopoNUiB7rAEqN96sNXyi3xDNE5UKdagnJ6xGfPKn4Tv48nFvgH', '2018-02-06 12:51:13', '2018-02-06 12:51:32');
+INSERT INTO `users` (`id`, `name`, `email`, `avatar`, `banniere`, `password`, `objectif_id`, `niveau_id`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Kylian', 'kylian@gmail.com', '1522160350.jpg', '1517486132.jpeg', '$2y$10$1q5xtyGKKnFO2inUfXDHz.tYBAaBl1sn8PqcBWkyvejGrxxn020eO', 10, 10, 'bWeO9Y7qsux3cJ0WLYAFBTTuZlCxBLD17eqmwQYI74h9cGjCK4JwdmvMauRM', '2018-02-01 08:28:34', '2018-03-27 12:19:10'),
+(2, 'martin_mgnr', 'martin_mgnr@hotmail.com', '1517486273.jpeg', '1517486369.jpeg', '$2y$10$WwOCNtXnIVAxduAWM7AzDOlLv26bvaP7.HuxC2MclOAeQ.r2RG1MO', 10, 10, NULL, '2018-02-01 10:52:20', '2018-02-01 10:59:40'),
+(3, 'Zaky2fois', 'mokhtari.zak@gmail.com', '1517492117.JPG', 'default.jpg', '$2y$10$8l5HsQZ0Y/2V.ByCwB6ax.IPKPIHvY0YdD1kMGbGQBlzG9LfZmbiq', 10, 10, '1ZM6AFCFtiJ7K5KyRyLcIohTQeMnkgrqI2YMwdcaQ62WWdIgDL4t1tgDn50S', '2018-02-01 12:35:03', '2018-02-01 12:35:17'),
+(4, 'Emma', 'emma.moreau@hotmail.fr', '1517594824.jpeg', '1517594841.jpeg', '$2y$10$h6oDaHhPJZUfIuNyuMFMEe.r68f8CkK/eCDSfV6TNs7bVa2nOHkM.', 10, 10, NULL, '2018-02-02 17:06:31', '2018-02-02 17:09:41'),
+(5, 'Kylian Titren', 'kyky.t@hotmail.fr', '1517925091.jpg', 'default.jpg', '7610db9e380ba9775b3c215346184a87', 10, 10, 'N4zF2d3fwzopoNUiB7rAEqN96sNXyi3xDNE5UKdagnJ6xGfPKn4Tv48nFvgH', '2018-02-06 12:51:13', '2018-02-06 12:51:32');
 
 --
 -- Index pour les tables exportées
@@ -246,6 +291,12 @@ ALTER TABLE `migrations`
 -- Index pour la table `muscles`
 --
 ALTER TABLE `muscles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `objectif`
+--
+ALTER TABLE `objectif`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -293,6 +344,11 @@ ALTER TABLE `migrations`
 ALTER TABLE `muscles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
+-- AUTO_INCREMENT pour la table `objectif`
+--
+ALTER TABLE `objectif`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
 -- AUTO_INCREMENT pour la table `publications`
 --
 ALTER TABLE `publications`
@@ -301,7 +357,7 @@ ALTER TABLE `publications`
 -- AUTO_INCREMENT pour la table `suit`
 --
 ALTER TABLE `suit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT pour la table `users`
 --

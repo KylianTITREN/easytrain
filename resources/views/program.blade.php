@@ -61,11 +61,9 @@ $icons = 'comments';
 
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><a href=""><img src="img/bras.png" alt="bras"></a></div>
-                <div class="swiper-slide"><a href=""><img src="img/bras.png" alt="bras"></a></div>
-                <div class="swiper-slide"><a href=""><img src="img/bras.png" alt="bras"></a></div>
-                <div class="swiper-slide"><a href=""><img src="img/bras.png" alt="bras"></a></div>
-                <div class="swiper-slide"><a href=""><img src="img/bras.png" alt="bras"></a></div>
+                @foreach($muscles as $m)
+                <div class="swiper-slide"><a href="/muscles/{{$m->id}}"><img src="img/bras.png" alt="bras"></a></div>
+                @endforeach
             </div>
         </div>
 

@@ -116,18 +116,13 @@ class MyController extends Controller
         return view('recherche', ['utilisateur'=>$users, 'publication'=>$publication]);
     }
 
-    public function program()
-    {
-        return view('program');
-    }
-
     public function muscles()
     {
         $muscles = Muscles::all();
 
         if($muscles == false) abort(404);
 
-        return view('muscles', ['muscles'=>$muscles]);
+        return view('program', ['muscles'=>$muscles]);
     }
 
     public function exercices($id)
