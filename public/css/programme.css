@@ -25,3 +25,17 @@ h5
   color: white;
 
 }
+
+
+.swiper-slide
+{
+  width: 90px!important;
+}
+
+.programme h3
+{
+  font-family: 'Cocogoose';
+  font-size: 17px;
+  color: #414141;
+  text-align: left;
+}
