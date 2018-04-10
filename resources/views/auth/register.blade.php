@@ -92,6 +92,28 @@
                     <input type="password" name="password_confirmation" id="password-confirm" placeholder="&#xf023;&#32;&#32; Confirmation du mot de passe">
                 </div>
 
+                    <div class="custom-select" style="margin-bottom: 15px;">
+                        <select name="objectif_id">
+                            <option value="0">Objectif :</option>
+                            @foreach(\App\Objectif::all()  as $o)
+
+                                <option value="{!! $o->id !!}">{!! $o->nom !!}</option>
+
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="custom-select">
+                        <select name="niveau_id">
+                            <option value="0">Niveau :</option>
+                            @foreach(\App\Niveau::all()  as $n)
+
+                                <option value="{!! $n->id !!}">{!! $n->nom !!}</option>
+
+                            @endforeach
+                        </select>
+                    </div>
+
             </div>
 
             <div class="btn-group">
