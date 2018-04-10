@@ -41,6 +41,6 @@ $icons = 'times';
 
         </section>
     </div>
-    
+
 @endsection
 

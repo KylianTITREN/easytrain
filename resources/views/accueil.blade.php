@@ -49,9 +49,6 @@ $icons = 'comments';
     </div>
 
 
-
-
-
 </section>
 
     @include('layouts.footer')
