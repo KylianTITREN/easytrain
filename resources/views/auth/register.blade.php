@@ -14,60 +14,20 @@
             width: 100%!important;
         }
 
-        /*the container must be positioned relative:*/
-        .custom-select {
-            position: relative;
-        }
-        .custom-select select {
-            display: none; /*hide original SELECT element:*/
-        }
-        .select-selected {
-            background-color: rgba(54,54,54,0.8);
-            width: 280px;
+        .custom-select2 select{
+            background-color: #5D5D5D;
+            color: #bcbcbc;
+            height: 38px;
+            border: 0;
+            -webkit-appearance: none;
+            width: 100%;
             border-radius: 10px;
-            font-weight: 100;
-            text-align: left;
+            font-weight: 300;
+            padding-left: 20px;
         }
-        /*style the arrow inside the select element:*/
-        .select-selected:after {
-            position: absolute;
-            content: "";
-            top: 14px;
-            right: 10px;
-            width: 0;
-            height: 0;
-            border: 6px solid transparent;
-            border-color: #fff transparent transparent transparent;
-        }
-        /*point the arrow upwards when the select box is open (active):*/
-        .select-selected.select-arrow-active:after {
-            border-color: transparent transparent #fff transparent;
-            top: 7px;
-        }
-        /*style the items (options), including the selected item:*/
-        .select-items div,.select-selected {
-            color: #ffffff;
-            padding: 8px 16px;
-            font-weight: 100;
-            border: 1px solid transparent;
-            border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-            cursor: pointer;
-        }
-        /*style items (options):*/
-        .select-items {
-            position: absolute;
-            background-color: rgba(54,54,54,1);
-            top: 100%;
-            left: 0;
-            right: 0;
-            z-index: 99;
-        }
-        /*hide the items when the select box is closed:*/
-        .select-hide {
-            display: none;
-        }
-        .select-items div:hover {
-            background-color: rgba(0, 0, 0, 0.1);
+
+        .custom-select2 select:focus{
+            outline: none;
         }
     </style>
 
@@ -157,9 +117,9 @@
                     <input type="password" name="password_confirmation" id="password-confirm" placeholder="&#xf023;&#32;&#32; Confirmation du mot de passe">
                 </div>
 
-                    <div class="custom-select" style="margin-bottom: 15px;">
+                    <div class="custom-select2" style="margin-bottom: 15px;">
                         <select name="objectif_id">
-                            <option value="0">Objectif :</option>
+                            <option value="0" disabled selected>Objectif :</option>
                             @foreach(\App\Objectif::all()  as $o)
 
                                 <option value="{!! $o->id !!}">{!! $o->nom !!}</option>
@@ -168,9 +128,9 @@
                         </select>
                     </div>
 
-                    <div class="custom-select">
+                    <div class="custom-select2">
                         <select name="niveau_id">
-                            <option value="0">Niveau :</option>
+                            <option value="0" disabled selected>Niveau :</option>
                             @foreach(\App\Niveau::all()  as $n)
 
                                 <option value="{!! $n->id !!}">{!! $n->nom !!}</option>

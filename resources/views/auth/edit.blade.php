@@ -42,7 +42,9 @@ $page = '';
         .custom-select2 select{
             background-color: inherit;
             color: grey;
-            border: none;
+            border: 0;
+            -webkit-appearance: none;
+            width: 150Px;
         }
 
         .custom-select2 select:focus{

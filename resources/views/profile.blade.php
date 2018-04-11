@@ -8,6 +8,16 @@ $page = 'edit';
 
 ?>
 
+<style>
+    .profil-principal{
+        background-color: white;
+        width: 100vw;
+        border-radius: 10px 10px 0 0;
+        height: 100%;
+        margin: 0;
+    }
+</style>
+
 @section('content')
 
     <header style='display:flex; align-items: center; justify-content: space-around;height: 150px;  background-image: url("/uploads/banniere/{{ $utilisateur->banniere }}"); background-size: cover; background-repeat: no-repeat;'>
@@ -62,13 +72,16 @@ $page = 'edit';
             <div style='width: 80px; height: 80px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ $utilisateur->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
             <div>
                 <h5>{{ $utilisateur->name }}</h5>
-                <p><b>NIVEAU :</b> {!! $utilisateur->niveau->nom !!} / <b>OBJECTIF :</b> {!! $utilisateur->objectif->nom !!}</p>
+                <small>{!! $utilisateur->biographie !!}</small>
             </div>
         </div>
     </div>
 
+    <div class="profil-principal">
+
         @include('_publication', ['publication'=>$utilisateur->publications])
 
+    </div>
 </section>
 
     @include('layouts.footer')

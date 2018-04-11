@@ -24,6 +24,11 @@ h3
     font-family: "Roboto condensed", sans-serif;
     font-size: 22px;
     margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.profil-header_grid1 small{
+    color: grey;
 }
 
 .profil-header_grid1 h3

@@ -11,7 +11,6 @@ $icons = 'comments';
 
 <header>
     <h3>{{ $title }}</h3>
-    <i class="fa fa-{{ $icons }}" aria-hidden="true"></i>
 </header>
 
 <section>
