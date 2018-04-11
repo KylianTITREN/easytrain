@@ -11,46 +11,50 @@ $icons = 'comments';
 
     <style>
 
-        .swiper-container {
-            width: 100%;
-            height: 100%;
-        }
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            background: #F8F8F8;/
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            -webkit-justify-content: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            -webkit-align-items: center;
-            align-items: center;
-            box-shadow: 0px 1px 6px #C7C7C7;
-            border-radius: 50px;
-            height: 70px;
-            width: 70px!important;
-            margin: 0 4px;
+        .select-muscle{
+            background-color: #2EB11F;
+            margin: 10px 0;
+            font-size: 14px;
+            border: none;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+            cursor: pointer;
+            display: block;
         }
 
-        .swiper-wrapper
-        {
-            margin-top: 10px;
-            margin-bottom: 20px
+        @font-face {
+            font-family: "Cocogoose";
+            src: url('cocogoose.otf');
         }
+
+        h5
+        {
+            margin: 0;
+        }
+
+        .programme {
+            margin-bottom: 70px;
+            margin: 20px 20px;
+        }
+
+        .programme h3
+        {
+            font-family: 'Cocogoose';
+            font-size: 17px;
+            padding: 10px 0 15px 0;
+            color: #414141;
+            text-align: left;
+        }
+
     </style>
 
 <header>
-    <form id="search" data-pjax>
+    <form id="search">
         <input type="search" name="search" placeholder="&#xf002;&#32;&#32; Rechercher" required>
         <input type="submit" style="display: none">
     </form>
-    <i class="fa fa-{{ $icons }}" aria-hidden="true"></i>
 </header>
 
 <section class="programme">
@@ -58,14 +62,9 @@ $icons = 'comments';
     <div class="programme-bloc">
 
         <h3>choisir son exercice</h3>
-
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
                 @foreach($muscles as $m)
-                <div class="swiper-slide"><a href="/muscles/{{$m->id}}"><img src="img/bras.png" alt="bras"></a></div>
+                    <a data-pjax class="select-muscle" href="/muscles/{{$m->id}}">{{$m->nom}}</a>
                 @endforeach
-            </div>
-        </div>
 
     </div>
 
@@ -76,8 +75,6 @@ $icons = 'comments';
     </div>
 
     <br>
-
-    @yield('recherche')
 
 </section>
 

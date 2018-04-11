@@ -9,12 +9,10 @@
     <link rel="stylesheet" href="{{ asset('css/home1.css') }}">
     <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
     <link rel="stylesheet" href="{{ asset('css/notification.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/programme.css') }}">
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/profil.css') }}">
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/publication.css') }}">
     <script src="https://use.fontawesome.com/9f877d3bd4.js"></script>
 
 

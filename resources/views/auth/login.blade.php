@@ -7,6 +7,12 @@
 <body>
 <div class="container-connexion">
 
+    <style>
+        .swiper-slide {
+            width: 100%!important;
+        }
+    </style>
+
       <span class="goBack">
         <a href="{{ URL::previous() }}"><i class="fa fa-angle-left"></i><strong>Retour</strong></a>
       </span>

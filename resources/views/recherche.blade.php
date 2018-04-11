@@ -1,4 +1,4 @@
-@extends('program')
+@extends('layouts.head')
 
 <?php
 
@@ -7,7 +7,16 @@ $icons = 'comments';
 
 ?>
 
-@section('recherche')
+@section('content')
+
+    <header>
+        <form id="search">
+            <input type="search" name="search" placeholder="&#xf002;&#32;&#32; Rechercher" required>
+            {{csrf_field()}}
+            <input type="submit" style="display: none">
+        </form>
+        <i class="fa fa-{{ $icons }}" aria-hidden="true"></i>
+    </header>
 
     <h3>Utilisateurs</h3>
     <ul>
@@ -19,5 +28,7 @@ $icons = 'comments';
     <ul>
         @include('_publication', ['publication'=>$publication])
     </ul>
+
+    @include('layouts.footer')
 
 @endsection

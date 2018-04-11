@@ -24,6 +24,7 @@ Route::get('/suivi/{id}','MyController@suivi')->middleware('auth')->where('id','
 Route::get('/recherche/{s}','MyController@recherche');
 Route::get('/program', 'MyController@muscles')->middleware('auth')->where('id','[0-9]+');;
 Route::get('/muscles/{id}', 'MyController@exercices')->where('id','[0-9]+');
+Route::get('/exercices/{id}', 'MyController@fiche_exercices')->where('id','[0-9]+');
 Route::get('/accueil', 'MyController@accueil')->middleware('auth');
 Route::get('/deletepubli/{id}','MyController@delete')->middleware('auth')->where('id','[0-9]+');
 

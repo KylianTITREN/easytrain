@@ -10,7 +10,7 @@ $page = 'edit';
 
 @section('content')
 
-    <header style='display:flex; align-items: center; justify-content: space-around;height: 150px; border-radius: 0px 0px 30px 30px; background-image: url("/uploads/banniere/{{ $utilisateur->banniere }}"); background-size: cover; background-repeat: no-repeat;'>
+    <header style='display:flex; align-items: center; justify-content: space-around;height: 150px;  background-image: url("/uploads/banniere/{{ $utilisateur->banniere }}"); background-size: cover; background-repeat: no-repeat;'>
         <div class="profil-header_grid2">
             <div>
                 <h3>{{count($utilisateur->follow)}}</h3>
@@ -39,7 +39,8 @@ $page = 'edit';
                     @endif
                 </h1>
             </div>
-        </div>         @auth
+        </div>
+        @auth
 
         @if($utilisateur->id != Auth::id())
                 @if(Auth::user()->follow->contains($utilisateur->id))

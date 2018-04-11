@@ -23,7 +23,7 @@ class MyController extends Controller
     }
 
     public function edit(){
-        return view('auth/edit');
+        return view('auth/edit', ['utilisateur'=>Auth::user()]);
     }
 
     public function accueil(){
@@ -36,18 +36,9 @@ class MyController extends Controller
 
     public function creer(Request $req){
 
-        $validator = Validator::make($req->all(), [
-            'nom'=>'required|min:6'
-        ]);
-
-        if($validator->fails()){
-            return redirect('/nouvelle')
-                ->withErrors($validator)
-                ->withInput();
-        }
         $p = new Publication();
         $p->title = $req->input('nom');
-        $p->utilisateur_id= Auth::id();
+        $p->utilisateur_id = Auth::id();
 
         if($req->hasFile('photo') && $req->file('photo')->isValid()){
 
@@ -55,6 +46,7 @@ class MyController extends Controller
             $p->photo = str_replace("public/", "/storage/", $p->photo);
 
         }
+
         $p->save();
         return view('accueil', ['publication' => Publication::all()]);
     }
@@ -92,6 +84,20 @@ class MyController extends Controller
             $user = Auth::user();
             $user->banniere = $filename;
             $user->save();
+        }
+
+        if($request->has('name')){
+            $user = Auth::user();
+            $user->update([
+                'name' => $request->input('name')
+            ]);
+        }
+
+        if($request->has('biographie')){
+            $user = Auth::user();
+            $user->update([
+                'biographie' => $request->input('biographie')
+            ]);
         }
 
         return view('profile', ['utilisateur'=>$user] );
@@ -132,6 +138,15 @@ class MyController extends Controller
         if($muscle == false) abort(404);
 
         return view('exercices', [ 'muscle'=>$muscle]);
+    }
+
+    public function fiche_exercices($id)
+    {
+        $exercices= Exercices::find($id);
+
+        if($exercices == false) abort(404);
+
+        return view('fiche_exercices', [ 'exercices'=>$exercices]);
     }
 
     public function delete($id)

@@ -5,9 +5,74 @@
 @section('content')
 
 <body>
+
+
 <div class="container-inscription">
 
-      <span class="goBack">
+    <style>
+        .swiper-slide {
+            width: 100%!important;
+        }
+
+        /*the container must be positioned relative:*/
+        .custom-select {
+            position: relative;
+        }
+        .custom-select select {
+            display: none; /*hide original SELECT element:*/
+        }
+        .select-selected {
+            background-color: rgba(54,54,54,0.8);
+            width: 280px;
+            border-radius: 10px;
+            font-weight: 100;
+            text-align: left;
+        }
+        /*style the arrow inside the select element:*/
+        .select-selected:after {
+            position: absolute;
+            content: "";
+            top: 14px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-color: #fff transparent transparent transparent;
+        }
+        /*point the arrow upwards when the select box is open (active):*/
+        .select-selected.select-arrow-active:after {
+            border-color: transparent transparent #fff transparent;
+            top: 7px;
+        }
+        /*style the items (options), including the selected item:*/
+        .select-items div,.select-selected {
+            color: #ffffff;
+            padding: 8px 16px;
+            font-weight: 100;
+            border: 1px solid transparent;
+            border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+            cursor: pointer;
+        }
+        /*style items (options):*/
+        .select-items {
+            position: absolute;
+            background-color: rgba(54,54,54,1);
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+        }
+        /*hide the items when the select box is closed:*/
+        .select-hide {
+            display: none;
+        }
+        .select-items div:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+
+    <span class="goBack">
         <a href="{{ URL::previous() }}"><i class="fa fa-angle-left"></i><strong>Retour</strong></a>
       </span>
 

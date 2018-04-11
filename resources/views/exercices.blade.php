@@ -3,69 +3,57 @@
 <?php
 
 $title = 'Exercices';
-$icons = 'comments';
+$icons = 'times';
 
 ?>
 
 <style>
-        html, body {
-                position: relative;
-                height: 100%;
-        }
-        body {
-                background: #eee;
-                font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        .select-muscle{
+                background-color: #2EB11F;
+                margin: 10px 0;
                 font-size: 14px;
-                color:#000;
-                margin: 0;
-                padding: 0;
+                border: none;
+                color: white;
+                padding: 15px;
+                border-radius: 6px;
+                box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+                cursor: pointer;
+                display: block;
         }
-        .swiper-container {
-                width: 100%;
-                height: 100%;
+
+        .programme {
+                margin-bottom: 70px;
+                margin: 20px 20px;
         }
-        .swiper-slide {
-                text-align: center;
-                font-size: 18px;
-                background: #fff;
-                /* Center slide text vertically */
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: -webkit-flex;
-                display: flex;
-                -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                -webkit-justify-content: center;
-                justify-content: center;
-                -webkit-box-align: center;
-                -ms-flex-align: center;
-                -webkit-align-items: center;
-                align-items: center;
+
+        .programme h3
+        {
+                font-family: 'Cocogoose';
+                font-size: 17px;
+                padding: 10px 0 15px 0;
+                color: #414141;
+                text-align: left;
         }
 </style>
-
-<span class="goBack">
-        <a href="{{ URL::previous() }}"><i class="fa fa-angle-left" style="color:#7FED72;"></i></a>
-</span>
 
 @section('content')
 
         <header>
-                <h3>{{ $title }}</h3>
-                <i class="fa fa-{{ $icons }}" aria-hidden="true"></i>
+        <form id="search">
+                <input type="search" name="search" placeholder="&#xf002;&#32;&#32; Rechercher" required>
+                <input type="submit" style="display: none">
+        </form>
         </header>
 
-        <div class="swiper-exercice">
-                <div class="swiper-wrapper">
-                        @foreach ($muscle->exercices as $e)
+        <div class="programme">
 
-                                <div class="swiper-slide">
-                                        <li><a href="#">{{$e->nom}}</a></li><br>
-                                </div>
+                <h3><a href="/program" style="text-decoration: underline" data-pjax> < retour au muscles</a></h3>
+                @foreach($muscle->exercices as $m)
+                        <a class="select-muscle" href="/exercices/{{$m->id}}" data-pjax>{{$m->nom}}</a>
+                @endforeach
 
-                        @endforeach
-                </div>
         </div>
+
 
 
         @include('layouts.footer')
