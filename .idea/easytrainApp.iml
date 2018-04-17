@@ -20,7 +20,8 @@
     </orderEntry>
     <orderEntry type="module" module-name="TAP TAP" />
     <orderEntry type="module" module-name="TAP TAP" />
-    <orderEntry type="module" module-name="IKAO - www" />
     <orderEntry type="module" module-name="picassa" />
+    <orderEntry type="module" module-name="CMS-React" />
+    <orderEntry type="module" module-name="exam-mmi-consignes" />
   </component>
 </module>

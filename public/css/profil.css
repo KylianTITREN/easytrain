@@ -38,6 +38,7 @@ h3
     font-size: 14px;
     color: #AAAAAA;
     padding-right: 15px;
+    z-index: 99;
 }
 
 .profil-header_grid2
@@ -55,7 +56,7 @@ h3
 }
 
 .profil-header_grid2 div h3{
-    text-shadow: 2px 2px 5px #7c7c7c;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     color: white;
     font-size: 22px;
 }
@@ -66,7 +67,7 @@ h3
     text-transform: uppercase;
     color: white;
     font-weight: 300;
-    text-shadow: 1px 1px 8px #787878;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     position: relative;
     bottom: 6px;
 }

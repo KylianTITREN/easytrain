@@ -17,16 +17,24 @@ Route::get('/', function () {
 
 Route::get('/profile/{id}', 'MyController@utilisateur')->middleware('auth')->where('id','[0-9]+');
 Route::get('/nouvelle', 'MyController@nouvelle')->middleware('auth');
+Route::get('/nouvelle2', 'MyController@nouvelle2')->middleware('auth');
 Route::post('/creer', 'MyController@creer')->middleware('auth');
+Route::post('/programmeur', 'MyController@programmeur')->middleware('auth');
 Route::get('/edit', 'MyController@edit');
+Route::get('/prog/{id}', 'MyController@prog')->middleware('auth')->where('id','[0-9]+');
 Route::post('/edit', 'MyController@update_pics');
 Route::get('/suivi/{id}','MyController@suivi')->middleware('auth')->where('id','[0-9]+');
 Route::get('/recherche/{s}','MyController@recherche');
+Route::get('/timer','MyController@timer');
+Route::get('/followers/{id}','MyController@followers')->middleware('auth')->where('id','[0-9]+');
+Route::get('/follows/{id}','MyController@follows')->middleware('auth')->where('id','[0-9]+');
 Route::get('/program', 'MyController@muscles')->middleware('auth')->where('id','[0-9]+');;
 Route::get('/muscles/{id}', 'MyController@exercices')->where('id','[0-9]+');
 Route::get('/exercices/{id}', 'MyController@fiche_exercices')->where('id','[0-9]+');
-Route::get('/accueil', 'MyController@accueil')->middleware('auth');
+Route::get('/programmes/{id}', 'MyController@fiche_programmes')->where('id','[0-9]+');
+Route::get('/accueil', 'MyController@accueil')->middleware('auth')->where('id','[0-9]+');
 Route::get('/deletepubli/{id}','MyController@delete')->middleware('auth')->where('id','[0-9]+');
+Route::get('/deleteprog/{id}','MyController@deleteprog')->middleware('auth')->where('id','[0-9]+');
 
 Auth::routes();
 

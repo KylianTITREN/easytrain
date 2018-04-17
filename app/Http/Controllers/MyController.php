@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Program;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Image;
@@ -22,16 +23,46 @@ class MyController extends Controller
         return view('register');
     }
 
+    public function timer() {
+        return view('timer');
+    }
+
     public function edit(){
         return view('auth/edit', ['utilisateur'=>Auth::user()]);
     }
 
+    public function followers($id) {
+        $utilisateur = User::find($id);
+
+        return view('followers', ['utilisateur' => $utilisateur]);
+    }
+
+    public function follows($id) {
+        $utilisateur = User::find($id);
+
+        return view('follows', ['utilisateur' => $utilisateur]);
+    }
+
     public function accueil(){
-        return view('accueil', ['publication' => Publication::all(), 'utilisateur'=>User::all()]);
+
+        $publication = Publication::all();
+
+            return view('accueil', ['publication' => $publication, 'utilisateur' => User::all()]);
     }
 
     public function nouvelle(){
         return view('nouvelle');
+    }
+
+    public function nouvelle2(){
+        return view('nouvelle2');
+    }
+
+    public function prog($id){
+        $utilisateur = User::find($id);
+        $programmes = Program::all();
+
+        return view('programmes', ['programmes'=>$programmes, 'utilisateur' => $utilisateur]);
     }
 
     public function creer(Request $req){
@@ -42,13 +73,42 @@ class MyController extends Controller
 
         if($req->hasFile('photo') && $req->file('photo')->isValid()){
 
-            $p->photo = $req->file('photo')->store('public/photo/'.Auth::id());
-            $p->photo = str_replace("public/", "/storage/", $p->photo);
+            $p->photo = $req->file('photo');
+            $filename = time() . '.' . $p->photo->getClientOriginalExtension();
+            Image::make($p->photo)->orientate()->save( public_path('/uploads/publi_photo/' . $filename ) );
+            $p->photo = $filename;
 
         }
 
         $p->save();
+
         return view('accueil', ['publication' => Publication::all()]);
+    }
+
+    public function programmeur(Request $req){
+
+        $p = new Program();
+        $p->nom = $req->input('nom');
+        $p->description = $req->input('desc');
+        $p->niveau = $req->input('niveau');
+        $p->objectif = $req->input('objectif');
+        $p->durée = $req->input('time');
+        $p->utilisateur_id = Auth::id();
+
+        if($req->hasFile('cover') && $req->file('cover')->isValid()){
+
+            $p->cover = $req->file('cover');
+            $filename = time() . '.' . $p->cover->getClientOriginalExtension();
+            Image::make($p->cover)->orientate()->save( public_path('/uploads/program_photo/' . $filename ) );
+            $p->cover = $filename;
+
+        }
+
+        $p->save();
+
+        $id = $p->id;
+
+        return redirect('/programmes/'.$id);
     }
 
     public function utilisateur($id){
@@ -78,7 +138,7 @@ class MyController extends Controller
         if($request->hasFile('banniere')){
             $banniere = $request->file('banniere');
             $filename = time() . '.' . $banniere->getClientOriginalExtension();
-            Image::make($banniere)->orientate()->blur(40)->save( public_path('/uploads/banniere/' . $filename ) );
+            Image::make($banniere)->orientate()->save( public_path('/uploads/banniere/' . $filename ) );
 
 
             $user = Auth::user();
@@ -100,6 +160,20 @@ class MyController extends Controller
             ]);
         }
 
+        if($request->has('niveau_id')){
+            $user = Auth::user();
+            $user->update([
+                'niveau_id' => $request->input('niveau_id')
+            ]);
+        }
+
+        if($request->has('objectif_id')){
+            $user = Auth::user();
+            $user->update([
+                'objectif_id' => $request->input('objectif_id')
+            ]);
+        }
+
         return view('profile', ['utilisateur'=>$user] );
 
     }
@@ -118,17 +192,20 @@ class MyController extends Controller
     public function recherche($s){
         $users = User::whereRaw("name LIKE CONCAT(?,'%')", [$s])->get();
         $publication = Publication::whereRaw("title LIKE CONCAT(?,'%')", [$s])->get();
+        $exercices = Exercices::whereRaw('nom LIKE CONCAT(?, "%")', [$s])->get();
+        $programmes = Program::whereRaw('nom LIKE CONCAT(?, "%")', [$s])->get();
 
-        return view('recherche', ['utilisateur'=>$users, 'publication'=>$publication]);
+        return view('recherche', ['utilisateur'=>$users, 'publication'=>$publication, 'exercices'=>$exercices, 'programmes'=>$programmes]);
     }
 
     public function muscles()
     {
         $muscles = Muscles::all();
+        $programmes = Program::where('niveau', '=', Auth::user()->niveau_id)->orWhere('objectif', '=', Auth::user()->objectif_id)->get();
 
         if($muscles == false) abort(404);
 
-        return view('program', ['muscles'=>$muscles]);
+        return view('program', ['muscles'=>$muscles, 'programmes'=>$programmes]);
     }
 
     public function exercices($id)
@@ -149,12 +226,32 @@ class MyController extends Controller
         return view('fiche_exercices', [ 'exercices'=>$exercices]);
     }
 
+    public function fiche_programmes($id)
+    {
+        $programmes = Program::find($id);
+
+        if($programmes == false) abort(404);
+
+        return view('fiche_programmes', [ 'programmes'=>$programmes]);
+    }
+
     public function delete($id)
     {
 
         Publication::where('id', $id)->delete();
 
         return back();
+
+    }
+
+    public function deleteprog($id)
+    {
+
+        $idd = Auth::user()->id;
+
+        Program::where('id', $id)->delete();
+
+        return redirect('/prog/'.$idd);
 
     }
 

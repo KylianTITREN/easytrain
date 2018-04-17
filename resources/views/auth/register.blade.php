@@ -6,7 +6,6 @@
 
 <body>
 
-
 <div class="container-inscription">
 
     <style>
@@ -29,11 +28,15 @@
         .custom-select2 select:focus{
             outline: none;
         }
+
+        .homeForm{
+            background-image: none;
+        }
     </style>
 
 
     <span class="goBack">
-        <a href="{{ URL::previous() }}"><i class="fa fa-angle-left"></i><strong>Retour</strong></a>
+        <a href="/" data-pjax><i class="fa fa-angle-left"></i><strong>Retour</strong></a>
       </span>
 
     <div class="top-desc_register">
@@ -83,7 +86,7 @@
 
     <div class="formulaire-register">
 
-        <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+        <form class="form-horizontal" data-pjax method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
 
             <div class="formulaire-inscription">
@@ -92,14 +95,14 @@
                     <p class="help-block">* {{ $errors->first('email') }}</p>
                 @endif
                 @if ($errors->has('name'))
-                    <p class="help-block">* {{ $errors->first('name') }}<p/>
+                    <p class="help-block">* {{ $errors->first('name') }}</p>
                 @endif
                 @if ($errors->has('password'))
-                    <p class="help-block">* {{ $errors->first('password') }}<p/>
+                        <p class="help-block">* {{ $errors->first('password') }}</p>
                 @endif
 
                 <div class="{{ $errors->has('name') ? ' has-error' : '' }}">
-                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="&#xf2c0;&#32;&#32; Nom d'utilisateur" required autofocus>
+                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="&#xf2c0;&#32;&#32; Nom d'utilisateur" required>
 
                 </div>
 
@@ -118,8 +121,8 @@
                 </div>
 
                     <div class="custom-select2" style="margin-bottom: 15px;">
-                        <select name="objectif_id">
-                            <option value="0" disabled selected>Objectif :</option>
+                        <select name="objectif_id">>
+                            <option value="0" disabled selected >Objectif :</option>
                             @foreach(\App\Objectif::all()  as $o)
 
                                 <option value="{!! $o->id !!}">{!! $o->nom !!}</option>
@@ -131,9 +134,9 @@
                     <div class="custom-select2">
                         <select name="niveau_id">
                             <option value="0" disabled selected>Niveau :</option>
-                            @foreach(\App\Niveau::all()  as $n)
+                            @foreach(\App\Niveau::all()  as $p)
 
-                                <option value="{!! $n->id !!}">{!! $n->nom !!}</option>
+                                <option value="{!! $p->id !!}">{!! $p->nom !!}</option>
 
                             @endforeach
                         </select>
@@ -144,7 +147,7 @@
             <div class="btn-group">
                 <button type="submit" name="submit" class="btn-register btn-inscription1">S'inscrire</button>
 
-                <a class="btn btn-link forget-mdp" href="{{ url('/login') }}">
+                <a class="btn btn-link forget-mdp" href="{{ url('/login') }}" data-pjax>
                     Déjà inscrit ?
                 </a>
             </div>

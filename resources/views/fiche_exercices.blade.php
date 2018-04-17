@@ -75,13 +75,19 @@ $icons = 'times';
 
 
 
-    <video class='exo_couv' autoplay loop src="{{$exercices->image}}" poster="{{$exercices->image}}"></video>
+    <div class='exo_couv' style="background-image: url('{{$exercices->image}}'); height: 400px;"></div>
 
     <div class="exo_info">
 
         <strong>{!! $exercices->nom !!}</strong>
 
         <p>{!! $exercices->description !!}</p>
+
+        <video autoplay loop style="height: 200px; width: 100%;" controls poster="">
+
+            <source src="/uploads/video_prog/{{ $exercices->video }}" type="video/mp4">
+
+        </video>
 
     </div>
 

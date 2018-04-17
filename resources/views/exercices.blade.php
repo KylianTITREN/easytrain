@@ -9,8 +9,7 @@ $icons = 'times';
 
 <style>
         .select-muscle{
-                background-color: #2EB11F;
-                margin: 10px 0;
+                background: linear-gradient(#64bb5a, #7dda74);
                 font-size: 14px;
                 border: none;
                 color: white;
@@ -34,6 +33,12 @@ $icons = 'times';
                 color: #414141;
                 text-align: left;
         }
+
+        .programme-bloc{
+                display: grid;
+                grid-template-columns: 0.5fr 0.5fr;
+                grid-gap: 10px;
+        }
 </style>
 
 @section('content')
@@ -47,10 +52,13 @@ $icons = 'times';
 
         <div class="programme">
 
-                <h3><a href="/program" style="text-decoration: underline" data-pjax> < retour au muscles</a></h3>
-                @foreach($muscle->exercices as $m)
-                        <a class="select-muscle" href="/exercices/{{$m->id}}" data-pjax>{{$m->nom}}</a>
-                @endforeach
+                <div class="programme-bloc">
+
+                        <h3><a href="/program" style="text-decoration: underline" data-pjax> < retour au muscles</a></h3> <div></div>
+
+                        @include('_exercices', ['muscle'=>$muscle->exercices])
+
+                </div>
 
         </div>
 

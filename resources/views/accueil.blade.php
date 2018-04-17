@@ -14,8 +14,16 @@ $icons = 'comments';
 </header>
 
 <section>
+
+    @if(count($publication) == 0)
+
+        <h3 style="width: 100%; text-align: center; color: rgba(0,0,0,0.2); margin-top: 30px;">Aucune publication</h3>
+
+    @else
     
-    @include('_publication', ['publication'=>$publication])
+        @include('_publication', ['publication'=>$publication])
+
+    @endif
 
 </section>
 

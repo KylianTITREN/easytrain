@@ -2,7 +2,7 @@
 
 <?php
 
-$title = 'publication';
+$title = 'Publication';
 $icons = 'times';
 
 ?>
@@ -16,7 +16,7 @@ $icons = 'times';
             left: 23px;
             top: 19px;
             font-size: 28px!important;
-            color: #7FED72;
+            color: #7dda74;
         }
 
         .publication-form{
@@ -34,7 +34,7 @@ $icons = 'times';
         .publication-form textarea{
             width: 100%;
             border: none;
-            height: 200px;
+            height: 170px;
             padding: 30px 0 30px 0;
             resize: inherit;
         }
@@ -45,7 +45,7 @@ $icons = 'times';
 
         .submit
         {
-            background-color: #2EB11F;
+            background: linear-gradient(#64bb5a, #7dda74);
             width: 100px;
             margin: auto;
             display: block;
@@ -56,18 +56,26 @@ $icons = 'times';
             top: 19px;
             border: none;
             color: white;
-            font-family: 'Roboto condensed';
-            text-transform: uppercase;
+            border-radius: 15px;
             padding: 8px 0;
-            border-radius: 6px;
-            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
             cursor: pointer;
+        }
+
+        .add_prog{
+            border-radius: 15px;
+            cursor: pointer;
+            background: linear-gradient(#64bb5a, #7dda74);
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            padding: 12px;
+            margin-right: 20px;
         }
 
     </style>
 
     <header>
-        <a href="{{URL::previous()}}"><i class="fa fa-{{ $icons }}" aria-hidden="true" style="color: #2EB11F"></i></a>
+        <a href="/accueil" data-pjax><i class="fa fa-{{ $icons }}" aria-hidden="true" style="color: #2EB11F"></i></a>
     </header>
 
         <section class="publication-form">
@@ -77,26 +85,46 @@ $icons = 'times';
             </div>
 
             <form action="/creer" data-pjax method="post" enctype="multipart/form-data">
+                {{csrf_field()}}
                 <textarea name="nom" id="nom" value="{{old('nom')}}" required autofocus placeholder="Publier votre humeur.."></textarea>
 
-                <input type="file" id="fileInput" name="photo" style="display: none"/>
                 <hr style="margin-left: -200px">
-                <div style="display: flex; align-items: center; margin-top: 10px">
+                <div style="display: flex; align-items: center; height: 60px;  margin-left: -60px; margin-bottom: 100px;">
 
-                    <a href="/nouvelle2"><img src="/img/training.png" alt="program" style="height: 40px; margin-right: 10px"></a>
+                    <a class='add_prog' href="/nouvelle2">Créer un programme</a>
 
-                    <div style="display: flex; cursor: pointer;"  onclick="chooseFile();">
-                        <img src="/img/photo-camera.png" alt="choose pic">
+                    <div onclick="chooseFile();" style="cursor: pointer; overflow: hidden; width: 40px; height: 40px; border-radius: 15px; border: 1px solid #2EB11F;">
+                        <span style="display: flex;  align-items: center; justify-content: center; font-weight: bold; font-size: 35px; color: #2EB11F; height: 100%;">+</span>
                     </div>
 
+                    <div id="blah" style="overflow: hidden; width: 41px; height: 41px; background-position: center; background-size: cover; border-radius: 15px; margin-left: 10px;"></div>
+
                 </div>
-                {{csrf_field()}}
-                <input class="submit" type="submit" value="publier"/>
+
+                <input type="file" accept="image/*" id="fileInput" name="photo" style="display: none"/>
+                <input class="submit" type="submit" value="Publier"/>
             </form>
 
             <script>
                 function chooseFile() {
                     $("#fileInput").click();
+
+                    function readURL(input) {
+
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+
+                            reader.onload = function(e) {
+                                $('#blah').css('background-image', 'url(' + e.target.result + ')');
+                            }
+
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                    }
+
+                    $("#fileInput").change(function() {
+                        readURL(this);
+                    });
                 }
             </script>
 

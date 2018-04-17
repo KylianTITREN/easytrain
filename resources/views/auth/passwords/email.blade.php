@@ -7,7 +7,7 @@
     <div class="container-connexion">
 
       <span class="goBack">
-        <a href="{{ url('/login') }}"><i class="fa fa-angle-left"></i><strong>Retour</strong></a>
+        <a href="{{ url('/login') }}" data-pjax><i class="fa fa-angle-left"></i><strong>Retour</strong></a>
       </span>
 
         <div class="top-desc_forgotten">

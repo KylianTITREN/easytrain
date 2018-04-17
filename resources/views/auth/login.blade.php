@@ -11,10 +11,14 @@
         .swiper-slide {
             width: 100%!important;
         }
+
+        .homeForm{
+            background-image: none;
+        }
     </style>
 
       <span class="goBack">
-        <a href="{{ URL::previous() }}"><i class="fa fa-angle-left"></i><strong>Retour</strong></a>
+        <a href="/" data-pjax><i class="fa fa-angle-left"></i><strong>Retour</strong></a>
       </span>
 
     <div class="top-desc_login">
@@ -85,7 +89,7 @@
                 @endif
 
                 <div class="{{ $errors->has('name') ? ' has-error' : '' }}">
-                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="&#xf2c0;&#32;&#32; Nom d'utilisateur" required autofocus>
+                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="&#xf2c0;&#32;&#32; Nom d'utilisateur" required>
 
                 </div>
 

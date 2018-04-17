@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{{ asset('css/icone.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home1.css') }}">
     <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/notification.css') }}">
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/profil.css') }}">
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
@@ -19,9 +18,26 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
 
+    <link rel="apple-touch-icon" href="{{ asset('icones/apple-touch-icon.png') }}"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('icones/apple-touch-icon-72x72.png') }}"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('icones/apple-touch-icon-114x114.png') }}"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('icones/apple-touch-icon-144x144.png') }}"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('icones/apple-touch-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('icones/apple-touch-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('icones/apple-touch-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('icones/apple-touch-icon-180x180.png') }}">
+    <link rel="icon" href="{{ asset('icones/favicon.ico') }}" />
+    <link rel="apple-touch-startup-image" href="/public/img/bg.png">
+
     <!-- CSS swiper JS -->
     <link rel="stylesheet" href="{{ asset('css/swiper.css') }}">
     <link rel="stylesheet" href="{{ asset('css/swiper.min.css') }}">
+
+    <!-- META -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="easytrain">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 </head>
 
@@ -33,9 +49,7 @@
 <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ asset('js/jquery.pjax.js') }}"></script>
 
-<!-- JS swiper JS -->
-<script src="{{ asset('js/swiper.js') }}"></script>
-<script src="{{ asset('js/swiper.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.2/js/swiper.min.js"></script>
 
 <script src="{{ asset('js/app.js') }}"></script>
 

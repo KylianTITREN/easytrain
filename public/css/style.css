@@ -13,6 +13,16 @@
 a{
     text-decoration: none;
     color: inherit;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+input, button, textarea{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a:focus{
+    background-color: inherit;
+    outline: none;
 }
 
 body{
@@ -20,13 +30,13 @@ body{
     font-weight: 400;
 }
 
-.homeForm
-{
-    background-image: radial-gradient(circle at 0 0, #00b09b, #7fed72);
-  background-repeat: no-repeat;
-    background-size: 100% 100vh;
+#search input{
+    padding-left: 20px;
 }
 
+#search input:focus{
+    outline: none;
+}
 
 .btn-groupe-1 a button
 {
