@@ -16,7 +16,7 @@
         </div>
 
         <div class="footer-menu_2">
-            <a href="{{ url('/program') }}" data-pjax><img src="{{ asset('icones/icones/program.png') }}" alt=""></a>
+            <a href="{{ url('/program') }}"><img src="{{ asset('icones/icones/program.png') }}" alt=""></a>
         </div>
 
         <div class="footer-menu_3">

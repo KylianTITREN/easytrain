@@ -13,4 +13,8 @@ class Exercices extends Model
     {
         return $this->belongsTo('App\Muscles', 'idMuscles');
     }
+
+    public function contient() {
+        return $this->hasMany('App\Contient','id');
+    }
 }

@@ -12,7 +12,8 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravel/valet": "^2.0",
-        "nesbot/carbon": "^1.22"
+        "nesbot/carbon": "^1.22",
+        "spatie/laravel-image-optimizer": "^1.1"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

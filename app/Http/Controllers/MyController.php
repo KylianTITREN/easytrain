@@ -45,9 +45,11 @@ class MyController extends Controller
 
     public function accueil(){
 
-        $publication = Publication::all();
+        $ids = Auth::user()->follow->pluck('id');
 
-            return view('accueil', ['publication' => $publication, 'utilisateur' => User::all()]);
+        $publication = Publication::whereIn('utilisateur_id', $ids)->orWhere('utilisateur_id', '=', Auth::user()->id)->get();
+
+        return view('accueil', ['publication' => $publication, 'utilisateur' => User::all()]);
     }
 
     public function nouvelle(){
@@ -82,7 +84,11 @@ class MyController extends Controller
 
         $p->save();
 
-        return view('accueil', ['publication' => Publication::all()]);
+        $ids = Auth::user()->follow->pluck('id');
+
+        $publication = Publication::whereIn('utilisateur_id', $ids)->orWhere('utilisateur_id', '=', Auth::user()->id)->get();
+
+        return view('accueil', ['publication' => $publication]);
     }
 
     public function programmeur(Request $req){

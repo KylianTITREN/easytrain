@@ -83,6 +83,14 @@ $icons = 'times';
 
         <p>{!! $programmes->description !!}</p>
 
+        @for($i=1; $i <= $programmes->durée; $i++)
+
+            <p>Semaine {{$i}}</p>
+
+            <a href="">+ Ajouter des exercices</a>
+
+        @endfor
+
         @if($programmes->utilisateur->id != Auth::id())
 
         @else

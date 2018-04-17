@@ -13,4 +13,8 @@ class Program extends Model
         return $this->belongsTo('App\User','utilisateur_id');
     }
 
+    public function contient() {
+        return $this->hasMany('App\Contient','id');
+    }
+
 }
