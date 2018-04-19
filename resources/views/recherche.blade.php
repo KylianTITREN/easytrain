@@ -26,7 +26,7 @@ $icons = 'comments';
         margin-left: 20px;
         display: flex;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
     }
 
     .recherche_user h5 {
@@ -34,6 +34,8 @@ $icons = 'comments';
         color: grey;
         margin: 0;
         padding-left: 10px;
+        font-weight: 400;
+        color: #454545;
     }
 
     .programme-bloc{
