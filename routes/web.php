@@ -35,10 +35,12 @@ Route::get('/programmes/{id}', 'MyController@fiche_programmes')->where('id','[0-
 Route::get('/accueil', 'MyController@accueil')->middleware('auth')->where('id','[0-9]+');
 Route::get('/deletepubli/{id}','MyController@delete')->middleware('auth')->where('id','[0-9]+');
 Route::get('/deleteprog/{id}','MyController@deleteprog')->middleware('auth')->where('id','[0-9]+');
+Route::get('/deleteexo/{id}','MyController@deleteexo')->middleware('auth')->where('id','[0-9]+');
 Route::get('/liker/{id}', 'MyController@liker')->middleware('auth')->where('id','[0-9]+');
 Route::get('/unliker/{id}', 'MyController@unliker')->middleware('auth')->where('id','[0-9]+');
 Route::get('/liker2/{id}', 'MyController@liker2')->middleware('auth')->where('id','[0-9]+');
 Route::get('/unliker2/{id}', 'MyController@unliker2')->middleware('auth')->where('id','[0-9]+');
+Route::post('/add_exo', 'MyController@add_exo')->middleware('auth')->where('id','[0-9]+');
 
 Auth::routes();
 

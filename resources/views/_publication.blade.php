@@ -78,11 +78,17 @@
                 <br>
             </div>
             <div class="like">
-                <h style="font-weight: 100;">{{ $p->likesCount }}</h>
+                <h style="font-weight: 100; margin-right: 4px;">{{ $p->likesCount }}</h>
 
-                <a href="/unliker/{{ $p->id }}" data-pjax-toggle id="unlike"><i style="color:#7FED72; font-size: 18px;" class="fa fa-heart"></i></a>
+                @if($p->isLikedBy(Auth::user()->id))
 
-                <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><img style="height: 16px; margin-top: 1px;" src="{{ asset('icones/icones/like.png') }}" alt=""></a>
+                    <a href="/unliker/{{ $p->id }}" data-pjax-toggle id="unlike"><i style="color:#7FED72; font-size: 18px;" class="fa fa-heart"></i></a>
+
+                @else
+
+                    <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><i style="color:#e0dee2; font-size: 18px;" class="fa fa-heart"></i></a>
+
+                @endif
 
             </div>
         </div>
@@ -112,11 +118,17 @@
                 <small style="font-family: 'Roboto'; font-weight: 100; color: #454545; font-size: 18px;">{{$p->title}}</small>
             </div>
             <div class="like">
-                <h style="font-weight: 100;">{{ $p->likesCount }}</h>
+                <h style="font-weight: 100; margin-right: -5px;">{{ $p->likesCount }}</h>
 
-                <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><i style="color:#7FED72; font-size: 18px;" class="fa fa-heart"></i></a>
+                @if($p->isLikedBy(Auth::user()->id))
 
-                <a href="/unliker/{{ $p->id }}" data-pjax-toggle id="unlike"><img style="height: 16px; margin-top: 1px;" src="{{ asset('icones/icones/like.png') }}" alt=""></a>
+                    <a href="/unliker/{{ $p->id }}" data-pjax-toggle id="unlike"><i style="color:#7FED72; font-size: 18px;" class="fa fa-heart"></i></a>
+
+                @else
+
+                    <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><i style="color:#e0dee2; font-size: 18px;" class="fa fa-heart"></i></a>
+
+                @endif
             </div>
         </div>
 
