@@ -6,7 +6,7 @@
         padding: 13px 0;
         background-color: white;
         margin-top: 10px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         margin-left: 10px;
         margin-right: 10px;
         border-radius: 15px;

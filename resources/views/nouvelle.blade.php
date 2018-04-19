@@ -99,7 +99,7 @@ $icons = 'times';
 
             <form action="/creer" data-pjax method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
-                
+
                 <textarea name="nom" id="nom" value="{{old('nom')}}" style="background-color: transparent;" required autofocus placeholder="Publier votre humeur.."></textarea>
 
                 <textarea name="nom" id="nom" required autofocus placeholder="Publier votre humeur..">{{old('nom')}}</textarea>
