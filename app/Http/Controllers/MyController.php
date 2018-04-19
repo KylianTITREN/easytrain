@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contient;
 use App\Program;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -89,6 +90,19 @@ class MyController extends Controller
         $publication = Publication::whereIn('utilisateur_id', $ids)->orWhere('utilisateur_id', '=', Auth::user()->id)->get();
 
         return redirect('/accueil')->with(['publication' => $publication]);
+    }
+
+    public function add_exo(Request $req){
+
+        $prog_id = $req->input('programmes');
+
+        $c = new Contient();
+        $c->program_id = $prog_id;
+        $c->exercice_id = $req->input('exercices');
+        $c->save();
+
+        return redirect('/programmes/'.$prog_id);
+
     }
 
     public function programmeur(Request $req){
@@ -260,6 +274,15 @@ class MyController extends Controller
         Program::where('id', $id)->delete();
 
         return redirect('/prog/'.$idd);
+
+    }
+
+    public function deleteexo($id)
+    {
+
+        Exercices::where('id', $id)->delete();
+
+        return back();
 
     }
 

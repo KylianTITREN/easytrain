@@ -60,6 +60,14 @@ $icons = 'comments';
 
     <div class="recherche">
 
+        @if(count($utilisateur)==0 && count($publication)==0 && count($exercices)==0 && count($programmes)==0)
+
+            <h3 style="display:flex; width: 100vw; align-items: center; justify-content: center; color: rgba(0,0,0,0.1);">Aucun résultat</h3>
+
+            @else
+
+        @endif
+
         @if(count($utilisateur)==0)
 
         @else

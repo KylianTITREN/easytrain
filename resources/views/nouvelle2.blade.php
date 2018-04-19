@@ -128,7 +128,7 @@ $icons = 'times';
             font-family: 'Roboto';
             font-weight: 100;
             color: #454545;
-            font-size: 25px;
+            font-size: 18px;
         }
 
         .next-btn
@@ -205,23 +205,15 @@ $icons = 'times';
                     </div>
                 </div>
 
-                <div class="prog4">
-                    <h3>Image</h3>
-                    <div id='blah' onclick="chooseFile();" style="cursor: pointer; overflow: hidden; width: 100%; background-size: cover; background-position: center; height: 200px; border-radius: 15px; border: 1px solid #2EB11F; display: flex; align-items: center; justify-content: center; font-size: 40px; color: grey; background-color: rgba(0,0,0,0.2);">+</div>
-                    <input type="file" accept="image/*" id="fileInput" name="cover" style="display: none"/>
-                </div>
-
             </div>
 
             <div class="btn-part">
                 <span class="prev-btn"> Précédent </span>
                 <span class="prev-btn2"> Précédent </span>
-                <span class="prev-btn3"> Précédent </span>
 
                 <span class="next-btn"> Suivant </span>
                 <span class="next-btn2"> Suivant </span>
-                <span class="next-btn3"> Suivant </span>
-                <input type="submit" name="submit" class="next-btn4" value="Créer" style="border: none; border-radius: 25px">
+                <input type="submit" name="submit" class="next-btn3" value="Créer" style="border: none; border-radius: 25px">
             </div>
 
         </form>

@@ -23,6 +23,19 @@ $icons = 'times';
         justify-content: center;
     }
 
+    .custom-select2 select{
+        background-color: white;
+        color: rgba(92, 92, 92, 0.4);
+        border: 0;
+        -webkit-appearance: none;
+        width: 290px;
+        height: 40px;
+    }
+
+    .custom-select2 select:focus{
+        outline: none;
+    }
+
     .select-muscle{
         background: linear-gradient(#ffffff, #FFFFFF);
         margin: 2px 0;
@@ -39,7 +52,7 @@ $icons = 'times';
     .programme-bloc{
         display: grid;
         grid-template-columns: 0.5fr 0.5fr;
-        grid-gap: 5px;
+        grid-gap: 10px;
         padding: 20px;
     }
 
@@ -131,30 +144,46 @@ $icons = 'times';
 
             @else
 
-            <a href="" style="margin-left:20px;color: white; display: flex; align-items: center"><span class="add_exo" onclick="addExo();">+</span> Ajouter des exercices</a>
+                    <form action="/add_exo" data-pjax method="POST">
+                        {{csrf_field()}}
+
+                        <div class="custom-select2">
+
+                            <input type="text" name="programmes" value="{{$programmes->id}}" style="display: none;">
+
+                        <select name="exercices">
+
+                                <option value="0" selected disabled>&nbsp; &nbsp; Ajouter un exercice :</option>
+
+                            @foreach(\App\Exercices::all()  as $o)
+
+                                <option value="{!! $o->id !!}">&nbsp; &nbsp; {!! $o->nom !!}</option>
+
+                            @endforeach
+
+                        </select>
+
+                        </div>
+
+                        <input type="submit" value="Ajouter">
+
+                    </form>
 
         @endif
-
-        <form action="/add_exercices" data-pjax method="post" enctype="multipart/form-data">
-            {{csrf_field()}}
-
-                <a href="" style="margin-left: 60px; padding: 5px 0; color: white; display: flex; align-items: center; font-size: 14px"><span class="add_exo">+</span> Ajouter des exercices</a>
-
-
-            <select name="add_exo" id="fileSelect" style="display: none">
-                @foreach(\App\Exercices::all()  as $e)
-
-                    <option value="{!! $e->id !!}">{!! $e->nom !!}</option>
-
-                @endforeach
-            </select>
-
-        </form>
 
             <div class="programme-bloc">
 
                 @foreach($programmes->exoProg as $e)
-                    <a data-pjax class="select-muscle" href="/exercices/{{$e->id}}">{{$e->nom}}</a>
+                    <a data-pjax class="select-muscle" href="/exercices/{{$e->id}}">{{$e->nom}}
+                        @if($programmes->utilisateur_id == 0)
+
+                        @elseif($programmes->utilisateur->id != Auth::id())
+
+                        @else
+                            <a href="{{ url('/deleteexo/'.$e->id) }}" data-pjax-toggle style="font-size: 12px; color: red; opacity: 0.2; "><img
+                                        src="{{ asset('icones/icones/delete.png') }}" alt=""></a>
+                        @endif
+                    </a>
                 @endforeach
 
             </div>
@@ -170,12 +199,6 @@ $icons = 'times';
 
 
     </div>
-
-    <script>
-        function addExo() {
-            $("#fileSelect").click();
-        }
-    </script>
 
 
 </div>
