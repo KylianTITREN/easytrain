@@ -45,6 +45,8 @@ $icons = 'comments';
 
 @section('content')
 
+    @include('_script')
+
     <header>
         <form id="search">
             <input type="search" name="search" placeholder="&#xf002;&#32;&#32; Rechercher" required>

@@ -34,14 +34,6 @@ $page = 'edit';
     .homeForm{
         background-image: none;
     }
-    .filter{
-        background-color: rgba(145, 145, 145, 0.2);
-        height: 100%;
-        width: 100%;
-        top: 0;
-        right: 0;
-        position: absolute;
-    }
 
     .add_prog{
         border-radius: 15px;
@@ -50,10 +42,9 @@ $page = 'edit';
         color: white;
         font-size: 14px;
         text-align: center;
-        display: block;
-        position: relative;
-        margin-left: 140px;
-        margin-top: -35px;
+        position: absolute;
+        top: 160px;
+        right: 20px;
         width: 90px;
         padding: 8px;
     }
@@ -62,7 +53,6 @@ $page = 'edit';
 @section('content')
 
     <header style='position: relative; display:flex; align-items: center; justify-content: space-around;height: 150px;  background-image: url("/uploads/banniere/{{ $utilisateur->banniere }}"); background-size: cover; background-repeat: no-repeat;'>
-        <div class="filter"></div>
         <div class="profil-header_grid2">
             <div>
                 <a href="/followers/{!! $utilisateur->id !!}" style="cursor: pointer" data-pjax>
@@ -113,10 +103,10 @@ $page = 'edit';
 <section class="profil_sec">
     <div class="profil-header">
         <div class="profil-header_grid1">
-            <div data-lightbox='img_pp' style='z-index: 99; width: 80px; height: 80px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ $utilisateur->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
+            <div style='z-index: 99; width: 80px; height: 80px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ $utilisateur->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
             <div>
                 <h5>{{ $utilisateur->name }}</h5>
-                <small style="width: 150px">{!! $utilisateur->biographie !!}</small>
+                <small>{!! $utilisateur->biographie !!}</small>
                 @if($utilisateur->id != Auth::id())
                 @if(Auth::user()->follow->contains($utilisateur->id))
                     <a class='add_prog' href="/suivi/{{$utilisateur->id}}" data-pjax-toggle>Ne plus suivre</a>

@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Program;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Image;
 use Auth;
 use App\User;
 use App\Exercices;
 use App\Muscles;
 use App\Publication;
+use Intervention\Image\Facades\Image;
 
 class MyController extends Controller
 {
@@ -88,7 +88,7 @@ class MyController extends Controller
 
         $publication = Publication::whereIn('utilisateur_id', $ids)->orWhere('utilisateur_id', '=', Auth::user()->id)->get();
 
-        return view('accueil', ['publication' => $publication]);
+        return redirect('/accueil')->with(['publication' => $publication]);
     }
 
     public function programmeur(Request $req){
@@ -101,7 +101,7 @@ class MyController extends Controller
         $p->durée = $req->input('time');
         $p->utilisateur_id = Auth::id();
 
-        if($req->hasFile('cover') && $req->file('cover')->isValid()){
+        if($req->hasFile('cover')){
 
             $p->cover = $req->file('cover');
             $filename = time() . '.' . $p->cover->getClientOriginalExtension();
@@ -144,7 +144,7 @@ class MyController extends Controller
         if($request->hasFile('banniere')){
             $banniere = $request->file('banniere');
             $filename = time() . '.' . $banniere->getClientOriginalExtension();
-            Image::make($banniere)->orientate()->save( public_path('/uploads/banniere/' . $filename ) );
+            Image::make($banniere)->brightness(-15)->orientate()->save( public_path('/uploads/banniere/' . $filename ) );
 
 
             $user = Auth::user();
@@ -261,4 +261,57 @@ class MyController extends Controller
 
     }
 
+    public function liker($id){
+
+        $publication = Publication::find($id);
+
+        $utilisateur = Auth::user();
+
+        $utilisateur->like($publication);
+        $publication->likeBy(); // current user
+        $publication->likeBy($utilisateur->id);
+
+        return back();
+
+    }
+
+    public function unliker($id){
+
+        $publication = Publication::find($id);
+
+        $utilisateur = Auth::user();
+
+        $utilisateur->unlike($publication);
+        $publication->unlikeBy(); // current user
+        $publication->unlikeBy($utilisateur->id);
+
+        return back();
+
+    }public function liker2($id){
+
+    $programme = Program::find($id);
+
+    $utilisateur = Auth::user();
+
+    $utilisateur->like($programme);
+    $programme->likeBy(); // current user
+    $programme->likeBy($utilisateur->id);
+
+    return back();
+
+}
+
+    public function unliker2($id){
+
+        $programme = Program::find($id);
+
+        $utilisateur = Auth::user();
+
+        $utilisateur->unlike($programme);
+        $programme->unlikeBy(); // current user
+        $programme->unlikeBy($utilisateur->id);
+
+        return back();
+
+    }
 }

@@ -67,7 +67,7 @@ $icons = 'angle-left';
 @section('content')
 
     <span class="goBack">
-        <a href="{{ URL::previous() }}" data-pjax><i class="fa fa-{{ $icons }}" aria-hidden="true"></i></a>
+        <a href="/profile/{{$utilisateur->id}}" data-pjax><i class="fa fa-{{ $icons }}" aria-hidden="true"></i></a>
     </span>
 
     <header>

@@ -36,9 +36,8 @@ $icons = 'times';
     }
 
     .exo_info{
-        height: 100%;
+        min-height: 100%;
         width: 100%;
-        background-color: #65c959;
         text-align: left;
         padding-top: 30px;
     }
@@ -58,12 +57,14 @@ $icons = 'times';
 
     .exo_card{
         display: flex;
-        height: 100vh;
+        min-height: 100vh;
         width: 100vw;
+        background-color: #65c959;
         flex-direction: column;
         margin: 0;
         align-items: flex-start;
         justify-content: flex-start;
+        padding-bottom: 50px;
     }
 </style>
 
@@ -73,21 +74,13 @@ $icons = 'times';
         <a href="{{ URL::previous() }}" data-pjax><i class="fa fa-{{ $icons }}" aria-hidden="true"></i></a>
         </span>
 
-
-
-    <div class='exo_couv' style="background-image: url('{{$exercices->image}}'); height: 400px;"></div>
+        <div class='exo_couv' style="background-image: url('/uploads/program_photo/{{$exercices->image}}'); height: 250px;"></div>
 
     <div class="exo_info">
 
         <strong>{!! $exercices->nom !!}</strong>
 
         <p>{!! $exercices->description !!}</p>
-
-        <video autoplay loop style="height: 200px; width: 100%;" controls poster="">
-
-            <source src="/uploads/video_prog/{{ $exercices->video }}" type="video/mp4">
-
-        </video>
 
     </div>
 

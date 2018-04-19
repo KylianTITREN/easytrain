@@ -133,7 +133,7 @@ $icons = 'times';
                     <h3>Niveau</h3>
                     <div class="custom-select2">
                         <select name="niveau">
-                            <option value="0" selected disabled>&nbsp; &nbsp; Niveau :</option>
+                            <option selected disabled>&nbsp; &nbsp; Niveau :</option>
                             @foreach(\App\Niveau::all()  as $o)
 
                                 <option value="{!! $o->id !!}">&nbsp; &nbsp; {!! $o->nom !!}</option>
@@ -147,7 +147,7 @@ $icons = 'times';
                     <h3 style="margin-top: 10px;">Objectif du programme</h3>
                     <div class="custom-select2">
                         <select name="objectif">
-                            <option value="0" selected disabled>&nbsp; &nbsp; Objectif :</option>
+                            <option  selected disabled>&nbsp; &nbsp; Objectif :</option>
                             @foreach(\App\Objectif::all()  as $o)
 
                                 <option value="{!! $o->id !!}">&nbsp; &nbsp; {!! $o->nom !!}</option>

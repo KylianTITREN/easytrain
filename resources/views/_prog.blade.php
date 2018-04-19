@@ -50,7 +50,7 @@
     }
 </style>
 
-@foreach($programmes as $p)
+@foreach($programmes->sortByDesc('updated_at') as $p)
 
     <a href="/programmes/{{$p->id}}" style="display: flex; flex-direction: column">
 

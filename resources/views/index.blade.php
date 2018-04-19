@@ -37,7 +37,7 @@
 
         <div class="btn-groupe-2">
             @auth
-                <a href="{{ url('/profile/'.Auth::user()->id) }}" data-pjax><button type="button" name="button" class="btn-register btn-inscription">Se connecter à {{Auth::user()->name}}</button></a>
+                <a href="/accueil" data-pjax><button type="button" name="button" class="btn-register btn-inscription">Se connecter à {{Auth::user()->name}}</button></a>
                 @else
             <a href="{{ url('/register') }}"><button type="button" name="button" class="btn-register btn-inscription">S'inscrire</button></a>
             <a href="{{url('/redirect')}}" data-pjax><button type="button" name="button" class="btn-register btn-facebook">Se connecter avec facebook</button></a>
