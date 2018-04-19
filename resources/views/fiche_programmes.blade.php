@@ -92,23 +92,54 @@ $icons = 'times';
 
         <strong>{!! $programmes->nom !!}</strong>
 
-        <a href="/liker2/{{ $programmes->id }}" data-pjax-toggle id="like"><i style="color:red;"  class="fa fa-heart"></i></a>
+        @if($programmes->isLikedBy(Auth::user()->id))
 
-        <a href="/unliker2/{{ $programmes->id }}" data-pjax-toggle id="unlike"><i class="fa fa-heart"></i></a>
+            <a href="/unliker2/{{ $programmes->id }}" data-pjax-toggle id="unlike"><i style="color:#7FED72; font-size: 18px;" class="fa fa-heart"></i></a>
+
+        @else
+
+            <a href="/liker2/{{ $programmes->id }}" data-pjax-toggle id="like"><i style="color:#e0dee2; font-size: 18px;" class="fa fa-heart"></i></a>
+
+        @endif
 
         <p>{{ $programmes->likesCount }}</p>
 
         <p>{!! $programmes->description !!}<br><b>Spécial @if($programmes->objectif == 1) Prise de masse @else @endif @if($programmes->objectif == 2) Sèche @else  @endif @if($programmes->objectif == 3) Perte de poids @else  @endif @if($programmes->objectif == 4) Entretien @else  @endif @if($programmes->objectif == 10) Non défini @else  @endif</b></p>
 
-        @for($i=1; $i <= $programmes->durée; $i++)
+        @if($programmes->utilisateur_id == 0)
 
-            <p>Semaine {{$i}}</p>
 
-            <a href="" style="margin-left:20px;color: white; display: flex; align-items: center"><span class="add_exo">+</span> Ajouter des exercices</a>
+        @elseif($programmes->utilisateur->id != Auth::id())
 
-        @endfor
+            @else
 
-        @if($programmes->utilisateur->id != Auth::id())
+            <a href="" style="margin-left:20px;color: white; display: flex; align-items: center"><span class="add_exo" onclick="addExo();">+</span> Ajouter des exercices</a>
+
+        @endif
+
+        <form action="/add_exercices" data-pjax method="post" enctype="multipart/form-data">
+            {{csrf_field()}}
+
+            <select name="add_exo" id="fileSelect" style="display: none">
+                @foreach(\App\Exercices::all()  as $e)
+
+                    <option value="{!! $e->id !!}">{!! $e->nom !!}</option>
+
+                @endforeach
+            </select>
+
+        </form>
+
+        @foreach($programmes->contient as $e)
+
+            {{ $e->exercice_id }}
+
+        @endforeach
+
+        @if($programmes->utilisateur_id == 0)
+
+
+        @elseif($programmes->utilisateur->id != Auth::id())
 
         @else
             <a href="{{ url('/deleteprog/'.$programmes->id) }}" data-pjax-toggle style="font-size: 12px; color: red; opacity: 0.2; ">Supprimer</a>
@@ -116,6 +147,12 @@ $icons = 'times';
 
 
     </div>
+
+    <script>
+        function addExo() {
+            $("#fileSelect").click();
+        }
+    </script>
 
 
 </div>

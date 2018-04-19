@@ -206,6 +206,7 @@ class MyController extends Controller
 
     public function muscles()
     {
+
         $muscles = Muscles::all();
         $programmes = Program::where('niveau', '=', Auth::user()->niveau_id)->orWhere('objectif', '=', Auth::user()->objectif_id)->get();
 
@@ -235,10 +236,11 @@ class MyController extends Controller
     public function fiche_programmes($id)
     {
         $programmes = Program::find($id);
+        $exercices = Exercices::all();
 
         if($programmes == false) abort(404);
 
-        return view('fiche_programmes', [ 'programmes'=>$programmes]);
+        return view('fiche_programmes', ['programmes'=>$programmes, 'exercices'=>$exercices]);
     }
 
     public function delete($id)

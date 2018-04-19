@@ -17,7 +17,7 @@ class Program extends Model implements LikeableContract
     }
 
     public function contient() {
-        return $this->hasMany('App\Contient','id');
+        return $this->hasMany('App\Contient','program_id');
     }
 
 }

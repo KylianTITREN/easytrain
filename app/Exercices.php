@@ -15,6 +15,6 @@ class Exercices extends Model
     }
 
     public function contient() {
-        return $this->hasMany('App\Contient','id');
+        return $this->hasMany('App\Contient','exercice_id');
     }
 }

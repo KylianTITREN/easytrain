@@ -59,7 +59,11 @@
 @foreach($programmes->sortByDesc('updated_at') as $p)
 
         <div class="prog_back" onclick="goTo();">
+            @if($p->utilisateur_id == 0)
+                <a href="#"><span class="icon_name">easytrain</span></a>
+                @else
             <a href="/profile/{{$p->utilisateur->id}}"><span class="icon_name">{!! $p->utilisateur->name !!}</span></a>
+            @endif
             <strong>{{ $p->nom }}</strong>
             <small><b>Durée : </b>{{ $p->durée }} @if($p->durée > 1)semaines @else semaine @endif</small>
             <div style="display: flex; flex-direction: column">
