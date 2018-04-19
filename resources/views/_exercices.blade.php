@@ -1,7 +1,7 @@
 <style>
     .select-muscle{
         background: linear-gradient(#64bb5a, #7dda74);
-        margin: 5px 0;
+        margin: 0px 0;
         font-size: 14px;
         border: none;
         color: white;

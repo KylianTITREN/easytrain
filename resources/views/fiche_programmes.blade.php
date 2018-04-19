@@ -52,7 +52,7 @@ $icons = 'times';
     .exo_info p{
         color: white;
         margin: 30px;
-        font-weight: 300;
+        font-weight: 200;
     }
 
     .exo_card{
@@ -71,40 +71,34 @@ $icons = 'times';
         background-color: white;
         color: #65c959;
         border-radius: 50%;
-        padding: 1px 10px;
-        font-size: 30px;
+        padding: 2px 6px;
+        font-size: 15px;
         font-weight: bold;
-        margin-right: 10px;
+        margin-right: 4px;;
     }
 </style>
 
 <div class="exo_card">
 
         <span class="goBack">
-        <a href="/program" data-pjax><i class="fa fa-{{ $icons }}" aria-hidden="true"></i></a>
+        <a href="/program" data-pjax><img src="{{ asset('icones/icones/close.png') }}" alt=""></a>
         </span>
-
-
-
-    <div class='exo_couv' style="background-image: url('/uploads/program_photo/{{$programmes->cover}}'); height: 200px;"></div>
 
     <div class="exo_info">
 
-        <strong>{!! $programmes->nom !!}</strong>
+        <h style="text-align: center; margin: auto; display: block; color: white; font-family: roboto condensed; font-size: 23px; text-transform: uppercase; font-weight: 400;">{!! $programmes->nom !!}</h>
 
-        <a href="/liker2/{{ $programmes->id }}" data-pjax-toggle id="like"><i style="color:red;"  class="fa fa-heart"></i></a>
-
-        <a href="/unliker2/{{ $programmes->id }}" data-pjax-toggle id="unlike"><i class="fa fa-heart"></i></a>
-
-        <p>{{ $programmes->likesCount }}</p>
-
-        <p>{!! $programmes->description !!}<br><b>Spécial @if($programmes->objectif == 1) Prise de masse @else @endif @if($programmes->objectif == 2) Sèche @else  @endif @if($programmes->objectif == 3) Perte de poids @else  @endif @if($programmes->objectif == 4) Entretien @else  @endif @if($programmes->objectif == 10) Non défini @else  @endif</b></p>
+        <p>{!! $programmes->description !!}<br><b style="font-size: 12px;">Spécial @if($programmes->objectif == 1) Prise de masse @else @endif @if($programmes->objectif == 2) Sèche @else  @endif @if($programmes->objectif == 3) Perte de poids @else  @endif @if($programmes->objectif == 4) Entretien @else  @endif @if($programmes->objectif == 10) Non défini @else  @endif</b></p>
 
         @for($i=1; $i <= $programmes->durée; $i++)
 
-            <p>Semaine {{$i}}</p>
+            <div style="margin: 25px 0;">
 
-            <a href="" style="margin-left:20px;color: white; display: flex; align-items: center"><span class="add_exo">+</span> Ajouter des exercices</a>
+                <h3 style="color: white; font-weight: 400; padding-left: 35px;">Semaine {{$i}}</h3>
+
+                <a href="" style="margin-left: 60px; padding: 5px 0; color: white; display: flex; align-items: center; font-size: 14px"><span class="add_exo">+</span> Ajouter des exercices</a>
+
+            </div>
 
         @endfor
 
