@@ -12,7 +12,7 @@ $icons = 'times';
         body {
             text-align: center;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             height: 100vh;
             flex-direction: column;
             background: #7dda74;
@@ -21,8 +21,6 @@ $icons = 'times';
         }
 
         .goBack{
-            background-color: white;
-            border-radius: 50%;
             top:20px;
             right: 20px!important;
             left: inherit!important;
@@ -34,13 +32,15 @@ $icons = 'times';
         }
 
         h1 {
-            font-size: 52px;
+            font-size: 26px;
             margin-bottom: 40px;
+            padding-top: 13px;
         }
 
         #timer {
-            font-size: 60px;
+            font-size: 80px;
             margin-bottom: 20px;
+            font-family: Roboto;
         }
 
         #start{
@@ -56,7 +56,7 @@ $icons = 'times';
             color: #fff;
             border-radius: 8px;
             font-size: 16px;
-            margin: 0 5px;
+            margin: 0 2px;
             outline: none;
             cursor: pointer;
         }
@@ -74,12 +74,12 @@ $icons = 'times';
     </style>
 
     <span class="goBack">
-        <a href="{{ URL::previous() }}" data-pjax><i class="fa fa-{{ $icons }}" aria-hidden="true" style="color:#7dda74; font-size: 30px"></i></a>
+        <a href="{{ URL::previous() }}" data-pjax><img src="{{ asset('icones/icones/close.png') }}" alt=""></a>
         </span>
 
     <h1>chrono</h1>
     <div id="timer">00:00</div>
-    <div>
+    <div style="padding-bottom: 30px">
         <button id="start">GO !</button>
         <button id="reset">Reset</button>
         <button id="stop">Stop</button>

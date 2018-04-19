@@ -13,7 +13,7 @@ $icons = 'comments';
 
         .select-muscle{
             background: linear-gradient(#64bb5a, #7dda74);
-            margin: 5px 0;
+            margin: 2px 0;
             font-size: 14px;
             border: none;
             color: white;
@@ -27,7 +27,7 @@ $icons = 'comments';
         .programme-bloc{
             display: grid;
             grid-template-columns: 0.5fr 0.5fr;
-            grid-gap: 10px;
+            grid-gap: 5px;
         }
 
         @font-face {
@@ -43,13 +43,14 @@ $icons = 'comments';
         .programme {
             margin-bottom: 70px;
             margin: 20px 20px;
+            padding-bottom: 21px;
         }
 
         .programme h3
         {
             font-family: 'Cocogoose';
             font-size: 17px;
-            padding: 10px 0 15px 0;
+            padding: 13px 0 13px 0;
             color: #414141;
             text-align: left;
         }
@@ -58,7 +59,6 @@ $icons = 'comments';
             background: linear-gradient(#ffffff, #FFFFFF);
             box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
             border-radius: 15px;
-            padding: 25px 0px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -78,12 +78,13 @@ $icons = 'comments';
 <section class="programme">
 
     <a class="mes-prog" href="/prog/{{Auth::user()->id}}" data-pjax>
-        <h3 style="color: #7dda74">Mes programmes</h3>
+        <h3 style="color: #7dda74">mes programmes</h3>
     </a>
+
+    <h3>choisir son exercice</h3>
 
     <div class="programme-bloc">
 
-        <h3>choisir son exercice</h3> <div></div>
                 @foreach($muscles as $m)
                     <a data-pjax class="select-muscle" href="/muscles/{{$m->id}}">{{$m->nom}}</a>
                 @endforeach

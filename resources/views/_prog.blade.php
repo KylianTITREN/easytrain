@@ -2,14 +2,16 @@
     .prog_back{
         height: 300px;
         border-radius: 20px;
-        background: linear-gradient(#64bb5a, #7dda74);
+        background-image: url("{{ asset('img/background_programme.png') }}");
+        background-position: center;
+        background-size: cover;
         box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
         margin: auto;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         padding: 20px;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         cursor: pointer;
     }
 
@@ -18,24 +20,28 @@
         font-size: 42px;
         font-weight: 300;
         width: 50%;
+        font-weight: 500;
+        font-family: 'Roboto Condensed', sans-serif;
+        text-transform: uppercase;
+        width: 50%;
+        line-height: 37px;
     }
 
     .prog_back small{
-        font-size: 18px;
+        font-size: 14px;
         color: white;
         margin-top: 20px;
+        font-weight: 300;
     }
 
     .prog_back div{
         margin: 0;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
     }
 
     .prog_back div div img{
-        width: 30px;
-        height: 20px;
+        height: 13px;
     }
 
     .icon_name{
@@ -52,20 +58,22 @@
 
 @foreach($programmes->sortByDesc('updated_at') as $p)
 
-    <a href="/programmes/{{$p->id}}" style="display: flex; flex-direction: column">
-
-        <div class="prog_back">
+        <div class="prog_back" onclick="goTo();">
+            <a href="/profile/{{$p->utilisateur->id}}"><span class="icon_name">{!! $p->utilisateur->name !!}</span></a>
             <strong>{{ $p->nom }}</strong>
-            <small><b>Durée :</b> <br>{{ $p->durée }} @if($p->durée > 1)semaines @else semaine @endif</small>
-            <div>
-
+            <small><b>Durée : </b>{{ $p->durée }} @if($p->durée > 1)semaines @else semaine @endif</small>
+            <div style="display: flex; flex-direction: column">
+            <h style="color: white; font-size: 14px; margin-bottom: 3px">Difficulté </h>
             @if($p->niveau == 1)<div><img src="{{ asset('img/diff.png') }}" alt="">&nbsp;<img src="{{ asset('img/diff2.png') }}" alt="">&nbsp;<img src="{{ asset('img/diff2.png') }}" alt=""></div>@endif
             @if($p->niveau == 2)<div><img src="{{ asset('img/diff.png') }}" alt="">&nbsp;<img src="{{ asset('img/diff.png') }}" alt="">&nbsp;<img src="{{ asset('img/diff2.png') }}" alt=""></div>@endif
             @if($p->niveau == 3)<div><img src="{{ asset('img/diff.png') }}" alt="">&nbsp;<img src="{{ asset('img/diff.png') }}" alt="">&nbsp;<img src="{{ asset('img/diff.png') }}" alt=""></div>@endif
-                <a href="/profile/{{$p->utilisateur->id}}"><span class="icon_name">{!! $p->utilisateur->name !!}</span></a>
 
             </div>
         </div>
 
-    </a>
+    <script>
+        function goTo(){
+            window.location = '/programmes/{{ $p->id }}';
+        }
+    </script>
 @endforeach
