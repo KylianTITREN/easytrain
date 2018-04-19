@@ -71,7 +71,7 @@ $icons = 'times';
 <div class="exo_card">
 
         <span class="goBack">
-        <a href="{{ URL::previous() }}" data-pjax><i class="fa fa-{{ $icons }}" aria-hidden="true"></i></a>
+        <a href="/muscles/{{$exercices->idMuscles}}" data-pjax><i class="fa fa-{{ $icons }}" aria-hidden="true"></i></a>
         </span>
 
         <div class='exo_couv' style="background-image: url('/uploads/program_photo/{{$exercices->image}}'); height: 250px;"></div>

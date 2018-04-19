@@ -68,6 +68,7 @@
                                 src="{{ asset('icones/icones/delete.png') }}" alt=""></a>
                 @endif
             </div>
+
             <div class="publi_desc">
                 <small style="font-family: 'Roboto'; font-weight: 100; color: #454545; font-size: 25px;">{{$p->title}}</small>
                 <br>
@@ -75,7 +76,7 @@
             <div class="like">
                 <h style="font-weight: 100;">{{ $p->likesCount }}</h>
 
-                <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><i style="color:#7FED72; font-size: 18px;"  class="fa fa-heart"></i></a>
+                <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><i style="color:#7FED72; font-size: 18px;" class="fa fa-heart"></i></a>
 
                 <a href="/unliker/{{ $p->id }}" data-pjax-toggle id="unlike"><img style="height: 16px; margin-top: 1px;" src="{{ asset('icones/icones/like.png') }}" alt=""></a>
             </div>

@@ -46,6 +46,11 @@
 
 @yield("content")
 
+<div class="text-big">
+    <strong>easytrain</strong>
+    <p style="margin-top: 30px">Veuillez réduire la taille écran ou utiliser votre </p> <p style="margin-top: 0">mobile pour en profiter pleinement.</p>
+</div>
+
 <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ asset('js/jquery.pjax.js') }}"></script>
 

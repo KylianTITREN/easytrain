@@ -15,6 +15,19 @@
         .homeForm{
             background-image: none;
         }
+        @media screen and (max-width: 350px){
+            .swiper-container{
+                display: none;
+            }
+
+            .top-desc_login{
+                height: 20vh;
+            }
+
+            .formulaire-login{
+                height: 80vh;
+            }
+        }
     </style>
 
       <span class="goBack">

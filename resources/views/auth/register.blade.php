@@ -32,6 +32,20 @@
         .homeForm{
             background-image: none;
         }
+
+        @media screen and (max-width: 350px){
+            .swiper-container{
+                display: none;
+            }
+
+            .top-desc_register{
+                height: 20vh;
+            }
+
+            .formulaire-register{
+                height: 80vh;
+            }
+        }
     </style>
 
 
