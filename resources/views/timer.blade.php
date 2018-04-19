@@ -78,7 +78,7 @@ $icons = 'times';
         </span>
 
     <h1>chrono</h1>
-    <div id="timer">00:00</div>
+    <div id="timer">00:00:</br>00</div>
     <div>
         <button id="start">GO !</button>
         <button id="reset">Reset</button>
@@ -90,7 +90,8 @@ $icons = 'times';
             var timer = document.getElementById("timer");
             var stop = document.getElementById("stop");
             var reset = document.getElementById("reset");
-            var time = "00:00"
+            var time = "00:00:00"
+            var milliseconds = 0;
             var seconds = 0;
             var minutes = 0;
             var t;
@@ -98,16 +99,22 @@ $icons = 'times';
             timer.textContent = time;
 
             function buildTimer () {
-                seconds++;
-                if (seconds >= 60) {
-                    seconds = 0;
-                    minutes++;
-                    if (minutes >= 60) {
-                        minutes = 0;
+                milliseconds++;
+                if (milliseconds >=100) {
+                    milliseconds = 0;
+                    seconds++;
+                    if (seconds >= 60) {
+                        milliseconds = 0;
                         seconds = 0;
+                        minutes++;
+                        if (minutes >= 60) {
+                            minutes = 0;
+                            seconds = 0;
+                            milliseconds = 0;
+                        }
                     }
                 }
-                timer.textContent = (minutes < 10 ? "0" + minutes.toString(): minutes) + ":" + (seconds < 10 ? "0" + seconds.toString(): seconds);
+                timer.textContent = (minutes < 10 ? "0" + minutes.toString(): minutes) + ":" + (seconds < 10 ? "0" + seconds.toString(): seconds) + ":" + (milliseconds < 10 ? "0" + milliseconds.toString(): milliseconds);
             }
             function stopTimer () {
                 stop.addEventListener("click", function(){
@@ -117,13 +124,13 @@ $icons = 'times';
             function startTimer () {
                 start.addEventListener("click", function(){
                     clearTimeout(t);
-                    t = setInterval(buildTimer,1000);
+                    t = setInterval(buildTimer,1);
                 });
             }
             function resetTimer () {
                 reset.addEventListener("click", function(){
                     timer.textContent = time;
-                    seconds = 0; minutes = 0;
+                    milliseconds = 0; seconds = 0; minutes = 0;
                 });
             }
             return {

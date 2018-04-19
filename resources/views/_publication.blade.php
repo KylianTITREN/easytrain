@@ -58,7 +58,7 @@
                     <div style='width: 44px; height: 44px; border-radius: 16px; background-image: url("/uploads/avatars/{{ $p->utilisateur->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
                     <div style="display: flex; flex-direction: column; padding-left: 10px;">
                         <h5 style="color: #363636; margin: 0; font-size: 15px">{{$p->utilisateur->name}}</h5>
-                        <h style="color: #7E7E7E; font-size: 12px;">a publié un noveau programme</h>
+                        <h style="color: #7E7E7E; font-size: 12px;">a publié son humeur</h>
                     </div>
                 </a>
                 @if($p->utilisateur->id != Auth::id())
@@ -76,9 +76,16 @@
             <div class="like">
                 <h style="font-weight: 100;">{{ $p->likesCount }}</h>
 
-                <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><i style="color:#7FED72; font-size: 18px;" class="fa fa-heart"></i></a>
+                @if($p->likes)
 
-                <a href="/unliker/{{ $p->id }}" data-pjax-toggle id="unlike"><img style="height: 16px; margin-top: 1px;" src="{{ asset('icones/icones/like.png') }}" alt=""></a>
+                <a href="/unliker/{{ $p->id }}" data-pjax-toggle id="unlike"><i style="color:#7FED72; font-size: 18px;" class="fa fa-heart"></i></a>
+
+                @else
+
+                <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><img style="height: 16px; margin-top: 1px;" src="{{ asset('icones/icones/like.png') }}" alt=""></a>
+
+                @endif
+
             </div>
         </div>
 
