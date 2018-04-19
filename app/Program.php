@@ -16,8 +16,8 @@ class Program extends Model implements LikeableContract
         return $this->belongsTo('App\User','utilisateur_id');
     }
 
-    public function contient() {
-        return $this->hasMany('App\Contient','program_id');
+    public function exoProg() {
+        return $this->belongsToMany('App\Exercices','contient', 'program_id','exercice_id');
     }
 
 }

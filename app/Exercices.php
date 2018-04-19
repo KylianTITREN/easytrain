@@ -14,7 +14,7 @@ class Exercices extends Model
         return $this->belongsTo('App\Muscles', 'idMuscles');
     }
 
-    public function contient() {
-        return $this->hasMany('App\Contient','exercice_id');
+    public function progExo() {
+        return $this->belongsToMany('App\Program','contient','exercice_id','program_id');
     }
 }

@@ -23,6 +23,26 @@ $icons = 'times';
         justify-content: center;
     }
 
+    .select-muscle{
+        background: linear-gradient(#ffffff, #FFFFFF);
+        margin: 2px 0;
+        font-size: 14px;
+        border: none;
+        color: #65c959;
+        padding: 15px;
+        border-radius: 6px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        cursor: pointer;
+        display: block;
+    }
+
+    .programme-bloc{
+        display: grid;
+        grid-template-columns: 0.5fr 0.5fr;
+        grid-gap: 5px;
+        padding: 20px;
+    }
+
     .goBack i
     {
         font-size: 38px!important;
@@ -52,7 +72,7 @@ $icons = 'times';
     .exo_info p{
         color: white;
         margin: 30px;
-        font-weight: 300;
+        font-weight: 200;
     }
 
     .exo_card{
@@ -71,26 +91,22 @@ $icons = 'times';
         background-color: white;
         color: #65c959;
         border-radius: 50%;
-        padding: 1px 10px;
-        font-size: 30px;
+        padding: 2px 6px;
+        font-size: 15px;
         font-weight: bold;
-        margin-right: 10px;
+        margin-right: 4px;;
     }
 </style>
 
 <div class="exo_card">
 
         <span class="goBack">
-        <a href="/program" data-pjax><i class="fa fa-{{ $icons }}" aria-hidden="true"></i></a>
+        <a href="/program" data-pjax><img src="{{ asset('icones/icones/close.png') }}" alt=""></a>
         </span>
-
-
-
-    <div class='exo_couv' style="background-image: url('/uploads/program_photo/{{$programmes->cover}}'); height: 200px;"></div>
 
     <div class="exo_info">
 
-        <strong>{!! $programmes->nom !!}</strong>
+        <h style="text-align: center; margin: auto; display: block; color: white; font-family: roboto condensed; font-size: 23px; text-transform: uppercase; font-weight: 400;">{!! $programmes->nom !!}</h>
 
         @if($programmes->isLikedBy(Auth::user()->id))
 
@@ -103,8 +119,10 @@ $icons = 'times';
         @endif
 
         <p>{{ $programmes->likesCount }}</p>
+        <p>{!! $programmes->description !!}<br><b style="font-size: 12px;">Spécial @if($programmes->objectif == 1) Prise de masse @else @endif @if($programmes->objectif == 2) Sèche @else  @endif @if($programmes->objectif == 3) Perte de poids @else  @endif @if($programmes->objectif == 4) Entretien @else  @endif @if($programmes->objectif == 10) Non défini @else  @endif</b></p>
 
-        <p>{!! $programmes->description !!}<br><b>Spécial @if($programmes->objectif == 1) Prise de masse @else @endif @if($programmes->objectif == 2) Sèche @else  @endif @if($programmes->objectif == 3) Perte de poids @else  @endif @if($programmes->objectif == 4) Entretien @else  @endif @if($programmes->objectif == 10) Non défini @else  @endif</b></p>
+
+            <div style="margin: 25px 0;">
 
         @if($programmes->utilisateur_id == 0)
 
@@ -120,6 +138,9 @@ $icons = 'times';
         <form action="/add_exercices" data-pjax method="post" enctype="multipart/form-data">
             {{csrf_field()}}
 
+                <a href="" style="margin-left: 60px; padding: 5px 0; color: white; display: flex; align-items: center; font-size: 14px"><span class="add_exo">+</span> Ajouter des exercices</a>
+
+
             <select name="add_exo" id="fileSelect" style="display: none">
                 @foreach(\App\Exercices::all()  as $e)
 
@@ -130,11 +151,13 @@ $icons = 'times';
 
         </form>
 
-        @foreach($programmes->contient as $e)
+            <div class="programme-bloc">
 
-            {{ $e->exercice_id }}
+                @foreach($programmes->exoProg as $e)
+                    <a data-pjax class="select-muscle" href="/exercices/{{$e->id}}">{{$e->nom}}</a>
+                @endforeach
 
-        @endforeach
+            </div>
 
         @if($programmes->utilisateur_id == 0)
 
