@@ -12,7 +12,7 @@ h3
 .profil-header_grid1
 {
     display: grid;
-    grid-template-columns: 0.3fr 0.7fr;
+    grid-template-columns: 0.3fr 0.4fr;
     margin-left: 10px;
     margin-top: -40px;
 }

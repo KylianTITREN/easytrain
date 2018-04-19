@@ -115,7 +115,7 @@
             </div>
             <div class="publi_img" style="background-image: url('/uploads/publi_photo/{{$p->photo}}');"></div>
             <div class="publi_desc">
-                <small>{{$p->title}}</small>
+                <small style="font-family: 'Roboto'; font-weight: 100; color: #454545; font-size: 18px;">{{$p->title}}</small>
             </div>
             <div class="like">
                 <h style="font-weight: 100; margin-right: 3px;">{{ $p->likesCount }}</h>

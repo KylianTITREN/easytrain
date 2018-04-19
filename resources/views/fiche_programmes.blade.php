@@ -24,12 +24,14 @@ $icons = 'times';
     }
 
     .custom-select2 select{
-        background-color: white;
+        background-color: transparent;
         color: rgba(92, 92, 92, 0.4);
-        border: 0;
+        border: 2px solid white;
         -webkit-appearance: none;
-        width: 290px;
-        height: 40px;
+        width: 23px;
+        font-size: 16px;
+        color: white;
+        height: 23px;
     }
 
     .custom-select2 select:focus{
@@ -85,7 +87,9 @@ $icons = 'times';
     .exo_info p{
         color: white;
         margin: 30px;
-        font-weight: 200;
+        font-weight: 300;
+        font-size: 20px;
+        margin-bottom: 30px;
     }
 
     .exo_card{
@@ -121,7 +125,7 @@ $icons = 'times';
 
         <h style="text-align: center; margin: auto; display: block; color: white; font-family: roboto condensed; font-size: 23px; text-transform: uppercase; font-weight: 400;">{!! $programmes->nom !!}</h>
 
-        @if($programmes->isLikedBy(Auth::user()->id))
+       <!-- @if($programmes->isLikedBy(Auth::user()->id))
 
             <a href="/unliker2/{{ $programmes->id }}" data-pjax-toggle id="unlike"><i style="color:#7FED72; font-size: 18px;" class="fa fa-heart"></i></a>
 
@@ -131,9 +135,10 @@ $icons = 'times';
 
         @endif
 
-        <p>{{ $programmes->likesCount }}</p>
+        <p>{{ $programmes->likesCount }}</p> -->
         <p>{!! $programmes->description !!}<br><b style="font-size: 12px;">Spécial @if($programmes->objectif == 1) Prise de masse @else @endif @if($programmes->objectif == 2) Sèche @else  @endif @if($programmes->objectif == 3) Perte de poids @else  @endif @if($programmes->objectif == 4) Entretien @else  @endif @if($programmes->objectif == 10) Non défini @else  @endif</b></p>
 
+        <h style="color: white; margin-left: 30px; margin-bottom: 40px">Durée : {{ $programmes->durée }} semaines</h>
 
             <div style="margin: 25px 0;">
 
@@ -147,13 +152,13 @@ $icons = 'times';
                     <form action="/add_exo" data-pjax method="POST">
                         {{csrf_field()}}
 
-                        <div class="custom-select2">
+                        <div class="custom-select2" style="text-align: center; margin-top: 50px;">
 
                             <input type="text" name="programmes" value="{{$programmes->id}}" style="display: none;">
 
                         <select name="exercices">
 
-                                <option value="0" selected disabled>&nbsp; &nbsp; Ajouter un exercice :</option>
+                                <option value="0" selected disabled>&nbsp;+</option>
 
                             @foreach(\App\Exercices::all()  as $o)
 
@@ -163,9 +168,9 @@ $icons = 'times';
 
                         </select>
 
-                        </div>
+                            <input type="submit" style="color: white;" value="Ajouter">
 
-                        <input type="submit" value="Ajouter">
+                        </div>
 
                     </form>
 
@@ -174,7 +179,8 @@ $icons = 'times';
             <div class="programme-bloc">
 
                 @foreach($programmes->exoProg as $e)
-                    <a data-pjax class="select-muscle" href="/exercices/{{$e->id}}">{{$e->nom}}
+
+                    <div onclick="goTo{{$e->id}}();" style="display: flex; justify-content: space-between; flex-direction: row" data-pjax class="select-muscle" href="/exercices/{{$e->id}}">{{$e->nom}}
                         @if($programmes->utilisateur_id == 0)
 
                         @elseif($programmes->utilisateur->id != Auth::id())
@@ -183,19 +189,29 @@ $icons = 'times';
                             <a href="{{ url('/deleteexo/'.$e->id) }}" data-pjax-toggle style="font-size: 12px; color: red; opacity: 0.2; "><img
                                         src="{{ asset('icones/icones/delete.png') }}" alt=""></a>
                         @endif
-                    </a>
+                    </div>
+
+                    <script>
+                        function goTo{{$e->id}}(){
+                            window.location = '/exercices/{{$e->id}}';
+                        }
+                    </script>
+
                 @endforeach
 
-            </div>
+                    </div>
 
-        @if($programmes->utilisateur_id == 0)
+                    @if($programmes->utilisateur_id == 0)
 
 
-        @elseif($programmes->utilisateur->id != Auth::id())
+                    @elseif($programmes->utilisateur->id != Auth::id())
 
-        @else
-            <a href="{{ url('/deleteprog/'.$programmes->id) }}" data-pjax-toggle style="font-size: 12px; color: red; opacity: 0.2; ">Supprimer</a>
-        @endif
+                    @else
+                        <a href="{{ url('/deleteprog/'.$programmes->id) }}" data-pjax-toggle style="font-size: 14px; color: white; text-align: center; display: block;">Supprimer</a>
+                    @endif
+
+
+
 
 
     </div>
