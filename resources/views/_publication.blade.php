@@ -46,11 +46,14 @@
                     <a href="{{ url('/deletepubli/'.$p->id) }}" data-pjax-toggle style="font-size: 12px; color: red; opacity: 0.2; ">Supprimer</a>
                 @endif
             </div>
-            @if($p->likes->contains(auth()->user()))
-                <a href="/unliker/{{ $p->id }}" data-pjax-toggle id="unlike"><i class="fa fa-heart"></i></a>
-            @else
-                <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><i style="color:red;"  class="fa fa-heart"></i></a>
-            @endif
+
+            @foreach ($p->likes as $l)
+                @if($l->user_id == Auth::user()->id)
+                    <a href="/unliker/{{ $p->id }}" data-pjax-toggle id="unlike"><i class="fa fa-heart"></i></a>
+                @elseif(!empty($l))
+                    <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><i style="color:red;"  class="fa fa-heart"></i></a>
+                @endif
+            @endforeach
 
             <p>{{ $p->likesCount }}</p>
 
