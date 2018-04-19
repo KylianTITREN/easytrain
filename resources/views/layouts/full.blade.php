@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
 
+
     <link rel="apple-touch-icon" href="{{ asset('icones/apple-touch-icon.png') }}"/>
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('icones/apple-touch-icon-72x72.png') }}"/>
     <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('icones/apple-touch-icon-114x114.png') }}"/>

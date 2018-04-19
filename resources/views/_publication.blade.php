@@ -5,7 +5,10 @@
         overflow: hidden;
         padding: 13px 0;
         background-color: white;
-        margin: 20px 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
         border-radius: 15px;
         box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
     }
@@ -26,7 +29,8 @@
     }
 
     .publi h5{
-        margin-left: 10px;
+        padding-left: 10px;
+        margin: 0;
     }
 
     .like
@@ -53,10 +57,10 @@
     @if(empty($p->photo))
 
         <div class="publi">
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 17px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin: 4px 17px;">
                 <a href="{{url('/profile/'.$p->utilisateur->id)}}" style="display: flex; align-items: center" data-pjax>
                     <div style='width: 44px; height: 44px; border-radius: 16px; background-image: url("/uploads/avatars/{{ $p->utilisateur->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
-                    <div style="display: flex; flex-direction: column; padding-left: 10px;">
+                    <div style="display: flex; flex-direction: column; padding-top: 10px;">
                         <h5 style="color: #363636; margin: 0; font-size: 15px">{{$p->utilisateur->name}}</h5>
                         <h style="color: #7E7E7E; font-size: 12px;">a publié son humeur</h>
                     </div>
@@ -92,22 +96,33 @@
     @else
     
         <div class="publi">
-            <div style="background-color: white; width: 100%; display: flex; align-items: center; padding: 4px 10px;">
+            <div style="background-color: white; display: flex; align-items: center; margin: 4px 10px; padding-bottom: 13px; justify-content: space-between">
                 <a href="{{url('/profile/'.$p->utilisateur->id)}}" style="display: flex; align-items: center" data-pjax>
-                    <div style='width: 44px; height: 44px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ $p->utilisateur->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
-                    <h5>{{$p->utilisateur->name}}</h5>
+                    <div style="display: flex; flex-direction: row">
+                        <div style='width: 44px; height: 44px; border-radius: 16px; background-image: url("/uploads/avatars/{{ $p->utilisateur->avatar }}"); background-size: cover; background-repeat: no-repeat; border: none!important;'></div>
+                        <div style="    padding-top: 10px;">
+                            <h5>{{$p->utilisateur->name}}</h5>
+                            <h style="padding-left: 10px; color: #7E7E7E; font-size: 12px;">a publié un noveau programme</h>
+                        </div>
+                    </div>
+                    @if($p->utilisateur->id != Auth::id())
+
+                    @else
+                        <a href="{{ url('/deletepubli/'.$p->id) }}" data-pjax-toggle style="font-size: 12px; color: red; opacity: 0.2; "><img
+                                    src="{{ asset('icones/icones/delete.png') }}" alt=""></a>
+                    @endif
                 </a>
             </div>
             <div class="publi_img" style="background-image: url('/uploads/publi_photo/{{$p->photo}}');"></div>
             <div class="publi_desc">
                 <small>{{$p->title}}</small>
-                <br>
-                @if($p->utilisateur->id != Auth::id())
+            </div>
+            <div class="like">
+                <h style="font-weight: 100;">{{ $p->likesCount }}</h>
 
-                @else
-                    <a href="{{ url('/deletepubli/'.$p->id) }}" data-pjax-toggle style="font-size: 12px; color: red; opacity: 0.2; "><img
-                                src="{{ asset('icones/icones/delete.png') }}" alt=""></a>
-                @endif
+                <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><i style="color:#7FED72; font-size: 18px;" class="fa fa-heart"></i></a>
+
+                <a href="/unliker/{{ $p->id }}" data-pjax-toggle id="unlike"><img style="height: 16px; margin-top: 1px;" src="{{ asset('icones/icones/like.png') }}" alt=""></a>
             </div>
         </div>
 

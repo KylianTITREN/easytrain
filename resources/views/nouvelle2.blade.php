@@ -79,13 +79,15 @@ $icons = 'times';
         }
 
         .next-btn, .next-btn2, .next-btn3, .next-btn4, .next-btn5, .next-btn6, .prev-btn, .prev-btn2, .prev-btn3, .prev-btn4, .prev-btn5, .prev-btn6{
-            background-color: white;
-            border-radius: 50%;
-            color: #7FED72;
-            font-size: 22px;
-            padding: 10px 15px;
             font-weight: bold;
             cursor: pointer;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            font-weight: 300;
+            padding: 10px 30px;
+            font-size: 19px;
+            background-color: transparent;
         }
 
         .prev-btn, .prev-btn2, .prev-btn3, .prev-btn4, .prev-btn5, .prev-btn6{
@@ -118,7 +120,7 @@ $icons = 'times';
             font-family: 'Roboto';
             font-weight: 100;
             color: #454545;
-            font-size: 25px;
+            font-size: 18px;
         }
 
         .publication-form input
@@ -127,6 +129,17 @@ $icons = 'times';
             font-weight: 100;
             color: #454545;
             font-size: 25px;
+        }
+
+        .next-btn
+        {
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            font-weight: 300;
+            padding: 10px 30px;
+            font-size: 19px;
+            background-color: transparent;
         }
 
     </style>
@@ -142,12 +155,12 @@ $icons = 'times';
 
                 <div class="prog1">
                     <h3>Nom du programme</h3>
-                    <input id="name" type="text" class="form-control" name="nom" value="{{ old('name') }}" placeholder="Ex : Mon programme" required autofocus>
+                    <input id="name" type="text" class="form-control" name="nom" value="{{ old('name') }}" placeholder="Ex : Mon programme de la semaine" required autofocus>
                 </div>
 
                 <div class="prog1">
                     <h3>Description</h3>
-                    <textarea name="desc" id="description" style="resize: inherit; width: 270px; height: 100px; border-radius: 15px; border: none; padding: 10px; color: grey;"></textarea>
+                    <textarea name="desc" id="description" style="resize: inherit; width: 270px; height: 100px; border-radius: 15px; border: none; padding: 10px; color: grey;" placeholder="Ex : Séance bras, pecs difficile ..."></textarea>
                 </div>
 
                 <div class="prog2">
@@ -201,13 +214,13 @@ $icons = 'times';
             </div>
 
             <div class="btn-part">
-                <span class="prev-btn"> < </span>
-                <span class="prev-btn2"> < </span>
-                <span class="prev-btn3"> < </span>
+                <span class="prev-btn"> Précédent </span>
+                <span class="prev-btn2"> Précédent </span>
+                <span class="prev-btn3"> Précédent </span>
 
-                <span class="next-btn"> > </span>
-                <span class="next-btn2"> > </span>
-                <span class="next-btn3"> > </span>
+                <span class="next-btn"> Suivant </span>
+                <span class="next-btn2"> Suivant </span>
+                <span class="next-btn3"> Suivant </span>
                 <input type="submit" name="submit" class="next-btn4" value="Créer" style="border: none; border-radius: 25px">
             </div>
 

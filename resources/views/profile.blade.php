@@ -10,13 +10,10 @@ $page = 'edit';
 
 <style>
     .profil-principal{
-        background-color: white;
         width: 100vw;
-        border-radius: 40px 40px 0 0;
-        box-shadow: -5px -0.5px 2em rgba(0,0,0,0.1);
         min-height: 60vh;
         margin: 0;
-        margin-top:30px;
+        padding-bottom: 70px;
     }
 
     .profil_sec{
@@ -27,7 +24,7 @@ $page = 'edit';
     {
         font-family: 'Cocogoose';
         font-size: 17px;
-        padding: 20px 0 25px 20px;
+        padding: 10px 0 0px 20px;
         color: #414141;
         text-align: left;
     }
@@ -122,7 +119,7 @@ $page = 'edit';
 
     <div class="profil-principal">
 
-        <h3>publications <small style="color: grey;">( {{count($utilisateur->publications)}} )</small></h3>
+        <h3>publications <small style="color: #7FED72;">({{count($utilisateur->publications)}})</small></h3>
 
         @if(count($utilisateur->publications)==0)
             <h4 style="margin-left: 30px; color: #a7a7a7">Pas encore publié</h4>

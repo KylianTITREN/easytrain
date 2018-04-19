@@ -19,7 +19,7 @@ $page = '';
             align-items: center;
             height: 100%;
             margin-left: 20px;
-            font-size: 20px!important;
+            font-size: 15px!important;
             color: #7FED72;
         }
 
@@ -33,6 +33,7 @@ $page = '';
 
         .field h3{
             margin-left: 20px;
+            font-weight: 400;
         }
 
         .field input{
@@ -64,11 +65,12 @@ $page = '';
             top: 19px;
             border: none;
             background-color: inherit;
-            font-size: 20px!important;
+            font-size: 15px!important;
             color: #7FED72;
             cursor: pointer;
             font-weight: bold;
             z-index: 99;
+            padding-top: 4px;
         }
 
         .homeForm{
@@ -85,7 +87,7 @@ $page = '';
     </header>
 
 
-    <section>
+    <section style="margin: 0">
         <div class="profil-header">
             <div class="profil-header_grid1">
                 <div onclick="choosePp();"id="blah2"  style='cursor: pointer;z-index:99;width: 80px; height: 80px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ $utilisateur->avatar }}"); background-size: cover; background-repeat: no-repeat;'>
@@ -103,11 +105,11 @@ $page = '';
             <input type="hidden" name="_token" value="{{ csrf_token() }}" style="display: none">
 
             <div class="field">
-                <h3>Nom</h3><input type="text" id='name' name="name" placeholder="{{$utilisateur->name}}" value="{{$utilisateur->name}}">
+                <h3>Nom</h3><input type="text" id='name' name="name" style="color: grey;" placeholder="{{$utilisateur->name}}" value="{{$utilisateur->name}}">
             </div>
 
             <div class="field">
-                <h3>Bio</h3><input type="text" id='biographie' name="biographie" placeholder="Ajouter une bio" value="{{$utilisateur->biographie}}">
+                <h3>Bio</h3><input type="text" id='biographie' style="color: grey" name="biographie" placeholder="Ajouter une bio" value="{{$utilisateur->biographie}}">
             </div>
 
             <div class="field">
@@ -140,7 +142,7 @@ $page = '';
             <input type="submit" class="submit" value="Enregistrer">
         </form>
 
-        <a style="margin-top: 30px; display: flex; width: 100%; justify-content: center; color: red; font-weight: bold; text-decoration: underline" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" data-pjax>Déconnexion</a>
+        <a style="margin-top: 30px; display: flex; width: 100%; justify-content: center; color: red; font-weight: bold; font-family: Cocogoose; " href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" data-pjax>déconnexion</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             {{ csrf_field() }}
         </form>

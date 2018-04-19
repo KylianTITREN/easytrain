@@ -24,7 +24,6 @@ $icons = 'times';
             display: flex;
             width: 100%;
             align-items: flex-start;
-            background-color: white;
         }
 
         .publication-form form{
@@ -64,11 +63,12 @@ $icons = 'times';
         .add_prog{
             border-radius: 15px;
             cursor: pointer;
-            background: linear-gradient(#64bb5a, #7dda74);
-            color: white;
-            font-size: 16px;
+            border: 2px solid #64bb5a;
+            font-weight: 400;
+            color: #64bb5a;
+            font-size: 13px;
             text-align: center;
-            padding: 12px;
+            padding: 9px;
             margin-right: 20px;
         }
 
@@ -91,10 +91,10 @@ $icons = 'times';
         <a href="/accueil" data-pjax><i class="fa fa-{{ $icons }}" aria-hidden="true" style="color: #2EB11F"></i></a>
     </header>
 
-        <section class="publication-form" style="height: 100vh;">
+        <section class="publication-form" style="height: 100vh; background-color: white;">
 
             <div class="publication-info_avatar" style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">
-                <div style='width: 44px; height: 44px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ Auth::user()->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
+                <div style='width: 44px; height: 44px; border-radius: 16px; background-image: url("/uploads/avatars/{{ Auth::user()->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
             </div>
 
             <form action="/creer" data-pjax method="post" enctype="multipart/form-data">
@@ -109,8 +109,9 @@ $icons = 'times';
 
                     <a class='add_prog' href="/nouvelle2">Créer un programme</a>
 
-                    <div onclick="chooseFile();" style="cursor: pointer; overflow: hidden; width: 40px; height: 40px; border-radius: 15px; border: 1px solid #2EB11F;">
-                        <span style="display: flex;  align-items: center; justify-content: center; font-weight: bold; font-size: 35px; color: #2EB11F; height: 100%;">+</span>
+                    <div onclick="chooseFile();" style="cursor: pointer; overflow: hidden; width: 40px; height: 40px;">
+                        <span style="display: flex;  align-items: center; justify-content: center; font-weight: bold; font-size: 35px; color: #2EB11F; height: 100%;"><img
+                                    src="{{ asset('icones/icones/photo.png') }}" alt=""></span>
                     </div>
 
                     <div id="blah" style="overflow: hidden; width: 41px; height: 41px; background-position: center; background-size: cover; border-radius: 15px; margin-left: 10px;"></div>

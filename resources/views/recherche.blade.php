@@ -31,8 +31,9 @@ $icons = 'comments';
 
     .recherche_user h5 {
         font-size: 18px;
-        margin-left: 10px;
         color: grey;
+        margin: 0;
+        padding-left: 10px;
     }
 
     .programme-bloc{
@@ -63,7 +64,7 @@ $icons = 'comments';
             <div class="recherche_user">
                 <a href={{url('/profile/'.$u->id)}} data-pjax>
                     <div style='width: 44px; height: 44px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ $u->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
-                    <h5>{{$u->name}}</h5>
+                    <h5 style="margin: 0; padding-left: 10px">{{$u->name}}</h5>
                 </a>
             </div>
         @endforeach

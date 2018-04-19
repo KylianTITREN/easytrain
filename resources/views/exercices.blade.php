@@ -52,9 +52,9 @@ $icons = 'times';
 
         <div class="programme">
 
-                <div class="programme-bloc">
+                <h3><a href="/program" data-pjax> < retour au muscles</a></h3> <div></div>
 
-                        <h3><a href="/program" style="text-decoration: underline" data-pjax> < retour au muscles</a></h3> <div></div>
+                <div class="programme-bloc">
 
                         @include('_exercices', ['muscle'=>$muscle->exercices])
 
