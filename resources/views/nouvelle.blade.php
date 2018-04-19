@@ -99,9 +99,15 @@ $icons = 'times';
 
             <form action="/creer" data-pjax method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
+                
                 <textarea name="nom" id="nom" value="{{old('nom')}}" style="background-color: transparent;" required autofocus placeholder="Publier votre humeur.."></textarea>
 
+                <textarea name="nom" id="nom" required autofocus placeholder="Publier votre humeur..">{{old('nom')}}</textarea>
+
+                @include('_errors')
+
                 <hr style="margin-left: -200px">
+
                 <div style="display: flex; align-items: center; height: 60px;  margin-left: -60px; margin-bottom: 100px;">
 
                     <a class='add_prog' href="/nouvelle2">Créer un programme</a>
