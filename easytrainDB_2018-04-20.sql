@@ -7,7 +7,7 @@
 #
 # Hôte: localhost (MySQL 5.6.38)
 # Base de données: easytrainDB
-# Temps de génération: 2018-04-19 18:04:54 +0000
+# Temps de génération: 2018-04-19 23:46:42 +0000
 # ************************************************************
 
 
@@ -30,6 +30,36 @@ CREATE TABLE `contient` (
   `exercice_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `contient` WRITE;
+/*!40000 ALTER TABLE `contient` DISABLE KEYS */;
+
+INSERT INTO `contient` (`program_id`, `exercice_id`)
+VALUES
+	(3,3),
+	(3,1),
+	(3,26),
+	(3,29),
+	(3,36),
+	(3,35),
+	(3,14),
+	(3,19),
+	(3,32),
+	(3,30),
+	(3,48),
+	(3,52),
+	(7,3),
+	(7,5),
+	(7,10),
+	(7,17),
+	(7,14),
+	(7,26),
+	(7,32),
+	(7,35),
+	(7,45),
+	(7,10);
+
+/*!40000 ALTER TABLE `contient` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Affichage de la table exercices
@@ -53,7 +83,6 @@ LOCK TABLES `exercices` WRITE;
 INSERT INTO `exercices` (`id`, `nom`, `description`, `image`, `idMuscles`)
 VALUES
 	(1,'Développé couché barre ','Le développé couché (bench press en anglais) est l’exercice de référence pour la musculation des pectoraux. Cet exercice poly-articulaire permet de se muscler l’ensemble des muscles de la poitrine et plus particulièrement le muscle grand pectoral. Le développé couché qui fait partie des trois mouvement de force athlétique est très efficace pour prendre de la masse musculaire car il permet de travailler avec des charges lourdes.','dev-couché.png',3),
-	(2,'Développé couché haltères','Le développé couché haltères est une variante du développé couché avec barre mais permet un mouvement plus naturel, une meilleure contraction des pectoraux et un plus grand étirement des muscles.','Dev-couché-haltère.png',3),
 	(3,'Pompes au sol','Il existe plusieurs variantes de cet exercices mondialement connu. Il permet de travailler le haut du corps et principalement les pectoraux avec le poids du corps. Pour les débutants, il est possible de poser les genoux au sol. ','pompes.gif',3),
 	(4,'Écarté couché haltères','Ce mouvement permet d’isoler les pectoraux afin d’améliorer le développement de ces derniers. Il peut se réaliser droit (centre des pectoraux) , incliné (haut des pectoraux) ou décliné (bas des pectoraux). ','écarté haltère.png',3),
 	(5,'Dips','Cet exercice nécessite deux barres parallèles. Il permet de développer le haut du corps et plus précisément les pectoraux avec le poids du corps. \r\nAttention à ne pas descendre trop bas car il existe un risque de blessure. ','Dips.png',3),
@@ -61,7 +90,6 @@ VALUES
 	(7,'Développé incliné barres/haltères','Il s’agit du même exercice que le développé couché mais avec une inclinaison du bac. Plus le banc sera incliné, plus la partie haute des pectoraux sera isolée.','dev-incliné.png',3),
 	(8,'Développé épaules','Aussi appelé développé haltères ou développé militaire, cet exercice sollicite énormément les épaules et indirectement les triceps. Il se réalise assis. Attention à garder le dos bien droit pour éviter les blessures. ','dev-nuque.png',4),
 	(9,'Élévations latérales','Cet exercice assez douloureux permet d’isoler au maximum les épaules. Il est a pratiquer avec des charges relativement légères pour éviter les blessures. Vous risquez cependant d’avoir l’air d’un oiseau.','élévation latérale.png',4),
-	(10,'Élévations frontales','Pour réaliser cet exercice, il suffit d’élever les bras devant soi jusqu’à ce qu’ils soient parallèles au sol. Attention à garder le corps bien droit et ne pas s’aider des lombaires. ','Elevation-frontal.png',4),
 	(11,'Élévations buste penché','Ne vous inquiétez pas, le ridicule ne tue pas. Penchez-vous en avant, les jambes tendues et le dos bien droit et effectuez le même mouvement que les élévations latérales avec haltères. ','élévation-lat-buste-penche.png',4),
 	(12,'Tirage menton','Aussi appelé Rowing menton, cet exercice consiste à amener les mains au niveau du menton tout en gardant les coudes levés. Il travaille les épaules mais aussi les trapèzes. ','Tirage-menton.png',4),
 	(14,'Tractions','Tout le monde connait l’exercice des tractions. Il s’agit de tenir une barre dans les mains et de hisser les épaules de niveau de cette barre en ayant les pieds suspendus. Cet exercice au poids de corps est très difficile pour les personnes lourdes. ','Traction.png',5),
@@ -69,7 +97,7 @@ VALUES
 	(16,'Tirage poitrine','Cet exercice est une variante des tractions. Il permet de réaliser le même mouvement mais avec un poids variable que l’on peut choisir sur la machine. Il faut faire passer la barre devant la tête et la tirer jusqu’à la poitrine.','tirage poitrine.png',5),
 	(17,'Soulevé de Terre','Attention : faites vous aider la première fois que vous réalisez cet exercice car il nécessite une maîtrise du geste. ','soulevé de terre.png',5),
 	(19,'Tirage assis','Assis, vous devez amener la barre au niveau de votre ventre. Attention à garder le dos bien droit pour éviter les blessures. ','Tirage-assis.png',5),
-	(20,'Extensions au banc','Cet exercice permet de travailler les lombaires correctement. Si il s’avère trop simple pour vous, n’hésitez pas à prendre un poids dans vos bras. ','extensions-banc.png',6),
+	(20,'Extensions au banc','Cet exercice permet de travailler les lombaires correctement. Si il s’avère trop simple pour vous, n’hésitez pas à prendre un poids dans vos bras. ','extensions-banc.png',10),
 	(21,'Développé nuque','Il s’agit du même exercice que le développé militaire (ou développé épaule) mais cette fois-ci avec une barre à la place des haltères. ','dev-nuque.png',7),
 	(25,'Haussements d’épaule','Avec des haltères dans chaque main ou avec une barre, effectuez des mouvements circulaires avec les épaules.','haussement-epaule.png',7),
 	(26,'Curl barre','Cet exercice est le meilleur pour isoler les biceps. Attention aux charges trop lourdes qui peuvent blesser votre coude. Échauffez-vous correctement avant. ','curl-barre.png',8),
@@ -77,29 +105,29 @@ VALUES
 	(28,'Curl pupitre','Cet exercice est le meilleur pour isoler les biceps. Attention aux charges trop lourdes qui peuvent blesser votre coude. Échauffez-vous correctement avant. ','curl-barre.png',8),
 	(29,'Curl prise marteau','Cet exercice est le meilleur pour isoler les biceps. Attention aux charges trop lourdes qui peuvent blesser votre coude. Échauffez-vous correctement avant. ','curl-barre.png',8),
 	(30,'Barre front','Pour débuter cet exercice, prenez une barre sans poids afin de bien appréhender le mouvement et ne pas être surpris par le poids; vous risquerez de faire tomber la barre sur votre visage. ','barre-au-front.png',9),
-	(32,'Kick Back','Posez un genou sur le banc, prenez une haltère et effectuez le mouvement ci-dessous avec beaucoup de rigueur. ','kick-back.png',9),
 	(33,'Extensions à la poulie','Avec une corde, disponible dans toutes les salles de sports, approchez vos mains de votre bassin et effectuez un mouvement d’écartement. ','ext-poulie.png',9),
-	(34,'Flexion des poignets','Il s’agit de poser ses coudes sur un banc, de prendre la barre dans les mains et d’affection des flexions de poignets. Cet exercice isole parfaitement les avant-bras et vous rendra meilleur au bras de fer!','flexion-poignet.png',10),
+	(34,'Flexion des poignets','Il s’agit de poser ses coudes sur un banc, de prendre la barre dans les mains et d’affection des flexions de poignets. Cet exercice isole parfaitement les avant-bras et vous rendra meilleur au bras de fer!','flexion-poignet.png',6),
 	(35,'Crunch','Simple et efficace pour muscler les abdominaux, il faut tout de même pensez à ne pas trop courber le dos. ','crunch.png',11),
-	(36,'Gainage','L\'exercice semble simple mais la vérité est tout autre. À réaliser au minimu 15 secondes pour que l\'exercice soit efficace. Pensez à garder le dos bien droit et les fesses bien levées.','',11),
+	(36,'Gainage','L\'exercice semble simple mais la vérité est tout autre. À réaliser au minimu 15 secondes pour que l\'exercice soit efficace. Pensez à garder le dos bien droit et les fesses bien levées.','gainage.jpg',11),
 	(37,'Crunch oblique','Simple et efficace pour muscler les abdominaux, il faut tout de même pensez à ne pas trop courber le dos. ','',11),
 	(38,'Relevé de jambe','Idéal pour travailler le bas des abdos et le fameux V (les obliques), cet exercice est indispensable pour travailler correctement les abdos. Il faut l’effectuer en dernier. ','releve jambe.png',11),
-	(39,'Squat','Attention : faites-vous aider lors de votre premier Squat! Il faut garder le dos bien droit et ressortir les fesses en arrière. ','',12),
+	(39,'Squat','Attention : faites-vous aider lors de votre premier Squat! Il faut garder le dos bien droit et ressortir les fesses en arrière. ','3.gif',12),
 	(40,'Leg extension','Il s’agit du même principe que pour les bras mais avec les machines adaptées aux jambes. Ne chargez pas trop la machine pour débuter et éviter les blessures. ','leg-extension.png',12),
 	(41,'Presse','ATTENTION ! ! ! : Ne jamais tendre les jambes complètement!. ','presse.png',12),
-	(42,'Fentes','Exercice de base en musculation, la fente avant est d’une efficacité redoutable pour raffermir les fesses et se sculpter de belles jambes galbées.','',12),
+	(42,'Fentes','Exercice de base en musculation, la fente avant est d’une efficacité redoutable pour raffermir les fesses et se sculpter de belles jambes galbées.','5.gif',12),
 	(43,'Leg curl','Il s’agit du même principe que pour les bras mais avec les machines adaptées aux jambes. Ne chargez pas trop la machine pour débuter et éviter les blessures. ','leg curl.png',13),
 	(44,'Soulevé de terre','Attention : faites vous aider la première fois que vous réalisez cet exercice car il nécessite une maîtrise du geste. ','soulevé de terre.png',13),
-	(45,'Squat','Attention : faites-vous aider lors de votre premier Squat! Il faut garder le dos bien droit et ressortir les fesses en arrière. ','',14),
-	(46,'Fentes sautées','Exercice de base en musculation, la fente avant est d’une efficacité redoutable pour raffermir les fesses et se sculpter de belles jambes galbées.','',14),
-	(47,'Jumping jack','Exercice à consommer sans modération. Vous pouvez le réaliser chez vous sans aucun problème puisqu’il ne nécessite aucun matériel. ','',14),
-	(48,'Squat','Attention : faites-vous aider lors de votre premier Squat! Il faut garder le dos bien droit et ressortir les fesses en arrière. ','',15),
+	(45,'Squat','Attention : faites-vous aider lors de votre premier Squat! Il faut garder le dos bien droit et ressortir les fesses en arrière. ','3.gif',14),
+	(46,'Fentes sautées','Exercice de base en musculation, la fente avant est d’une efficacité redoutable pour raffermir les fesses et se sculpter de belles jambes galbées.','5.gif',14),
+	(47,'Jumping jack','Exercice à consommer sans modération. Vous pouvez le réaliser chez vous sans aucun problème puisqu’il ne nécessite aucun matériel. ','7.gif',14),
+	(48,'Squat','Attention : faites-vous aider lors de votre premier Squat! Il faut garder le dos bien droit et ressortir les fesses en arrière. ','3.gif',15),
 	(49,'Soulevé de terre','Attention : faites vous aider la première fois que vous réalisez cet exercice car il nécessite une maîtrise du geste. ','soulevé de terre.png',15),
-	(50,'Fentes','Exercice de base en musculation, la fente avant est d’une efficacité redoutable pour raffermir les fesses et se sculpter de belles jambes galbées.','',15),
-	(51,'Fentes sautées','Exercice de base en musculation, la fente avant est d’une efficacité redoutable pour raffermir les fesses et se sculpter de belles jambes galbées.','',15),
+	(50,'Fentes','Exercice de base en musculation, la fente avant est d’une efficacité redoutable pour raffermir les fesses et se sculpter de belles jambes galbées.','5.gif',15),
+	(51,'Fentes sautées','Exercice de base en musculation, la fente avant est d’une efficacité redoutable pour raffermir les fesses et se sculpter de belles jambes galbées.','5.gif',15),
 	(52,'Mollets debout','Exercice très simple. Si il devient trop facile, augmentez le poids. ','mollet.png',16),
 	(53,'Mollets assis','Exercice très simple. Si il devient trop facile, augmentez le poids.','mollet.png',16),
-	(54,'Pompes prise serrée','Il existe plusieurs variantes de cet exercices mondialement connu. Il permet de travailler le haut du corps et principalement les pectoraux ainsi que les triceps avec le poids du corps. Pour les débutants, il est possible de poser les genoux au sol. ','',0);
+	(54,'Pompes prise serrée','Il existe plusieurs variantes de cet exercices mondialement connu. Il permet de travailler le haut du corps et principalement les pectoraux ainsi que les triceps avec le poids du corps. Pour les débutants, il est possible de poser les genoux au sol. ','1.gif',9),
+	(55,'Pompes sautées','Il existe plusieurs variantes de cet exercices mondialement connu. Il permet de travailler le haut du corps et principalement les pectoraux avec le poids du corps. Pour les débutants, il est possible de poser les genoux au sol. ','2.gif',3);
 
 /*!40000 ALTER TABLE `exercices` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -128,11 +156,10 @@ LOCK TABLES `love_like_counters` WRITE;
 
 INSERT INTO `love_like_counters` (`id`, `likeable_id`, `likeable_type`, `type_id`, `count`, `created_at`, `updated_at`)
 VALUES
-	(8,26,'App\\Publication','LIKE',0,'2018-04-19 01:00:11','2018-04-19 08:11:59'),
-	(9,14,'App\\Publication','LIKE',0,'2018-04-19 01:13:00','2018-04-19 08:11:57'),
-	(10,37,'App\\Publication','LIKE',0,'2018-04-19 01:14:20','2018-04-19 18:02:07'),
-	(11,2,'App\\Program','LIKE',1,'2018-04-19 01:20:12','2018-04-19 01:25:26'),
-	(12,43,'App\\Publication','LIKE',0,'2018-04-19 17:23:30','2018-04-19 17:24:08');
+	(18,48,'App\\Publication','LIKE',2,'2018-04-19 21:48:54','2018-04-19 22:51:00'),
+	(19,49,'App\\Publication','LIKE',1,'2018-04-19 21:49:12','2018-04-19 21:49:12'),
+	(20,47,'App\\Publication','LIKE',2,'2018-04-19 21:49:20','2018-04-19 23:22:33'),
+	(21,50,'App\\Publication','LIKE',1,'2018-04-19 21:58:05','2018-04-19 21:58:05');
 
 /*!40000 ALTER TABLE `love_like_counters` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -162,7 +189,12 @@ LOCK TABLES `love_likes` WRITE;
 
 INSERT INTO `love_likes` (`id`, `likeable_id`, `likeable_type`, `user_id`, `type_id`, `created_at`, `updated_at`)
 VALUES
-	(40,2,'App\\Program',1,'LIKE','2018-04-19 01:25:26','2018-04-19 01:25:26');
+	(74,48,'App\\Publication',10,'LIKE','2018-04-19 21:48:54','2018-04-19 21:48:54'),
+	(75,49,'App\\Publication',10,'LIKE','2018-04-19 21:49:12','2018-04-19 21:49:12'),
+	(77,47,'App\\Publication',11,'LIKE','2018-04-19 21:49:29','2018-04-19 21:49:29'),
+	(78,48,'App\\Publication',11,'LIKE','2018-04-19 21:49:45','2018-04-19 21:49:45'),
+	(79,50,'App\\Publication',12,'LIKE','2018-04-19 21:58:05','2018-04-19 21:58:05'),
+	(80,47,'App\\Publication',10,'LIKE','2018-04-19 22:13:33','2018-04-19 22:13:33');
 
 /*!40000 ALTER TABLE `love_likes` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -217,9 +249,9 @@ VALUES
 	(4,'Épaules',''),
 	(5,'Dos',''),
 	(6,'Avant-bras',''),
-	(7,'Triceps',''),
+	(7,'Trapèzes',''),
 	(8,'Biceps',''),
-	(9,'Trapèzes',''),
+	(9,'Triceps',''),
 	(10,'Lombaires',''),
 	(11,'Abdominaux',''),
 	(12,'Quadriceps',''),
@@ -273,7 +305,7 @@ LOCK TABLES `objectif` WRITE;
 INSERT INTO `objectif` (`id`, `nom`)
 VALUES
 	(1,'Prise de masse'),
-	(2,'Séche'),
+	(2,'Sèche'),
 	(3,'Perte de poids'),
 	(4,'Entretien'),
 	(10,'Non défini');
@@ -305,7 +337,6 @@ CREATE TABLE `programme` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(30) NOT NULL DEFAULT 'Mon programme',
   `description` varchar(255) DEFAULT NULL,
-  `cover` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `durée` int(11) NOT NULL,
   `niveau` int(11) NOT NULL,
   `objectif` int(11) NOT NULL,
@@ -318,9 +349,9 @@ CREATE TABLE `programme` (
 LOCK TABLES `programme` WRITE;
 /*!40000 ALTER TABLE `programme` DISABLE KEYS */;
 
-INSERT INTO `programme` (`id`, `nom`, `description`, `cover`, `durée`, `niveau`, `objectif`, `utilisateur_id`, `created_at`, `updated_at`)
+INSERT INTO `programme` (`id`, `nom`, `description`, `durée`, `niveau`, `objectif`, `utilisateur_id`, `created_at`, `updated_at`)
 VALUES
-	(2,'Sèche - Confirmé','test de programme','',6,3,2,1,'2018-04-18 23:00:10','2018-04-18 22:49:07');
+	(3,'Programme prise de masse','Prise de masse = 4 séries par exercices - de 8 à 12 répétitions - Charges moyennes \r\nPratiquer au minimum 2 exercices différents par muscles.',5,1,1,0,'2018-04-19 20:51:45','0000-00-00 00:00:00');
 
 /*!40000 ALTER TABLE `programme` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -346,9 +377,10 @@ LOCK TABLES `publications` WRITE;
 
 INSERT INTO `publications` (`id`, `photo`, `title`, `created_at`, `updated_at`, `utilisateur_id`)
 VALUES
-	(14,NULL,'Coucou','2018-04-17 08:34:03','2018-04-17 08:34:03',6),
-	(26,NULL,'Jjvv','2018-04-17 08:50:34','2018-04-17 08:50:34',6),
-	(37,NULL,'nouveau post','2018-04-19 01:14:18','2018-04-19 01:14:18',1);
+	(47,NULL,'Go à la salle ??','2018-04-19 21:48:14','2018-04-19 21:48:14',10),
+	(48,NULL,'enfin une application parfaite pour le sport ! ?','2018-04-19 21:48:32','2018-04-19 21:48:32',12),
+	(49,NULL,'Demain la reprise du sport, ça va être dur pour moi ???‍♀️','2018-04-19 21:48:58','2018-04-19 21:48:58',11),
+	(50,'1524174720.jpeg','En plein entraînement! ??','2018-04-19 21:52:00','2018-04-19 21:52:00',11);
 
 /*!40000 ALTER TABLE `publications` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -367,15 +399,6 @@ CREATE TABLE `social_facebook_accounts` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-LOCK TABLES `social_facebook_accounts` WRITE;
-/*!40000 ALTER TABLE `social_facebook_accounts` DISABLE KEYS */;
-
-INSERT INTO `social_facebook_accounts` (`user_id`, `provider_user_id`, `provider`, `created_at`, `updated_at`)
-VALUES
-	(5,'1974294939265969','facebook','2018-02-06 13:51:13','2018-02-06 13:51:13');
-
-/*!40000 ALTER TABLE `social_facebook_accounts` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Affichage de la table suit
@@ -390,6 +413,60 @@ CREATE TABLE `suit` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `suit` WRITE;
+/*!40000 ALTER TABLE `suit` DISABLE KEYS */;
+
+INSERT INTO `suit` (`id`, `suiveur_id`, `suivi_id`)
+VALUES
+	(27,10,12),
+	(28,10,11),
+	(30,12,10),
+	(31,11,10),
+	(32,11,12),
+	(33,13,10),
+	(34,13,11),
+	(35,13,12),
+	(36,14,10),
+	(37,14,12),
+	(38,14,11),
+	(39,16,10),
+	(40,15,11),
+	(41,16,12),
+	(42,15,12),
+	(43,16,11),
+	(44,15,10),
+	(45,17,10),
+	(46,17,12),
+	(47,17,11),
+	(48,12,13),
+	(49,12,14),
+	(50,12,16),
+	(51,12,15),
+	(52,12,17),
+	(53,18,11),
+	(54,19,12),
+	(55,18,12),
+	(56,19,10),
+	(57,19,11),
+	(58,18,10),
+	(59,20,12),
+	(60,20,11),
+	(61,20,10),
+	(62,12,19),
+	(63,12,18),
+	(64,12,20),
+	(65,21,12),
+	(66,21,11),
+	(67,21,10),
+	(68,12,21),
+	(69,22,12),
+	(70,22,10),
+	(71,22,11),
+	(72,12,22),
+	(73,12,11);
+
+/*!40000 ALTER TABLE `suit` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Affichage de la table users
@@ -419,14 +496,19 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `name`, `email`, `avatar`, `banniere`, `biographie`, `password`, `objectif_id`, `niveau_id`, `remember_token`, `created_at`, `updated_at`)
 VALUES
-	(1,'Kylian','kylian@gmail.com','1523993979.jpeg','1524061372.jpg','aka moustache','$2y$10$3jLwxvYxQaiZfNXX2oWhpO9BDTO8JI3jIW1Df154B6HtvOmkabEQq',1,3,'o142MQJP7MUPCnPT8rJgohMMB7XduJlHK7DrFD13GI7dbJ8590hGG82CTxai','2018-02-01 09:28:34','2018-04-18 15:01:41'),
-	(2,'martin_mgnr','martin_mgnr@hotmail.com','1517486273.jpeg','1517486369.jpeg','','$2y$10$WwOCNtXnIVAxduAWM7AzDOlLv26bvaP7.HuxC2MclOAeQ.r2RG1MO',10,10,NULL,'2018-02-01 11:52:20','2018-02-01 11:59:40'),
-	(3,'Zaky2fois','mokhtari.zak@gmail.com','1523953792.jpeg','default.jpg','izi train','$2y$10$8l5HsQZ0Y/2V.ByCwB6ax.IPKPIHvY0YdD1kMGbGQBlzG9LfZmbiq',2,3,'yn6KPiOgSkItMe2S77fya9Bjt0A8VdoPEXuAA4TM3XRHNCtLomTo2FDPl4ZC','2018-02-01 13:35:03','2018-04-17 10:05:13'),
-	(5,'Kylian Titren','kyky.t@hotmail.fr','1517925091.jpg','default.jpg','','7610db9e380ba9775b3c215346184a87',10,10,'N4zF2d3fwzopoNUiB7rAEqN96sNXyi3xDNE5UKdagnJ6xGfPKn4Tv48nFvgH','2018-02-06 13:51:13','2018-02-06 13:51:32'),
-	(6,'Martin','martin@hotmail.com','1523955003.jpeg','default.jpg','Étudiant en DUT MMI','$2y$10$McFEOQtic/hQmb7Wv/8ic.c14XB/5J5bNVJwDCDfu/kJCR9gMv5nO',1,1,NULL,'2018-04-17 08:33:01','2018-04-17 08:50:03'),
-	(7,'Mous','kyky@gmail.com','default.jpg','default.jpg',NULL,'$2y$10$0UKTbVnlZ63tx0JfuYTHXOdIVNs6mIiE75OO6bY.aUiKL4MdfUF02',2,1,'Xp3JEv2Li0yaqTSGtQ74Of7YpalGPIV9iFnlhJxj3WNQxccJJxDJmn13aKpl','2018-04-17 10:01:37','2018-04-17 10:01:37'),
-	(8,'kajcu','kyy@gmail.com','default.jpg','default.jpg',NULL,'$2y$10$A20/dEy1bGku/yX7Qec8UuN36xuQ5xebgscvft0yMtFPkwCDyN1sC',1,2,'lOCzywcqaNUhsCuCwyeleYBUMTFzZV5PhJ4WhygQ2APDCsrgsaMgwrtFpXNM','2018-04-17 10:16:23','2018-04-17 10:16:23'),
-	(9,'Julien','julien.fovelle62@gmail.com','1523961025.jpg','1523961026.jpg',NULL,'$2y$10$JIOePMBiV4BlGf41A1qJcOdZssOuoYhzSRBgiTXyG6JWWWjPcaVl.',2,1,'kDvjOramW2c1pAut9i4ESf9swBIQsXmOe7ZaHetCdx4Jf9htB2Wa1u5hyQkI','2018-04-17 10:22:51','2018-04-17 10:30:26');
+	(10,'Zakarya','zak@gmail.com','1524174452.JPG','default.jpg','Co-fondateur easytrain','$2y$10$05Ln2pDEsk.bop06LYf80emxqRny4IY/TTCBxX50g6RdvBcuVrAoe',1,1,'ORk0t6E7jxVO05RXeYFuPxX5aY41FSMXU3G8csG8hJYrMyIHDlVrH5v9fRlk','2018-04-19 21:46:20','2018-04-19 21:47:54'),
+	(11,'Martin','martin.magnier@hotmail.com','1524174459.jpeg','default.jpg','Cofondateur de l’application easytrain.','$2y$10$dsECPdRaKAf3kSuiuYlIbOmtAwOZRivA/s9Zd3HRy1BvctSmObe6.',1,1,'aDJoqKmddaz5VdZjXMqR6lxAj6SM4xlzHpkmIvDkA3ha5ojhxes8Bi3Gf9sh','2018-04-19 21:46:38','2018-04-19 21:47:40'),
+	(12,'Kylian','kylian.titren@gmail.com','1524174448.jpeg','default.jpg','Co-fondateur easytrain','$2y$10$gai7joWotRLrYkk1wXOhRecKMX/EbKcDr3ljPAHhAcCCVe6myqHgC',1,1,'BlVmW7GNr1Cl0bWtXPDVqrpFvFk8JI6thnmTypeO2iQumhCePD371S55hp3U','2018-04-19 21:46:43','2018-04-19 23:19:56'),
+	(13,'Virginie','virginie@gmail.com','default.jpg','default.jpg','Best english teacher','$2y$10$eZNFQxqlSGtsg1L4HP2W0O.Z2rewr5RYL8RfS8hOMSINmCc0UqlsS',10,10,'KdchnRQCPlqbJtJEZsRAoGOAChthhwc9lmFc1d7ivROHH6UkI0wXLtoRflos','2018-04-19 21:50:22','2018-04-19 21:50:36'),
+	(14,'Gilles','g@gmail.com','default.jpg','default.jpg','Enseignant-chercheur','$2y$10$/Ki238Y/GcMgi2NaUYoYdeTGYP7OVSLm8grOt.gk.fXNWet/3/hcm',10,10,'QLannRvkV0Z3LbPK91iwgYiP9XuxQ3BHxCuRKnlzBPY84pylq5Eh5FxG3jun','2018-04-19 21:53:33','2018-04-19 21:54:37'),
+	(15,'Sebastien','sebastien@gmail.com','default.jpg','default.jpg','Enseignant, chercheur au Cril','$2y$10$D8QzA2FoRTMobrhHykIyquRCH/YrDf0o/6f18EPJjJGyxlXRUpY06',2,1,'0tRDes3q1QtrkaKboo7xPoHjjxLrIEqdpwAIp3AnJvLWcxovIjEXEC0ZN03F','2018-04-19 21:55:22','2018-04-19 21:57:50'),
+	(16,'Christophe','c@gmail.com','default.jpg','default.jpg','Enseignant-chercheur CRIL','$2y$10$Jf/IPCmUyik0IYvSTG/QsO2F.uD8LfCep67ojMRDwo1iodLgBz07y',10,10,'eEUuiIfK4hBxxZkIrfuO2flJtNp8DKgSFQRxdmJMJJBkRRZvMTfOdUXBypHy','2018-04-19 21:55:29','2018-04-19 21:56:45'),
+	(17,'Bertrand','b@gmail.com','default.jpg','default.jpg','Professeur - IUT LENS','$2y$10$hdLEIZpA3/s024BujwRpz.w6E0vDu.r6d3VuVeAQQBVBvCRmAxe3m',10,10,'Ys0IN5y9fDFBE4bWX9YU9hvPA3CO7mw41prVLjjuIKjq7hFSUbz5CVNi3MOF','2018-04-19 21:57:27','2018-04-19 21:58:09'),
+	(18,'Vincent','vincent@gmail.com','default.jpg','default.jpg','Professeur à l’iut de Lens','$2y$10$wcUSd6cAWGb8sdvDNRqlOu5Gq6cDsHQWD1zobv2Fi04fZBH1uMUi6',1,2,NULL,'2018-04-19 21:58:55','2018-04-19 21:59:19'),
+	(19,'Bochra','bb@gmail.com','default.jpg','default.jpg','IUT de Lens','$2y$10$lcbDdWeUcBXXJ1KN6n4JWexKsoeSdtBPPVGzNalXkLS5MdBDbf5um',10,10,'rmWNNjY8XIw6XUbFrVUtKWYHm0fFxia18RI2Nn6TILx1tDHRdDjdUcKxX07k','2018-04-19 21:59:29','2018-04-19 22:00:15'),
+	(20,'Frederic','ff@gmail.com','default.jpg','default.jpg','Chef de département.','$2y$10$WKXKqHZeuG1TeXcryCtkzOJ2gH87eXV0tsaIaZa/mZaapFtsmuxzK',10,10,'Ncs6z6FFNaDHwRz5278uoCdvrZha91SRuIwmDxHdkPyQRHwx3J0hDUt7V5b9','2018-04-19 22:01:24','2018-04-19 22:02:09'),
+	(21,'Yann','y@gmail.com','default.jpg','default.jpg','Enseignant - IUT LENS','$2y$10$r53ojUcOJ/LyFkXZDcUm2OSpgCly3jfjoeLwgIy3UDurJjwRH8fKC',10,10,'WTKTXmb9V911l8rcCNnVLepLcroUiFr3fdkIJ9tmFCdRfvelrhIrGi0Lq7L3','2018-04-19 22:03:09','2018-04-19 22:03:45'),
+	(22,'Eric','ee@gmail.com','default.jpg','default.jpg','IUT de Lens','$2y$10$zVYqvFcI2/HGZouidIDV5udseHTqzbfcu1cSjx2iVKp0g145uyhfS',10,10,'dolazaNCmC25fPu5wnrXUqFuba6nazF58XI9qvdTNr8ErIunlLyKxkhu9SCo','2018-04-19 22:04:15','2018-04-19 22:04:59');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;

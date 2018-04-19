@@ -213,7 +213,7 @@ $icons = 'times';
 
                 <span class="next-btn"> Suivant </span>
                 <span class="next-btn2"> Suivant </span>
-                <input type="submit" name="submit" class="next-btn3" value="Créer" style="border: none; border-radius: 25px">
+                <input type="submit" name="submit" class="next-btn3" value="Créer" style="border: none; border-radius: 25px; color:  white; font-weight: 500;">
             </div>
 
         </form>

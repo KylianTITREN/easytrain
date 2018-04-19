@@ -74,7 +74,7 @@ $icons = 'times';
     </style>
 
     <span class="goBack">
-        <a href="{{ URL::previous() }}" data-pjax><img src="{{ asset('icones/icones/close.png') }}" alt=""></a>
+        <a href="/accueil" data-pjax><img src="{{ asset('icones/icones/close.png') }}" alt=""></a>
         </span>
 
     <h1>chrono</h1>

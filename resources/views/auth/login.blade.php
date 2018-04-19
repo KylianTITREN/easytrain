@@ -46,27 +46,18 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
 
-                    <strong>Créer et partager vos programmes.</strong>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
+                    <strong>Créez et partagez vos programmes.</strong>
 
                 </div>
                 <div class="swiper-slide">
 
-                    <strong>Suivez les entrainements de vos amis.</strong>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
+                    <strong>Suivez les entrainements de vos amis..</strong>
 
                 </div>
 
                 <div class="swiper-slide">
 
-                    <strong>Trouver le programme qu'il vous faut</strong>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
+                    <strong>Trouvez le programme qu'il vous faut</strong>
 
                 </div>
 

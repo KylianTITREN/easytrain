@@ -38,10 +38,28 @@ $icons = 'comments';
         color: #454545;
     }
 
+    .recherche_user .show_user{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
     .programme-bloc{
         display: grid;
         grid-template-columns: 0.5fr 0.5fr;
         grid-gap: 10px;
+    }
+
+    .add_prog{
+        border-radius: 15px;
+        cursor: pointer;
+        background: linear-gradient(#64bb5a, #7dda74);
+        color: white;
+        font-size: 16px;
+        text-align: center;
+        display: block;
+        padding: 10px;
     }
 
 </style>
@@ -76,6 +94,7 @@ $icons = 'comments';
 
         @foreach($utilisateur as $u)
             <div class="recherche_user">
+                <div class="show_user">
                 <a href={{url('/profile/'.$u->id)}} data-pjax>
                     <div style='width: 44px; height: 44px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ $u->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
                     <h5 style="margin: 0; padding-left: 10px">{{$u->name}}</h5>
@@ -88,6 +107,7 @@ $icons = 'comments';
                         <a class='add_prog' href="/suivi/{{$u->id}}" data-pjax-toggle>Suivre</a>
                     @endif
                 @endif
+                </div>
             </div>
         @endforeach
 
