@@ -46,10 +46,11 @@
                     <a href="{{ url('/deletepubli/'.$p->id) }}" data-pjax-toggle style="font-size: 12px; color: red; opacity: 0.2; ">Supprimer</a>
                 @endif
             </div>
-                <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><i style="color:red;"  class="fa fa-heart"></i></a>
-
+            @if($p->likes->contains(auth()->user()))
                 <a href="/unliker/{{ $p->id }}" data-pjax-toggle id="unlike"><i class="fa fa-heart"></i></a>
-
+            @else
+                <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><i style="color:red;"  class="fa fa-heart"></i></a>
+            @endif
 
             <p>{{ $p->likesCount }}</p>
 
