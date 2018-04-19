@@ -62,7 +62,7 @@
                     <div style='width: 44px; height: 44px; border-radius: 16px; background-image: url("/uploads/avatars/{{ $p->utilisateur->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
                     <div style="display: flex; flex-direction: column; padding-top: 10px;">
                         <h5 style="color: #363636; margin: 0; font-size: 15px">{{$p->utilisateur->name}}</h5>
-                        <h style="color: #7E7E7E; font-size: 12px;">a publié son humeur</h>
+                        <h style="color: #7E7E7E; font-size: 12px; margin-left: 10px;">a publié son humeur</h>
                     </div>
                 </a>
                 @if($p->utilisateur->id != Auth::id())

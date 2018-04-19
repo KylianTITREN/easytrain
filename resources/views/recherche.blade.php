@@ -73,6 +73,8 @@ $icons = 'comments';
             </div>
         @endforeach
 
+        @endif
+
         @if(count($publication)==0)
 
             @else
@@ -83,6 +85,10 @@ $icons = 'comments';
 
         @endif
 
+            @if(count($exercices)==0)
+
+            @else
+
         <div class="programme-bloc">
 
             <h3>exercices</h3><div></div>
@@ -91,9 +97,17 @@ $icons = 'comments';
 
         </div>
 
+            @endif
+
+            @if(count($programmes)==0)
+
+            @else
+
             <h3>programmes</h3>
 
             @include('_prog', ['programmes'=>$programmes])
+
+                @endif
 
     </div>
 
