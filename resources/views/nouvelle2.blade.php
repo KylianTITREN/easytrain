@@ -19,6 +19,11 @@ $icons = 'times';
             color: white;
         }
 
+        body
+        {
+            overflow: hidden;
+        }
+
         .submit
         {
             background: linear-gradient(#64bb5a, #7dda74);
@@ -106,6 +111,22 @@ $icons = 'times';
 
         .custom-select2 select:focus{
             outline: none;
+        }
+
+        .publication-form textarea
+        {
+            font-family: 'Roboto';
+            font-weight: 100;
+            color: #454545;
+            font-size: 25px;
+        }
+
+        .publication-form input
+        {
+            font-family: 'Roboto';
+            font-weight: 100;
+            color: #454545;
+            font-size: 25px;
         }
 
     </style>
