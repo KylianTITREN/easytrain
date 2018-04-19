@@ -7,7 +7,6 @@ header
 {
     height: 65px;
     background-color: white;
-    border-bottom: .5px solid rgba(0,0,0,0.2);
 }
 
 header h3

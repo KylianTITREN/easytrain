@@ -72,13 +72,26 @@ $icons = 'times';
             margin-right: 20px;
         }
 
+        .publication-form textarea
+        {
+            font-family: 'Roboto';
+            font-weight: 100;
+            color: #454545;
+            font-size: 25px;
+        }
+
+        body
+        {
+            overflow: hidden;
+        }
+
     </style>
 
     <header>
         <a href="/accueil" data-pjax><i class="fa fa-{{ $icons }}" aria-hidden="true" style="color: #2EB11F"></i></a>
     </header>
 
-        <section class="publication-form">
+        <section class="publication-form" style="height: 100vh;">
 
             <div class="publication-info_avatar" style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">
                 <div style='width: 44px; height: 44px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ Auth::user()->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
