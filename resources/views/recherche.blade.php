@@ -58,6 +58,10 @@ $icons = 'comments';
 
     <div class="recherche">
 
+        @if(count($utilisateur)==0)
+
+        @else
+
         <h3>utilisateurs</h3>
 
         @foreach($utilisateur as $u)
@@ -69,18 +73,28 @@ $icons = 'comments';
             </div>
         @endforeach
 
-        <h3>publications</h3>
+        @if(count($publication)==0)
+
+            @else
+
+            <h3>publications</h3>
+
             @include('_publication', ['publication'=>$publication])
+
+        @endif
 
         <div class="programme-bloc">
 
-        <h3>exercices</h3><div></div>
+            <h3>exercices</h3><div></div>
+
             @include('_exercices', ['muscle'=>$exercices])
 
         </div>
 
-        <h3>programmes</h3>
+            <h3>programmes</h3>
+
             @include('_prog', ['programmes'=>$programmes])
+
     </div>
 
     @include('layouts.footer')

@@ -76,6 +76,11 @@ $page = '';
         .homeForm{
             background-image: none;
         }
+
+        .edit-end{
+            margin-top: 40px;
+            padding-bottom: 20px;
+        }
     </style>
 
     <header>

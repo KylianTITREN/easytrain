@@ -69,20 +69,6 @@ class MyController extends Controller
 
     public function creer(Request $req){
 
-        $messages = [
-            'required' => 'La publication ne peut pas dépasser les 140 caractères.',
-        ];
-
-        $validator = Validator::make($req->all(), [
-            'title'=>'required|max:140'
-        ], $messages);
-
-        if($validator->fails()){
-            return redirect('/nouvelle')
-                ->withErrors($validator)
-                ->withInput();
-        }
-
         $p = new Publication();
         $p->title = $req->input('nom');
         $p->utilisateur_id = Auth::id();
