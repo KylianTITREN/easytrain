@@ -58,7 +58,7 @@
 
 @foreach($programmes->sortByDesc('updated_at') as $p)
 
-        <div class="prog_back" onclick="goTo();">
+        <div class="prog_back" onclick="goTo{{$p->id}}();">
             @if($p->utilisateur_id == 0)
                 <a href="#"><span class="icon_name">easytrain</span></a>
                 @else
@@ -76,7 +76,7 @@
         </div>
 
     <script>
-        function goTo(){
+        function goTo{{$p->id}}(){
             window.location = '/programmes/{{ $p->id }}';
         }
     </script>

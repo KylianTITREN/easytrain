@@ -124,7 +124,7 @@ $icons = 'times';
             function startTimer () {
                 start.addEventListener("click", function(){
                     clearTimeout(t);
-                    t = setInterval(buildTimer,1);
+                    t = setInterval(buildTimer,10);
                 });
             }
             function resetTimer () {

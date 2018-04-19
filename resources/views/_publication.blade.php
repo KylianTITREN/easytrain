@@ -118,7 +118,7 @@
                 <small>{{$p->title}}</small>
             </div>
             <div class="like">
-                <h style="font-weight: 100; margin-right: -5px;">{{ $p->likesCount }}</h>
+                <h style="font-weight: 100; margin-right: 3px;">{{ $p->likesCount }}</h>
 
                 @if($p->isLikedBy(Auth::user()->id))
 

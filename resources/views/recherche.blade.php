@@ -80,6 +80,14 @@ $icons = 'comments';
                     <div style='width: 44px; height: 44px; border-radius: 16px; border: 4px solid #fafafa; background-image: url("/uploads/avatars/{{ $u->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
                     <h5 style="margin: 0; padding-left: 10px">{{$u->name}}</h5>
                 </a>
+
+                @if($u->id != Auth::id())
+                    @if(Auth::user()->follow->contains($u->id))
+                        <a class='add_prog' href="/suivi/{{$u->id}}" data-pjax-toggle>Ne plus suivre</a>
+                    @else
+                        <a class='add_prog' href="/suivi/{{$u->id}}" data-pjax-toggle>Suivre</a>
+                    @endif
+                @endif
             </div>
         @endforeach
 
