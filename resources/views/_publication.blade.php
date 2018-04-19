@@ -62,7 +62,7 @@
                     <div style='width: 44px; height: 44px; border-radius: 16px; background-image: url("/uploads/avatars/{{ $p->utilisateur->avatar }}"); background-size: cover; background-repeat: no-repeat;'></div>
                     <div style="display: flex; flex-direction: column; padding-top: 10px;">
                         <h5 style="color: #363636; margin: 0; font-size: 15px">{{$p->utilisateur->name}}</h5>
-                        <h style="padding-left: 10px; color: #7E7E7E; font-size: 12px;">a publié un noveau programme</h>
+                        <h style="color: #7E7E7E; font-size: 12px;">a publié son humeur</h>
                     </div>
                 </a>
                 @if($p->utilisateur->id != Auth::id())
@@ -80,9 +80,10 @@
             <div class="like">
                 <h style="font-weight: 100;">{{ $p->likesCount }}</h>
 
-                <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><i style="color:#7FED72; font-size: 18px;" class="fa fa-heart"></i></a>
+                <a href="/unliker/{{ $p->id }}" data-pjax-toggle id="unlike"><i style="color:#7FED72; font-size: 18px;" class="fa fa-heart"></i></a>
 
-                <a href="/unliker/{{ $p->id }}" data-pjax-toggle id="unlike"><img style="height: 16px; margin-top: 1px;" src="{{ asset('icones/icones/like.png') }}" alt=""></a>
+                <a href="/liker/{{ $p->id }}" data-pjax-toggle id="like"><img style="height: 16px; margin-top: 1px;" src="{{ asset('icones/icones/like.png') }}" alt=""></a>
+
             </div>
         </div>
 
@@ -95,7 +96,7 @@
                         <div style='width: 44px; height: 44px; border-radius: 16px; background-image: url("/uploads/avatars/{{ $p->utilisateur->avatar }}"); background-size: cover; background-repeat: no-repeat; border: none!important;'></div>
                         <div style="    padding-top: 10px;">
                             <h5>{{$p->utilisateur->name}}</h5>
-                            <h style="padding-left: 10px; color: #7E7E7E; font-size: 12px;">a publié un noveau programme</h>
+                            <h style="padding-left: 10px; color: #7E7E7E; font-size: 12px;">a publié une photo</h>
                         </div>
                     </div>
                     @if($p->utilisateur->id != Auth::id())

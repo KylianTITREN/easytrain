@@ -99,10 +99,7 @@ $icons = 'times';
 
             <form action="/creer" data-pjax method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
-
-                <textarea name="nom" id="nom" value="{{old('nom')}}" style="background-color: transparent;" required autofocus placeholder="Publier votre humeur.."></textarea>
-
-                <textarea name="nom" id="nom" required autofocus placeholder="Publier votre humeur..">{{old('nom')}}</textarea>
+                <textarea name="nom" maxlength="140" id="nom" required autofocus placeholder="Publiez votre humeur..">{{old('nom')}}</textarea>
 
                 @include('_errors')
 
@@ -121,7 +118,7 @@ $icons = 'times';
 
                 </div>
 
-                <input type="file" accept="image/*" id="fileInput" name="photo" style="display: none"/>
+                <input type="file" id="fileInput" name="photo" style="display: none"/>
                 <input class="submit" type="submit" value="Publier"/>
             </form>
 
