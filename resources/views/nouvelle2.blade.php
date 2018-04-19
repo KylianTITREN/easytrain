@@ -128,7 +128,7 @@ $icons = 'times';
             font-family: 'Roboto';
             font-weight: 100;
             color: #454545;
-            font-size: 25px;
+            font-size: 18px;
         }
 
         .next-btn

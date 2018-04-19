@@ -310,7 +310,7 @@ body{
 .formulaire-register{
     display: flex;
     align-items: center;
-    height: 60vh;
+    height: 70vh;
     flex-direction: column;
     justify-content: center;
 }
@@ -320,7 +320,7 @@ body{
     background-image: radial-gradient(circle at 0 0, #00b09b, #7fed72);
     background-repeat: no-repeat;
     flex-direction: column;
-    height: 40vh;
+    height: 35vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -329,7 +329,7 @@ body{
 .top-desc_register strong{
     font-size: 18px;
     margin-top:40px;
-    font-weight: 500;
+    font-weight: 300;
 }
 
 .top-desc_register p{
