@@ -45,18 +45,16 @@ $icons = 'times';
     .exo_info strong{
         padding-left: 30px;
         color: white;
-        font-weight: 400;
-        font-size: 22px;
+        font-weight: 500;
+        font-size: 25px;
         font-family: 'Roboto condensed';
         text-transform: uppercase;
-        font-size: 25px;
-        font-weight: 500;
     }
 
     .exo_info p{
         color: white;
-        margin: 10px 30px;
-        font-weight: 100;
+        margin: 20px 30px;
+        font-weight: 300;
     }
 
     .exo_card{

@@ -28,10 +28,11 @@ $icons = 'times';
         color: rgba(92, 92, 92, 0.4);
         border: 2px solid white;
         -webkit-appearance: none;
-        width: 23px;
+        width: 190px;
+        height: 40px;
         font-size: 16px;
+        margin-right: 10px;
         color: white;
-        height: 23px;
     }
 
     .custom-select2 select:focus{
@@ -87,7 +88,7 @@ $icons = 'times';
     .exo_info p{
         color: white;
         margin: 30px;
-        font-weight: 300;
+        font-weight: 400;
         font-size: 20px;
         margin-bottom: 30px;
     }
@@ -113,6 +114,37 @@ $icons = 'times';
         font-weight: bold;
         margin-right: 4px;;
     }
+
+    .icon_name{
+        background-color: white;
+        color: #7FED72;
+        border-radius: 12px;
+        padding: 7px 15px;
+        font-size: 14px;
+        width: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+        display: inherit;
+        top: 30px;
+    }
+
+    .like
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding-right: 35px;
+    }
+
+    .like a
+    {
+        margin-right: 3px;
+    }
+
+    .like h
+    {
+        margin-right: 6px;
+    }
 </style>
 
 <div class="exo_card">
@@ -123,19 +155,30 @@ $icons = 'times';
 
     <div class="exo_info">
 
-        <h style="text-align: center; margin: auto; display: block; color: white; font-family: roboto condensed; font-size: 23px; text-transform: uppercase; font-weight: 400;">{!! $programmes->nom !!}</h>
+        <h style="text-align: center; margin: auto; display: block; margin-bottom: 30px; color: white; font-family: roboto condensed; font-size: 23px; text-transform: uppercase; font-weight: 400;">{!! $programmes->nom !!}</h>
 
-       <!-- @if($programmes->isLikedBy(Auth::user()->id))
-
-            <a href="/unliker2/{{ $programmes->id }}" data-pjax-toggle id="unlike"><i style="color:#7FED72; font-size: 18px;" class="fa fa-heart"></i></a>
-
+        <div class="info" style="display: flex; align-items: center">
+        @if($programmes->utilisateur_id == 0)
+            <a href="#"><span class="icon_name">easytrain</span></a>
         @else
-
-            <a href="/liker2/{{ $programmes->id }}" data-pjax-toggle id="like"><i style="color:#e0dee2; font-size: 18px;" class="fa fa-heart"></i></a>
-
+            <a href="/profile/{{$programmes->utilisateur->id}}"><span class="icon_name">{!! $programmes->utilisateur->name !!}</span></a>
         @endif
 
-        <p>{{ $programmes->likesCount }}</p> -->
+        <div class="like">
+            <h style="font-weight: 400; margin-right: 5px; color: white;">{{ $programmes->likesCount }}</h>
+
+            @if($programmes->isLikedBy(Auth::user()->id))
+
+                <a href="/unliker2/{{ $programmes->id }}" data-pjax-toggle id="unlike"><i style="color:#7FED72; font-size: 18px;" class="fa fa-heart"></i></a>
+
+            @else
+
+                <a href="/liker2/{{ $programmes->id }}" data-pjax-toggle id="like"><i style="color:rgba(255,255,255,0.8); font-size: 18px;" class="fa fa-heart"></i></a>
+
+            @endif
+        </div>
+        </div>
+
         <p>{!! $programmes->description !!}<br><b style="font-size: 12px;">Spécial @if($programmes->objectif == 1) Prise de masse @else @endif @if($programmes->objectif == 2) Sèche @else  @endif @if($programmes->objectif == 3) Perte de poids @else  @endif @if($programmes->objectif == 4) Entretien @else  @endif @if($programmes->objectif == 10) Non défini @else  @endif</b></p>
 
         <h style="color: white; margin-left: 30px; margin-bottom: 40px">Durée : {{ $programmes->durée }} semaines</h>
@@ -158,7 +201,7 @@ $icons = 'times';
 
                         <select name="exercices">
 
-                                <option value="0" selected disabled>&nbsp;+</option>
+                                <option value="0" selected disabled>&nbsp;&nbsp;Ajouter un exercice</option>
 
                             @foreach(\App\Exercices::all()  as $o)
 
@@ -168,7 +211,7 @@ $icons = 'times';
 
                         </select>
 
-                            <input type="submit" style="color: white;" value="Ajouter">
+                            <input type="submit" style="color: #7fed72; background-color: white; border: none; border-radius: 20px; width: 35px; height: 35px;" value="+">
 
                         </div>
 
@@ -180,20 +223,20 @@ $icons = 'times';
 
                 @foreach($programmes->exoProg as $e)
 
-                    <div onclick="goTo{{$e->id}}();" style="display: flex; justify-content: space-between; flex-direction: row" data-pjax class="select-muscle" href="/exercices/{{$e->id}}">{{$e->nom}}
+                    <a style="display: flex; justify-content: space-between; flex-direction: row" data-pjax class="select-muscle" href="/exercices/{{$e->id}}">{{$e->nom}}
                         @if($programmes->utilisateur_id == 0)
 
                         @elseif($programmes->utilisateur->id != Auth::id())
 
                         @else
-                            <a href="{{ url('/deleteexo/'.$e->id) }}" data-pjax-toggle style="font-size: 12px; color: red; opacity: 0.2; "><img
-                                        src="{{ asset('icones/icones/delete.png') }}" alt=""></a>
+                            <span onclick="goTo{{$e->id}}();" data-pjax-toggle style="font-size: 12px; color: red; opacity: 0.2; z-index: 99;"><img
+                                        src="{{ asset('icones/icones/delete.png') }}" alt=""></span>
                         @endif
-                    </div>
+                    </a>
 
                     <script>
                         function goTo{{$e->id}}(){
-                            window.location = '/exercices/{{$e->id}}';
+                            window.location = '/deleteexo/{{$e->id}}';
                         }
                     </script>
 
