@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Hôte: localhost (MySQL 5.6.38)
+# Hôte: 127.0.0.1 (MySQL 5.6.38)
 # Base de données: easytrainDB
-# Temps de génération: 2018-04-19 23:46:42 +0000
+# Temps de génération: 2018-04-23 09:21:31 +0000
 # ************************************************************
 
 
@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `contient`;
 
 CREATE TABLE `contient` (
   `program_id` int(11) NOT NULL,
-  `exercice_id` int(11) NOT NULL
+  `exercice_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `contient` WRITE;
@@ -47,16 +47,23 @@ VALUES
 	(3,30),
 	(3,48),
 	(3,52),
-	(7,3),
-	(7,5),
-	(7,10),
-	(7,17),
-	(7,14),
-	(7,26),
-	(7,32),
-	(7,35),
-	(7,45),
-	(7,10);
+	(1,1),
+	(1,3),
+	(1,29),
+	(1,35),
+	(1,36),
+	(1,5),
+	(1,42),
+	(1,47),
+	(2,3),
+	(2,35),
+	(2,36),
+	(2,47),
+	(2,46),
+	(2,51),
+	(4,3),
+	(5,5),
+	(6,6);
 
 /*!40000 ALTER TABLE `contient` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -83,23 +90,15 @@ LOCK TABLES `exercices` WRITE;
 INSERT INTO `exercices` (`id`, `nom`, `description`, `image`, `idMuscles`)
 VALUES
 	(1,'Développé couché barre ','Le développé couché (bench press en anglais) est l’exercice de référence pour la musculation des pectoraux. Cet exercice poly-articulaire permet de se muscler l’ensemble des muscles de la poitrine et plus particulièrement le muscle grand pectoral. Le développé couché qui fait partie des trois mouvement de force athlétique est très efficace pour prendre de la masse musculaire car il permet de travailler avec des charges lourdes.','dev-couché.png',3),
-	(3,'Pompes au sol','Il existe plusieurs variantes de cet exercices mondialement connu. Il permet de travailler le haut du corps et principalement les pectoraux avec le poids du corps. Pour les débutants, il est possible de poser les genoux au sol. ','pompes.gif',3),
 	(4,'Écarté couché haltères','Ce mouvement permet d’isoler les pectoraux afin d’améliorer le développement de ces derniers. Il peut se réaliser droit (centre des pectoraux) , incliné (haut des pectoraux) ou décliné (bas des pectoraux). ','écarté haltère.png',3),
-	(5,'Dips','Cet exercice nécessite deux barres parallèles. Il permet de développer le haut du corps et plus précisément les pectoraux avec le poids du corps. \r\nAttention à ne pas descendre trop bas car il existe un risque de blessure. ','Dips.png',3),
 	(6,'Butterfly','Idéal en fin de séance, le butterfly vient insoler la partie interne du pectoral. Il permet de progresser rapidement. Il s’agit de rapprocher au maximum les avant-bras. ','Butterfly.png',3),
-	(7,'Développé incliné barres/haltères','Il s’agit du même exercice que le développé couché mais avec une inclinaison du bac. Plus le banc sera incliné, plus la partie haute des pectoraux sera isolée.','dev-incliné.png',3),
-	(8,'Développé épaules','Aussi appelé développé haltères ou développé militaire, cet exercice sollicite énormément les épaules et indirectement les triceps. Il se réalise assis. Attention à garder le dos bien droit pour éviter les blessures. ','dev-nuque.png',4),
-	(9,'Élévations latérales','Cet exercice assez douloureux permet d’isoler au maximum les épaules. Il est a pratiquer avec des charges relativement légères pour éviter les blessures. Vous risquez cependant d’avoir l’air d’un oiseau.','élévation latérale.png',4),
 	(11,'Élévations buste penché','Ne vous inquiétez pas, le ridicule ne tue pas. Penchez-vous en avant, les jambes tendues et le dos bien droit et effectuez le même mouvement que les élévations latérales avec haltères. ','élévation-lat-buste-penche.png',4),
-	(12,'Tirage menton','Aussi appelé Rowing menton, cet exercice consiste à amener les mains au niveau du menton tout en gardant les coudes levés. Il travaille les épaules mais aussi les trapèzes. ','Tirage-menton.png',4),
 	(14,'Tractions','Tout le monde connait l’exercice des tractions. Il s’agit de tenir une barre dans les mains et de hisser les épaules de niveau de cette barre en ayant les pieds suspendus. Cet exercice au poids de corps est très difficile pour les personnes lourdes. ','Traction.png',5),
 	(15,'Tirage nuque','Cet exercice est une variante des tractions. Il permet de réaliser le même mouvement mais avec un poids variable que l’on peut choisir sur la machine. Il faut faire passer la barre derrière la tête et la tirer jusqu’à la nuque. ','tirage-nuque.png',5),
-	(16,'Tirage poitrine','Cet exercice est une variante des tractions. Il permet de réaliser le même mouvement mais avec un poids variable que l’on peut choisir sur la machine. Il faut faire passer la barre devant la tête et la tirer jusqu’à la poitrine.','tirage poitrine.png',5),
 	(17,'Soulevé de Terre','Attention : faites vous aider la première fois que vous réalisez cet exercice car il nécessite une maîtrise du geste. ','soulevé de terre.png',5),
 	(19,'Tirage assis','Assis, vous devez amener la barre au niveau de votre ventre. Attention à garder le dos bien droit pour éviter les blessures. ','Tirage-assis.png',5),
 	(20,'Extensions au banc','Cet exercice permet de travailler les lombaires correctement. Si il s’avère trop simple pour vous, n’hésitez pas à prendre un poids dans vos bras. ','extensions-banc.png',10),
 	(21,'Développé nuque','Il s’agit du même exercice que le développé militaire (ou développé épaule) mais cette fois-ci avec une barre à la place des haltères. ','dev-nuque.png',7),
-	(25,'Haussements d’épaule','Avec des haltères dans chaque main ou avec une barre, effectuez des mouvements circulaires avec les épaules.','haussement-epaule.png',7),
 	(26,'Curl barre','Cet exercice est le meilleur pour isoler les biceps. Attention aux charges trop lourdes qui peuvent blesser votre coude. Échauffez-vous correctement avant. ','curl-barre.png',8),
 	(27,'Curl Haltères','Cet exercice est le meilleur pour isoler les biceps. Attention aux charges trop lourdes qui peuvent blesser votre coude. Échauffez-vous correctement avant. ','curl-barre.png',8),
 	(28,'Curl pupitre','Cet exercice est le meilleur pour isoler les biceps. Attention aux charges trop lourdes qui peuvent blesser votre coude. Échauffez-vous correctement avant. ','curl-barre.png',8),
@@ -158,8 +157,13 @@ INSERT INTO `love_like_counters` (`id`, `likeable_id`, `likeable_type`, `type_id
 VALUES
 	(18,48,'App\\Publication','LIKE',2,'2018-04-19 21:48:54','2018-04-19 22:51:00'),
 	(19,49,'App\\Publication','LIKE',1,'2018-04-19 21:49:12','2018-04-19 21:49:12'),
-	(20,47,'App\\Publication','LIKE',2,'2018-04-19 21:49:20','2018-04-19 23:22:33'),
-	(21,50,'App\\Publication','LIKE',1,'2018-04-19 21:58:05','2018-04-19 21:58:05');
+	(20,47,'App\\Publication','LIKE',3,'2018-04-19 21:49:20','2018-04-20 13:10:45'),
+	(21,50,'App\\Publication','LIKE',1,'2018-04-19 21:58:05','2018-04-19 21:58:05'),
+	(22,3,'App\\Program','LIKE',1,'2018-04-20 00:32:19','2018-04-20 13:12:27'),
+	(23,2,'App\\Program','LIKE',1,'2018-04-20 07:03:56','2018-04-20 07:03:56'),
+	(24,1,'App\\Program','LIKE',1,'2018-04-20 08:12:05','2018-04-20 08:12:05'),
+	(25,51,'App\\Publication','LIKE',3,'2018-04-20 08:14:44','2018-04-20 08:30:21'),
+	(26,52,'App\\Publication','LIKE',1,'2018-04-20 08:32:18','2018-04-20 08:32:18');
 
 /*!40000 ALTER TABLE `love_like_counters` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -194,7 +198,15 @@ VALUES
 	(77,47,'App\\Publication',11,'LIKE','2018-04-19 21:49:29','2018-04-19 21:49:29'),
 	(78,48,'App\\Publication',11,'LIKE','2018-04-19 21:49:45','2018-04-19 21:49:45'),
 	(79,50,'App\\Publication',12,'LIKE','2018-04-19 21:58:05','2018-04-19 21:58:05'),
-	(80,47,'App\\Publication',10,'LIKE','2018-04-19 22:13:33','2018-04-19 22:13:33');
+	(80,47,'App\\Publication',10,'LIKE','2018-04-19 22:13:33','2018-04-19 22:13:33'),
+	(88,2,'App\\Program',12,'LIKE','2018-04-20 07:03:56','2018-04-20 07:03:56'),
+	(89,1,'App\\Program',12,'LIKE','2018-04-20 08:12:05','2018-04-20 08:12:05'),
+	(90,51,'App\\Publication',12,'LIKE','2018-04-20 08:14:44','2018-04-20 08:14:44'),
+	(92,51,'App\\Publication',15,'LIKE','2018-04-20 08:17:56','2018-04-20 08:17:56'),
+	(93,51,'App\\Publication',18,'LIKE','2018-04-20 08:30:21','2018-04-20 08:30:21'),
+	(94,52,'App\\Publication',12,'LIKE','2018-04-20 08:32:18','2018-04-20 08:32:18'),
+	(95,47,'App\\Publication',12,'LIKE','2018-04-20 13:10:45','2018-04-20 13:10:45'),
+	(96,3,'App\\Program',12,'LIKE','2018-04-20 13:12:27','2018-04-20 13:12:27');
 
 /*!40000 ALTER TABLE `love_likes` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -351,6 +363,8 @@ LOCK TABLES `programme` WRITE;
 
 INSERT INTO `programme` (`id`, `nom`, `description`, `durée`, `niveau`, `objectif`, `utilisateur_id`, `created_at`, `updated_at`)
 VALUES
+	(1,'Programme sèche','Sèche = 40% musculation - 60% cardio - 12-15 répétition - 4 série.\r\nÀ faire sur 6 semaines. ',6,1,2,0,'2018-04-20 02:41:18','0000-00-00 00:00:00'),
+	(2,'Programme perte de poids','Perte de poids = longues séries avec des poids légers, ou intense avec des series de 20s et pause de 10s !',3,1,3,0,'2018-04-20 02:41:22','0000-00-00 00:00:00'),
 	(3,'Programme prise de masse','Prise de masse = 4 séries par exercices - de 8 à 12 répétitions - Charges moyennes \r\nPratiquer au minimum 2 exercices différents par muscles.',5,1,1,0,'2018-04-19 20:51:45','0000-00-00 00:00:00');
 
 /*!40000 ALTER TABLE `programme` ENABLE KEYS */;
@@ -378,9 +392,11 @@ LOCK TABLES `publications` WRITE;
 INSERT INTO `publications` (`id`, `photo`, `title`, `created_at`, `updated_at`, `utilisateur_id`)
 VALUES
 	(47,NULL,'Go à la salle ??','2018-04-19 21:48:14','2018-04-19 21:48:14',10),
-	(48,NULL,'enfin une application parfaite pour le sport ! ?','2018-04-19 21:48:32','2018-04-19 21:48:32',12),
 	(49,NULL,'Demain la reprise du sport, ça va être dur pour moi ???‍♀️','2018-04-19 21:48:58','2018-04-19 21:48:58',11),
-	(50,'1524174720.jpeg','En plein entraînement! ??','2018-04-19 21:52:00','2018-04-19 21:52:00',11);
+	(50,'1524174720.jpeg','En plein entraînement! ??','2018-04-19 21:52:00','2018-04-19 21:52:00',11),
+	(51,NULL,'pfff trop dur !!!! je prefère boire une bière :-)','2018-04-20 08:14:31','2018-04-20 08:14:31',15),
+	(52,NULL,'Bien joué. Je commence les pompes demain !!','2018-04-20 08:16:30','2018-04-20 08:16:30',20),
+	(53,NULL,'trop dur pour moi !','2018-04-20 08:19:16','2018-04-20 08:19:16',20);
 
 /*!40000 ALTER TABLE `publications` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -463,7 +479,12 @@ VALUES
 	(70,22,10),
 	(71,22,11),
 	(72,12,22),
-	(73,12,11);
+	(75,15,20),
+	(76,15,14),
+	(86,20,15),
+	(87,15,13),
+	(88,15,18),
+	(89,12,11);
 
 /*!40000 ALTER TABLE `suit` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -497,14 +518,14 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` (`id`, `name`, `email`, `avatar`, `banniere`, `biographie`, `password`, `objectif_id`, `niveau_id`, `remember_token`, `created_at`, `updated_at`)
 VALUES
 	(10,'Zakarya','zak@gmail.com','1524174452.JPG','default.jpg','Co-fondateur easytrain','$2y$10$05Ln2pDEsk.bop06LYf80emxqRny4IY/TTCBxX50g6RdvBcuVrAoe',1,1,'ORk0t6E7jxVO05RXeYFuPxX5aY41FSMXU3G8csG8hJYrMyIHDlVrH5v9fRlk','2018-04-19 21:46:20','2018-04-19 21:47:54'),
-	(11,'Martin','martin.magnier@hotmail.com','1524174459.jpeg','default.jpg','Cofondateur de l’application easytrain.','$2y$10$dsECPdRaKAf3kSuiuYlIbOmtAwOZRivA/s9Zd3HRy1BvctSmObe6.',1,1,'aDJoqKmddaz5VdZjXMqR6lxAj6SM4xlzHpkmIvDkA3ha5ojhxes8Bi3Gf9sh','2018-04-19 21:46:38','2018-04-19 21:47:40'),
-	(12,'Kylian','kylian.titren@gmail.com','1524174448.jpeg','default.jpg','Co-fondateur easytrain','$2y$10$gai7joWotRLrYkk1wXOhRecKMX/EbKcDr3ljPAHhAcCCVe6myqHgC',1,1,'BlVmW7GNr1Cl0bWtXPDVqrpFvFk8JI6thnmTypeO2iQumhCePD371S55hp3U','2018-04-19 21:46:43','2018-04-19 23:19:56'),
+	(11,'Martin','martin.magnier@hotmail.com','1524174459.jpeg','default.jpg','Co-fondateur easytrain','$2y$10$dsECPdRaKAf3kSuiuYlIbOmtAwOZRivA/s9Zd3HRy1BvctSmObe6.',1,1,'aDJoqKmddaz5VdZjXMqR6lxAj6SM4xlzHpkmIvDkA3ha5ojhxes8Bi3Gf9sh','2018-04-19 21:46:38','2018-04-19 21:47:40'),
+	(12,'Kylian','kylian.titren@gmail.com','1524174448.jpeg','default.jpg','Co-fondateur easytrain','$2y$10$gai7joWotRLrYkk1wXOhRecKMX/EbKcDr3ljPAHhAcCCVe6myqHgC',1,10,'cQiZx0HECUZo4J9718B8hQprPNySRdEkchr8PPTiQGA46nazmIzkg8qHPx7r','2018-04-19 21:46:43','2018-04-20 13:12:08'),
 	(13,'Virginie','virginie@gmail.com','default.jpg','default.jpg','Best english teacher','$2y$10$eZNFQxqlSGtsg1L4HP2W0O.Z2rewr5RYL8RfS8hOMSINmCc0UqlsS',10,10,'KdchnRQCPlqbJtJEZsRAoGOAChthhwc9lmFc1d7ivROHH6UkI0wXLtoRflos','2018-04-19 21:50:22','2018-04-19 21:50:36'),
 	(14,'Gilles','g@gmail.com','default.jpg','default.jpg','Enseignant-chercheur','$2y$10$/Ki238Y/GcMgi2NaUYoYdeTGYP7OVSLm8grOt.gk.fXNWet/3/hcm',10,10,'QLannRvkV0Z3LbPK91iwgYiP9XuxQ3BHxCuRKnlzBPY84pylq5Eh5FxG3jun','2018-04-19 21:53:33','2018-04-19 21:54:37'),
-	(15,'Sebastien','sebastien@gmail.com','default.jpg','default.jpg','Enseignant, chercheur au Cril','$2y$10$D8QzA2FoRTMobrhHykIyquRCH/YrDf0o/6f18EPJjJGyxlXRUpY06',2,1,'0tRDes3q1QtrkaKboo7xPoHjjxLrIEqdpwAIp3AnJvLWcxovIjEXEC0ZN03F','2018-04-19 21:55:22','2018-04-19 21:57:50'),
+	(15,'Sebastien','sebastien@gmail.com','default.jpg','default.jpg','Enseignant - chercheur CRIL','$2y$10$D8QzA2FoRTMobrhHykIyquRCH/YrDf0o/6f18EPJjJGyxlXRUpY06',10,10,'0tRDes3q1QtrkaKboo7xPoHjjxLrIEqdpwAIp3AnJvLWcxovIjEXEC0ZN03F','2018-04-19 21:55:22','2018-04-19 21:57:50'),
 	(16,'Christophe','c@gmail.com','default.jpg','default.jpg','Enseignant-chercheur CRIL','$2y$10$Jf/IPCmUyik0IYvSTG/QsO2F.uD8LfCep67ojMRDwo1iodLgBz07y',10,10,'eEUuiIfK4hBxxZkIrfuO2flJtNp8DKgSFQRxdmJMJJBkRRZvMTfOdUXBypHy','2018-04-19 21:55:29','2018-04-19 21:56:45'),
 	(17,'Bertrand','b@gmail.com','default.jpg','default.jpg','Professeur - IUT LENS','$2y$10$hdLEIZpA3/s024BujwRpz.w6E0vDu.r6d3VuVeAQQBVBvCRmAxe3m',10,10,'Ys0IN5y9fDFBE4bWX9YU9hvPA3CO7mw41prVLjjuIKjq7hFSUbz5CVNi3MOF','2018-04-19 21:57:27','2018-04-19 21:58:09'),
-	(18,'Vincent','vincent@gmail.com','default.jpg','default.jpg','Professeur à l’iut de Lens','$2y$10$wcUSd6cAWGb8sdvDNRqlOu5Gq6cDsHQWD1zobv2Fi04fZBH1uMUi6',1,2,NULL,'2018-04-19 21:58:55','2018-04-19 21:59:19'),
+	(18,'Vincent','vincent@gmail.com','default.jpg','default.jpg','Professeur à l’iut de Lens','$2y$10$wcUSd6cAWGb8sdvDNRqlOu5Gq6cDsHQWD1zobv2Fi04fZBH1uMUi6',10,10,NULL,'2018-04-19 21:58:55','2018-04-19 21:59:19'),
 	(19,'Bochra','bb@gmail.com','default.jpg','default.jpg','IUT de Lens','$2y$10$lcbDdWeUcBXXJ1KN6n4JWexKsoeSdtBPPVGzNalXkLS5MdBDbf5um',10,10,'rmWNNjY8XIw6XUbFrVUtKWYHm0fFxia18RI2Nn6TILx1tDHRdDjdUcKxX07k','2018-04-19 21:59:29','2018-04-19 22:00:15'),
 	(20,'Frederic','ff@gmail.com','default.jpg','default.jpg','Chef de département.','$2y$10$WKXKqHZeuG1TeXcryCtkzOJ2gH87eXV0tsaIaZa/mZaapFtsmuxzK',10,10,'Ncs6z6FFNaDHwRz5278uoCdvrZha91SRuIwmDxHdkPyQRHwx3J0hDUt7V5b9','2018-04-19 22:01:24','2018-04-19 22:02:09'),
 	(21,'Yann','y@gmail.com','default.jpg','default.jpg','Enseignant - IUT LENS','$2y$10$r53ojUcOJ/LyFkXZDcUm2OSpgCly3jfjoeLwgIy3UDurJjwRH8fKC',10,10,'WTKTXmb9V911l8rcCNnVLepLcroUiFr3fdkIJ9tmFCdRfvelrhIrGi0Lq7L3','2018-04-19 22:03:09','2018-04-19 22:03:45'),
