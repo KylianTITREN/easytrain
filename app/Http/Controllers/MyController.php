@@ -280,7 +280,7 @@ class MyController extends Controller
     public function deleteexo($id)
     {
 
-        Exercices::where('id', $id)->delete();
+        Contient::where('exercice_id', $id)->delete();
 
         return back();
 
