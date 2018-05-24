@@ -55,6 +55,8 @@
 <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ asset('js/jquery.pjax.js') }}"></script>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs94SqzCGPIfBgb_U6SdcuSRyUrMVZCI0"async defer></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.2/js/swiper.min.js"></script>
 
 <script src="{{ asset('js/app.js') }}"></script>

@@ -33,5 +33,10 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="brico" />
+    <orderEntry type="module" module-name="brico" />
+    <orderEntry type="module" module-name="brico" />
+    <orderEntry type="module" module-name="brico" />
+    <orderEntry type="module" module-name="brico" />
   </component>
 </module>

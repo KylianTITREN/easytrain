@@ -20,6 +20,10 @@ class MyController extends Controller
         return view('login');
     }
 
+    public function map() {
+        return view('map');
+    }
+
     public function register() {
         return view('register');
     }

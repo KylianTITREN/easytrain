@@ -26,6 +26,7 @@ Route::post('/edit', 'MyController@update_pics');
 Route::get('/suivi/{id}','MyController@suivi')->middleware('auth')->where('id','[0-9]+');
 Route::get('/recherche/{s}','MyController@recherche');
 Route::get('/timer','MyController@timer');
+Route::get('/map','MyController@map');
 Route::get('/followers/{id}','MyController@followers')->middleware('auth')->where('id','[0-9]+');
 Route::get('/follows/{id}','MyController@follows')->middleware('auth')->where('id','[0-9]+');
 Route::get('/program', 'MyController@muscles')->middleware('auth')->where('id','[0-9]+');;
