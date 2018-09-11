@@ -19,6 +19,8 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "lightbox2": "^2.10.0"
+        "laravel-echo": "^1.4.0",
+        "lightbox2": "^2.10.0",
+        "pusher-js": "^4.2.2"
     }
 }

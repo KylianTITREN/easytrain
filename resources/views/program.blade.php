@@ -68,11 +68,10 @@ $icons = 'comments';
 
     </style>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
 <header>
-    <form id="search">
-        <input type="search" name="search" placeholder="&#xf002;&#32;&#32; Rechercher" required>
-        <input type="submit" style="display: none">
-    </form>
+    <input type="text" name="search" id='search' placeholder="&#xf002;&#32;&#32; Rechercher">
 </header>
 
 <section class="programme">
@@ -103,6 +102,21 @@ $icons = 'comments';
     <br>
 
 </section>
+
+    <script>
+        $(document).ready(function(){
+            $("#search").keyup(function(){
+                var str=  $("#search").val();
+                if(str == "") {
+                    $( ".programme" ).html("<h3 style=\"display:flex; width: 100vw; align-items: center; justify-content: center; color: rgba(0,0,0,0.1);\">Aucun résultat</h3>");
+                }else {
+                    $.get( "{{ url('search?id=') }}"+str, function( data ) {
+                        $( ".programme" ).html( data );
+                    });
+                }
+            });
+        });
+    </script>
 
 @include('layouts.footer')
 

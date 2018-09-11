@@ -24,7 +24,7 @@
         </div>
 
         <div class="footer-menu_4">
-            <a href="{{ url('/timer') }}" data-pjax><img src="{{ asset('icones/icones/timer.png') }}" alt=""></a>
+            <a href="{{ url('/timer') }}" data-pjax><img src="{{ asset('icones/icones/notification.png') }}" alt=""></a>
         </div>
 
         <div class="footer-menu_5">

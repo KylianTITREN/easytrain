@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Contient;
+use App\Notifications\MultipleNotification;
 use App\Program;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 use App\User;
@@ -213,24 +215,26 @@ class MyController extends Controller
         return back();
     }
 
-    public function recherche($s){
-        $users = User::whereRaw("name LIKE CONCAT(?,'%')", [$s])->get();
-        $publication = Publication::whereRaw("title LIKE CONCAT(?,'%')", [$s])->get();
-        $exercices = Exercices::whereRaw('nom LIKE CONCAT(?, "%")', [$s])->get();
-        $programmes = Program::whereRaw('nom LIKE CONCAT(?, "%")', [$s])->get();
-
-        return view('recherche', ['utilisateur'=>$users, 'publication'=>$publication, 'exercices'=>$exercices, 'programmes'=>$programmes]);
-    }
-
-    public function muscles()
+    public function muscles(Request $request)
     {
+        $search = $request->id;
 
-        $muscles = Muscles::all();
-        $programmes = Program::where('niveau', '=', Auth::user()->niveau_id)->orWhere('objectif', '=', Auth::user()->objectif_id)->get();
+        if (is_null($search))
+        {
+            $muscles = Muscles::all();
+            $programmes = Program::where('niveau', '=', Auth::user()->niveau_id)->orWhere('objectif', '=', Auth::user()->objectif_id)->get();
 
-        if($muscles == false) abort(404);
+            if($muscles == false) abort(404);
 
-        return view('program', ['muscles'=>$muscles, 'programmes'=>$programmes]);
+            return view('program', ['muscles'=>$muscles, 'programmes'=>$programmes]);
+        }
+        else
+        {
+            $exercices = Exercices::whereRaw('nom LIKE CONCAT(?, "%")', [$search])->get();
+            $programmes = Program::whereRaw('nom LIKE CONCAT(?, "%")', [$search])->get();
+
+            return view('_search', ['exercices' => $exercices, 'programmes' => $programmes]);
+        }
     }
 
     public function exercices($id)

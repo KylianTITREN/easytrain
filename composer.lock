@@ -1,11 +1,76 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "679c5a94131d907df34a17ea5f83a3e3",
+    "content-hash": "b73f16745a576ae3eb93527e810023e3",
     "packages": [
+        {
+            "name": "baklysystems/laravel-chat-messenger",
+            "version": "1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/baklysystems/laravel-chat-messenger.git",
+                "reference": "82dbda3af38c713c130f3658f3d529d7300fa281"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/baklysystems/laravel-chat-messenger/zipball/82dbda3af38c713c130f3658f3d529d7300fa281",
+                "reference": "82dbda3af38c713c130f3658f3d529d7300fa281",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.3.0",
+                "laravel/framework": ">=5.3.0",
+                "laravelcollective/html": ">=5.3.0",
+                "pusher/pusher-php-server": ">=2.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BaklySystems\\LaravelMessenger\\LaravelMessengerServiceProvider"
+                    ],
+                    "aliases": {
+                        "Messenger": "BaklySystems\\LaravelMessenger\\Facades\\Messenger"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BaklySystems\\LaravelMessenger\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohamed Abdul-Fattah",
+                    "email": "csmohamed8@gmail.com"
+                }
+            ],
+            "description": "Laravel chat package",
+            "homepage": "https://github.com/baklysystems/laravel-chat-messenger",
+            "keywords": [
+                "chat",
+                "conversations",
+                "fb chat",
+                "inbox",
+                "laravel",
+                "like facebook chat",
+                "like facebook messenger",
+                "message",
+                "php",
+                "real-time",
+                "realtime",
+                "support chat",
+                "talk"
+            ],
+            "time": "2018-02-19T10:40:28+00:00"
+        },
         {
             "name": "cybercog/laravel-love",
             "version": "5.1.1",
@@ -996,6 +1061,74 @@
             "time": "2017-12-18T16:25:11+00:00"
         },
         {
+            "name": "laravelcollective/html",
+            "version": "v5.5.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "04c596a69975b901f2223eb6eb4adf55354121c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/04c596a69975b901f2223eb6eb4adf55354121c2",
+                "reference": "04c596a69975b901f2223eb6eb4adf55354121c2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.5.*",
+                "illuminate/routing": "5.5.*",
+                "illuminate/session": "5.5.*",
+                "illuminate/support": "5.5.*",
+                "illuminate/view": "5.5.*",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "illuminate/database": "5.5.*",
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~5.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.5-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Collective\\Html\\HtmlServiceProvider"
+                    ],
+                    "aliases": {
+                        "Form": "Collective\\Html\\FormFacade",
+                        "Html": "Collective\\Html\\HtmlFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "https://laravelcollective.com",
+            "time": "2018-03-24T00:39:21+00:00"
+        },
+        {
             "name": "league/flysystem",
             "version": "1.0.41",
             "source": {
@@ -1680,6 +1813,59 @@
                 "shell"
             ],
             "time": "2017-12-28T16:14:16+00:00"
+        },
+        {
+            "name": "pusher/pusher-php-server",
+            "version": "v3.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pusher/pusher-http-php.git",
+                "reference": "1496ef5ae12670ff8ffe83b9f47d1e4514608d9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/1496ef5ae12670ff8ffe83b9f47d1e4514608d9b",
+                "reference": "1496ef5ae12670ff8ffe83b9f47d1e4514608d9b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": "^5.4 || ^7.0",
+                "psr/log": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8 || ^5.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pusher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Library for interacting with the Pusher REST API",
+            "keywords": [
+                "events",
+                "messaging",
+                "php-pusher-server",
+                "publish",
+                "push",
+                "pusher",
+                "real time",
+                "real-time",
+                "realtime",
+                "rest",
+                "trigger"
+            ],
+            "time": "2018-05-21T13:25:35+00:00"
         },
         {
             "name": "ramsey/uuid",

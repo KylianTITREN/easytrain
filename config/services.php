@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id' => '838998296282141',
         'client_secret' => '28534f71522a699e1ca71f23cf5ffc4e',
-        'redirect' => 'http://172.20.10.5:8000/callback',
+        'redirect' => 'http://easytrain.ga/callback',
     ],
 
 ];

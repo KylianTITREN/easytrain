@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$USER_HOME$/CMS-React/.idea/CMS-React.iml" filepath="$USER_HOME$/CMS-React/.idea/CMS-React.iml" />
       <module fileurl="file://$USER_HOME$/Downloads/TapToBuild/.idea/TAP TAP.iml" filepath="$USER_HOME$/Downloads/TapToBuild/.idea/TAP TAP.iml" />
       <module fileurl="file:///Applications/MAMP/htdocs/brico/.idea/brico.iml" filepath="/Applications/MAMP/htdocs/brico/.idea/brico.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/easytrainApp.iml" filepath="$PROJECT_DIR$/.idea/easytrainApp.iml" />
       <module fileurl="file://$USER_HOME$/exam-mmi-consignes/.idea/exam-mmi-consignes.iml" filepath="$USER_HOME$/exam-mmi-consignes/.idea/exam-mmi-consignes.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../picassa/.idea/picassa.iml" filepath="$PROJECT_DIR$/../picassa/.idea/picassa.iml" />
     </modules>
   </component>
 </project>

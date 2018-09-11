@@ -11,20 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index', ['title' => 'Accueil']);
+Route::get('/', function(){
+    if(Auth::check()){
+        return redirect('accueil');
+    }
+    else{
+        return view('index', ['title' => 'Accueil']);
+    }
 });
 
 Route::get('/profile/{id}', 'MyController@utilisateur')->middleware('auth')->where('id','[0-9]+');
 Route::get('/nouvelle', 'MyController@nouvelle')->middleware('auth');
 Route::get('/nouvelle2', 'MyController@nouvelle2')->middleware('auth');
+Route::get('/search','SearchController@search');
 Route::post('/creer', 'MyController@creer')->middleware('auth');
 Route::post('/programmeur', 'MyController@programmeur')->middleware('auth');
 Route::get('/edit', 'MyController@edit');
 Route::get('/prog/{id}', 'MyController@prog')->middleware('auth')->where('id','[0-9]+');
 Route::post('/edit', 'MyController@update_pics');
 Route::get('/suivi/{id}','MyController@suivi')->middleware('auth')->where('id','[0-9]+');
-Route::get('/recherche/{s}','MyController@recherche');
 Route::get('/timer','MyController@timer');
 Route::get('/map','MyController@map');
 Route::get('/followers/{id}','MyController@followers')->middleware('auth')->where('id','[0-9]+');

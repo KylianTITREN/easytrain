@@ -44,10 +44,7 @@ $icons = 'times';
 @section('content')
 
         <header>
-        <form id="search">
-                <input type="search" name="search" placeholder="&#xf002;&#32;&#32; Rechercher" required>
-                <input type="submit" style="display: none">
-        </form>
+                <h3>{{$muscle->nom}}</h3>
         </header>
 
         <div class="programme">

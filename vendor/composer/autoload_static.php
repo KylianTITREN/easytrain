@@ -12,13 +12,14 @@ class ComposerStaticInitceeeb039a30a7b133e90edfefc40bfb3
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -64,6 +65,7 @@ class ComposerStaticInitceeeb039a30a7b133e90edfefc40bfb3
         ),
         'P' => 
         array (
+            'Pusher\\' => 7,
             'Psy\\' => 4,
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
@@ -113,9 +115,14 @@ class ComposerStaticInitceeeb039a30a7b133e90edfefc40bfb3
         'C' => 
         array (
             'Cron\\' => 5,
+            'Collective\\Html\\' => 16,
             'Cog\\Laravel\\Love\\' => 17,
             'Cog\\Contracts\\Love\\' => 19,
             'Carbon\\' => 7,
+        ),
+        'B' => 
+        array (
+            'BaklySystems\\LaravelMessenger\\' => 30,
         ),
         'A' => 
         array (
@@ -213,6 +220,10 @@ class ComposerStaticInitceeeb039a30a7b133e90edfefc40bfb3
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
+        ),
+        'Pusher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pusher/pusher-php-server/src',
         ),
         'Psy\\' => 
         array (
@@ -314,6 +325,10 @@ class ComposerStaticInitceeeb039a30a7b133e90edfefc40bfb3
         array (
             0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron',
         ),
+        'Collective\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelcollective/html/src',
+        ),
         'Cog\\Laravel\\Love\\' => 
         array (
             0 => __DIR__ . '/..' . '/cybercog/laravel-love/src',
@@ -325,6 +340,10 @@ class ComposerStaticInitceeeb039a30a7b133e90edfefc40bfb3
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
+        ),
+        'BaklySystems\\LaravelMessenger\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/baklysystems/laravel-chat-messenger/src',
         ),
         'App\\' => 
         array (
@@ -390,6 +409,7 @@ class ComposerStaticInitceeeb039a30a7b133e90edfefc40bfb3
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\MyController' => __DIR__ . '/../..' . '/app/Http/Controllers/MyController.php',
+        'App\\Http\\Controllers\\SearchController' => __DIR__ . '/../..' . '/app/Http/Controllers/SearchController.php',
         'App\\Http\\Controllers\\SocialAuthFacebookController' => __DIR__ . '/../..' . '/app/Http/Controllers/SocialAuthFacebookController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -412,6 +432,11 @@ class ComposerStaticInitceeeb039a30a7b133e90edfefc40bfb3
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
+        'BaklySystems\\LaravelMessenger\\Facades\\Messenger' => __DIR__ . '/..' . '/baklysystems/laravel-chat-messenger/src/Facades/Messenger.php',
+        'BaklySystems\\LaravelMessenger\\LaravelMessengerServiceProvider' => __DIR__ . '/..' . '/baklysystems/laravel-chat-messenger/src/LaravelMessengerServiceProvider.php',
+        'BaklySystems\\LaravelMessenger\\Messenger' => __DIR__ . '/..' . '/baklysystems/laravel-chat-messenger/src/Messenger.php',
+        'BaklySystems\\LaravelMessenger\\Models\\Conversation' => __DIR__ . '/..' . '/baklysystems/laravel-chat-messenger/src/Models/Conversation.php',
+        'BaklySystems\\LaravelMessenger\\Models\\Message' => __DIR__ . '/..' . '/baklysystems/laravel-chat-messenger/src/Models/Message.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
@@ -437,6 +462,13 @@ class ComposerStaticInitceeeb039a30a7b133e90edfefc40bfb3
         'Cog\\Laravel\\Love\\Likeable\\Services\\LikeableService' => __DIR__ . '/..' . '/cybercog/laravel-love/src/Likeable/Services/LikeableService.php',
         'Cog\\Laravel\\Love\\Liker\\Models\\Traits\\Liker' => __DIR__ . '/..' . '/cybercog/laravel-love/src/Liker/Models/Traits/Liker.php',
         'Cog\\Laravel\\Love\\Providers\\LoveServiceProvider' => __DIR__ . '/..' . '/cybercog/laravel-love/src/Providers/LoveServiceProvider.php',
+        'Collective\\Html\\Componentable' => __DIR__ . '/..' . '/laravelcollective/html/src/Componentable.php',
+        'Collective\\Html\\Eloquent\\FormAccessible' => __DIR__ . '/..' . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
+        'Collective\\Html\\FormBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/FormBuilder.php',
+        'Collective\\Html\\FormFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/FormFacade.php',
+        'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
+        'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
+        'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',
@@ -3182,6 +3214,9 @@ class ComposerStaticInitceeeb039a30a7b133e90edfefc40bfb3
         'Psy\\VersionUpdater\\GitHubChecker' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VersionUpdater/GitHubChecker.php',
         'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VersionUpdater/IntervalChecker.php',
         'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VersionUpdater/NoopChecker.php',
+        'Pusher\\Pusher' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Pusher.php',
+        'Pusher\\PusherException' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherException.php',
+        'Pusher\\PusherInstance' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherInstance.php',
         'Ramsey\\Uuid\\BinaryUtils' => __DIR__ . '/..' . '/ramsey/uuid/src/BinaryUtils.php',
         'Ramsey\\Uuid\\Builder\\DefaultUuidBuilder' => __DIR__ . '/..' . '/ramsey/uuid/src/Builder/DefaultUuidBuilder.php',
         'Ramsey\\Uuid\\Builder\\DegradedUuidBuilder' => __DIR__ . '/..' . '/ramsey/uuid/src/Builder/DegradedUuidBuilder.php',
